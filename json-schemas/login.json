@@ -1,0 +1,84 @@
+{
+  "$ref": "#/definitions/YaoLogin.LoginDSL",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoLogin.ActionDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "args": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "process": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoLogin.LayoutDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "captcha": {
+          "type": "string"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "entry": {
+          "type": "string"
+        },
+        "site": {
+          "type": "string"
+        },
+        "slogan": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoLogin.LoginDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/YaoLogin.ActionDSL"
+        },
+        "id": {
+          "type": "string"
+        },
+        "layout": {
+          "$ref": "#/definitions/YaoLogin.LayoutDSL"
+        },
+        "name": {
+          "type": "string"
+        },
+        "thirdPartyLogin": {
+          "items": {
+            "$ref": "#/definitions/YaoLogin.ThirdPartyLoginDSL"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "YaoLogin.ThirdPartyLoginDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "blank": {
+          "type": "boolean"
+        },
+        "href": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ts-node执行代码",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": [
+        "--nolazy",
+        "-r",
+        "ts-node/register/transpile-only" //不检查类型会更快一些
+        // "ts-node/register"
+      ],
+      "args": [
+        "-r",
+        "tsconfig-paths/register", //解析@=>src
+        "${file}"
+      ],
+      "outFiles": [
+        //"sourceMap": true
+        "${workspaceFolder}/dist/**/*.js"
+      ],
+      "skipFiles": ["<node_internals>/**", "node_modules/**"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+      // "runtimeArgs": [
+      //     "-r",
+      //     "esm"
+      // ]
+    }
+  ]
+}

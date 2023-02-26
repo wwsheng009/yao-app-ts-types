@@ -1,0 +1,6 @@
+| name    | String         | 查询节点名称                                                                              | 是     |
+| process | String         | 调用处理器 `process`                                                                      | 是     |
+| args    | Array<Any\>    | 处理器参数表.可以引用输入输出或上下文数据                                                 | 是     |
+| script  | String         | 结果处理 JS 脚本                                                                          | 否     |
+| outs    | Array<String\> | 查询节点结果输出.使用 `{{$out}}` 引用处理器返回结果。如不设置，返回值等于处理器返回结果。 | 否     |
+| next    | Object Next    | 当查询结果符合设定条件时跳转至指定查询节点(**尚未实现**)                                  | 否     |

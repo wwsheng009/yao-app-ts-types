@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../json-schemas/flow.json",
+  "description": "测试",
+  "label": "test",
+  "nodes": [
+    {
+      "engine": "xiang",
+      "process": "",
+      "args": [],
+      "name": "测试",
+      "outs": [],
+      "query": {"select": [],"sql": {"stmt": ""}},
+      "script": ""
+    }
+  ],
+  "output": "",
+  "version": ""
+}

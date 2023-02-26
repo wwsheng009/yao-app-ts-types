@@ -1,0 +1,91 @@
+{
+  "$ref": "#/definitions/YaoDashboard.DashboardDSL",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoDashboard.ActionDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "after:data": {
+          "$ref": "#/definitions/YaoHook.After"
+        },
+        "before:data": {
+          "$ref": "#/definitions/YaoHook.Before"
+        },
+        "data": {},
+        "setting": {}
+      },
+      "type": "object"
+    },
+    "YaoDashboard.DashboardDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/YaoDashboard.ActionDSL"
+        },
+        "config": {
+          "type": "object"
+        },
+        "fields": {
+          "$ref": "#/definitions/YaoDashboard.FieldsDSL"
+        },
+        "id": {
+          "type": "string"
+        },
+        "layout": {
+          "$ref": "#/definitions/YaoDashboard.LayoutDSL"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action",
+        "layout",
+        "fields"
+      ],
+      "type": "object"
+    },
+    "YaoDashboard.FieldsDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "dashboard": {},
+        "filter": {}
+      },
+      "type": "object"
+    },
+    "YaoDashboard.FilterLayoutDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "actions": {},
+        "columns": {}
+      },
+      "type": "object"
+    },
+    "YaoDashboard.LayoutDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "actions": {},
+        "dashboard": {
+          "$ref": "#/definitions/YaoDashboard.ViewLayoutDSL"
+        },
+        "filter": {
+          "$ref": "#/definitions/YaoDashboard.FilterLayoutDSL"
+        }
+      },
+      "type": "object"
+    },
+    "YaoDashboard.ViewLayoutDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {}
+      },
+      "type": "object"
+    },
+    "YaoHook.After": {
+      "type": "string"
+    },
+    "YaoHook.Before": {
+      "type": "string"
+    }
+  }
+}

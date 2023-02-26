@@ -1,0 +1,126 @@
+{
+  "$ref": "#/definitions/YaoQueryParam.QueryParam",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoQueryParam.QueryOrder": {
+      "additionalProperties": false,
+      "description": "QueryOrder Order 查询排序",
+      "properties": {
+        "column": {
+          "type": "string"
+        },
+        "option": {
+          "type": "string"
+        },
+        "rel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "column"
+      ],
+      "type": "object"
+    },
+    "YaoQueryParam.QueryParam": {
+      "additionalProperties": false,
+      "description": "QueryParam 数据查询器参数",
+      "properties": {
+        "alias": {
+          "type": "string"
+        },
+        "export": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "number"
+        },
+        "model": {
+          "type": "string"
+        },
+        "orders": {
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryOrder"
+          },
+          "type": "array"
+        },
+        "page": {
+          "type": "number"
+        },
+        "pagesize": {
+          "type": "number"
+        },
+        "select": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "table": {
+          "type": "string"
+        },
+        "wheres": {
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWhere"
+          },
+          "type": "array"
+        },
+        "withs": {
+          "additionalProperties": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWith"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "YaoQueryParam.QueryWhere": {
+      "additionalProperties": false,
+      "description": "QueryWhere Where 查询条件",
+      "properties": {
+        "column": {
+          "type": "string"
+        },
+        "method": {
+          "description": "where,orwhere, wherein, orwherein...",
+          "type": "string"
+        },
+        "op": {
+          "description": "操作 eq/gt/lt/ge/le/like...",
+          "type": "string"
+        },
+        "rel": {
+          "description": "Relation Name",
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "wheres": {
+          "description": "分组查询",
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWhere"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "YaoQueryParam.QueryWith": {
+      "additionalProperties": false,
+      "description": "With relations 关联查询",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "query": {
+          "$ref": "#/definitions/YaoQueryParam.QueryParam"
+        }
+      },
+      "required": [
+        "name",
+        "query"
+      ],
+      "type": "object"
+    }
+  }
+}

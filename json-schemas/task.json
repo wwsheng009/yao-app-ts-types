@@ -1,0 +1,72 @@
+{
+  "$ref": "#/definitions/YaoTask.Task",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoTask.Task": {
+      "additionalProperties": false,
+      "description": "并发任务",
+      "properties": {
+        "attempt_after": {
+          "description": "重试间隔",
+          "type": "number"
+        },
+        "attempts": {
+          "description": "失败重试次数",
+          "type": "number"
+        },
+        "event": {
+          "additionalProperties": false,
+          "properties": {
+            "add": {
+              "description": "添加任务时触发的处理器",
+              "type": "string"
+            },
+            "error": {
+              "description": "任务失败后触发处理器",
+              "type": "string"
+            },
+            "next": {
+              "description": "生成任务唯一 id的处理器",
+              "type": "string"
+            },
+            "progress": {
+              "description": "任务处理中调用处理器",
+              "type": "string"
+            },
+            "success": {
+              "description": "添加任务时触发的处理器",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "name": {
+          "description": "任务名称",
+          "type": "string"
+        },
+        "process": {
+          "description": "该task绑定的处理器，必须配置",
+          "type": "string"
+        },
+        "size": {
+          "description": "作业对列大小，默认1024",
+          "type": "number"
+        },
+        "timeout": {
+          "description": "超时时间，秒钟，默认300",
+          "type": "number"
+        },
+        "worker_nums": {
+          "description": "指定进程数,默认是1",
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "process",
+        "event"
+      ],
+      "type": "object"
+    }
+  }
+}

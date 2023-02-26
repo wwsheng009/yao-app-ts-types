@@ -1,0 +1,461 @@
+{
+  "$ref": "#/definitions/YaoForm.FormDSL",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoAction.Process": {
+      "additionalProperties": false,
+      "properties": {
+        "bind": {
+          "type": "string"
+        },
+        "default": {
+          "items": {},
+          "type": "array"
+        },
+        "disable": {
+          "type": "boolean"
+        },
+        "guard": {
+          "type": "string"
+        },
+        "process": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoComponent.ActionDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/YaoComponent.ActionNodes"
+        },
+        "confirm": {
+          "$ref": "#/definitions/YaoComponent.ConfirmActionDSL"
+        },
+        "disabled": {
+          "$ref": "#/definitions/YaoComponent.DisabledDSL"
+        },
+        "divideLine": {
+          "type": "boolean"
+        },
+        "hide": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "hideWhenEdit": {
+          "type": "boolean"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "props": {
+          "$ref": "#/definitions/YaoComponent.PropsDSL"
+        },
+        "showWhenAdd": {
+          "type": "boolean"
+        },
+        "showWhenView": {
+          "type": "boolean"
+        },
+        "style": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "width": {
+          "type": "number"
+        },
+        "xpath": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoComponent.ActionNode": {
+      "type": "object"
+    },
+    "YaoComponent.ActionNodes": {
+      "items": {
+        "$ref": "#/definitions/YaoComponent.ActionNode"
+      },
+      "type": "array"
+    },
+    "YaoComponent.Actions": {
+      "items": {
+        "$ref": "#/definitions/YaoComponent.ActionDSL"
+      },
+      "type": "array"
+    },
+    "YaoComponent.CArg": {
+      "additionalProperties": false,
+      "properties": {
+        "isExp": {
+          "type": "boolean"
+        },
+        "key": {
+          "type": "string"
+        },
+        "value": {}
+      },
+      "required": [
+        "isExp",
+        "key",
+        "value"
+      ],
+      "type": "object"
+    },
+    "YaoComponent.CloudPropsDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "process": {
+          "type": "string"
+        },
+        "query": {
+          "type": "object"
+        },
+        "type": {
+          "type": "string"
+        },
+        "xpath": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoComponent.ComponentDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "bind": {
+          "type": "string"
+        },
+        "compute": {
+          "$ref": "#/definitions/YaoComponent.Compute"
+        },
+        "props": {
+          "$ref": "#/definitions/YaoComponent.PropsDSL"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoComponent.Compute": {
+      "additionalProperties": false,
+      "properties": {
+        "args": {
+          "items": {
+            "$ref": "#/definitions/YaoComponent.CArg"
+          },
+          "type": "array"
+        },
+        "process": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "process"
+      ],
+      "type": "object"
+    },
+    "YaoComponent.ConfirmActionDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "desc": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoComponent.DisabledDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "bind": {
+          "type": "string"
+        },
+        "eq": {},
+        "equal": {},
+        "field": {
+          "type": "string"
+        },
+        "value": {}
+      },
+      "type": "object"
+    },
+    "YaoComponent.InstanceDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "fixed": {
+          "type": "boolean"
+        },
+        "height": {},
+        "name": {
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/definitions/YaoComponent.InstanceDSL"
+          },
+          "type": "array"
+        },
+        "width": {}
+      },
+      "type": "object"
+    },
+    "YaoComponent.PropsDSL": {
+      "type": "object"
+    },
+    "YaoField.ColumnDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "$data": {
+          "$ref": "#/definitions/YaoComponent.CloudPropsDSL"
+        },
+        "bind": {
+          "type": "string"
+        },
+        "edit": {
+          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+        },
+        "id": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "link": {
+          "type": "string"
+        },
+        "view": {
+          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+        }
+      },
+      "type": "object"
+    },
+    "YaoField.Columns": {
+      "additionalProperties": {
+        "$ref": "#/definitions/YaoField.ColumnDSL"
+      },
+      "type": "object"
+    },
+    "YaoForm.ActionDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "after:create": {
+          "$ref": "#/definitions/YaoHook.After"
+        },
+        "after:delete": {
+          "$ref": "#/definitions/YaoHook.After"
+        },
+        "after:find": {
+          "$ref": "#/definitions/YaoHook.After"
+        },
+        "after:save": {
+          "$ref": "#/definitions/YaoHook.After"
+        },
+        "after:update": {
+          "$ref": "#/definitions/YaoHook.After"
+        },
+        "before:create": {
+          "$ref": "#/definitions/YaoHook.Before"
+        },
+        "before:delete": {
+          "$ref": "#/definitions/YaoHook.Before"
+        },
+        "before:find": {
+          "$ref": "#/definitions/YaoHook.Before"
+        },
+        "before:save": {
+          "$ref": "#/definitions/YaoHook.Before"
+        },
+        "before:update": {
+          "$ref": "#/definitions/YaoHook.Before"
+        },
+        "bind": {
+          "$ref": "#/definitions/YaoForm.BindActionDSL"
+        },
+        "component": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "create": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "delete": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "download": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "find": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "guard": {
+          "type": "string"
+        },
+        "save": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "setting": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "update": {
+          "$ref": "#/definitions/YaoAction.Process"
+        },
+        "upload": {
+          "$ref": "#/definitions/YaoAction.Process"
+        }
+      },
+      "type": "object"
+    },
+    "YaoForm.BindActionDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "option": {
+          "type": "object"
+        },
+        "store": {
+          "type": "string"
+        },
+        "table": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoForm.Column": {
+      "additionalProperties": false,
+      "properties": {
+        "fixed": {
+          "type": "boolean"
+        },
+        "height": {},
+        "name": {
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "$ref": "#/definitions/YaoComponent.InstanceDSL"
+          },
+          "type": "array"
+        },
+        "tabs": {
+          "items": {
+            "$ref": "#/definitions/YaoForm.SectionDSL"
+          },
+          "type": "array"
+        },
+        "width": {}
+      },
+      "type": "object"
+    },
+    "YaoForm.FieldsDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "form": {
+          "$ref": "#/definitions/YaoField.Columns"
+        }
+      },
+      "type": "object"
+    },
+    "YaoForm.FormDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/YaoForm.ActionDSL"
+        },
+        "config": {
+          "type": "object"
+        },
+        "fields": {
+          "$ref": "#/definitions/YaoForm.FieldsDSL"
+        },
+        "id": {
+          "type": "string"
+        },
+        "layout": {
+          "$ref": "#/definitions/YaoForm.LayoutDSL"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoForm.LayoutDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "actions": {
+          "$ref": "#/definitions/YaoComponent.Actions"
+        },
+        "config": {
+          "type": "object"
+        },
+        "form": {
+          "$ref": "#/definitions/YaoForm.ViewLayoutDSL"
+        },
+        "primary": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoForm.SectionDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "items": {
+            "$ref": "#/definitions/YaoForm.Column"
+          },
+          "type": "array"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoForm.ViewLayoutDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "props": {
+          "$ref": "#/definitions/YaoComponent.PropsDSL"
+        },
+        "sections": {
+          "items": {
+            "$ref": "#/definitions/YaoForm.SectionDSL"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "YaoHook.After": {
+      "type": "string"
+    },
+    "YaoHook.Before": {
+      "type": "string"
+    }
+  }
+}

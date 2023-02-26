@@ -1,0 +1,72 @@
+{
+  "$ref": "#/definitions/YaoApp.AppDSL",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoApp.AppDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "adminroot": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "favicon": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "menu": {
+          "$ref": "#/definitions/YaoApp.MenuDSL"
+        },
+        "name": {
+          "type": "string"
+        },
+        "optional": {
+          "$ref": "#/definitions/YaoApp.OptionalDSL"
+        },
+        "setting": {
+          "type": "string"
+        },
+        "setup": {
+          "type": "string"
+        },
+        "short": {
+          "type": "string"
+        },
+        "sid": {
+          "type": "string"
+        },
+        "theme": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoApp.MenuDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "args": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "process": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoApp.OptionalDSL": {
+      "type": "object"
+    }
+  }
+}

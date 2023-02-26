@@ -1,0 +1,31 @@
+{
+  "name": "yao-app-ts-types",
+  "version": "1.0.0",
+  "description": "typescript types for yao application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "doc": "ts-node -r tsconfig-paths/register src/doc/index.ts",
+    "json-schema": "npx ts-json-schema-generator --path src/types/dsl/flow.ts --type YaoFlow.Flow > ./json-schemas/flow.json"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "json-schemas",
+    "README.md",
+    "package.json"
+  ],
+  "keywords": [
+    "yao",
+    "yao-engine"
+  ],
+  "author": "vincentwwsheng@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "typescript": "^4.9.5",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2"
+  }
+}

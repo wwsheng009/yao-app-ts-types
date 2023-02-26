@@ -1,0 +1,33 @@
+{
+  "$ref": "#/definitions/YaoCustomWidget.Widget",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoCustomWidget.Widget": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "modules": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "root": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

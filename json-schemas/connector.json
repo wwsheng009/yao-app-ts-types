@@ -1,0 +1,49 @@
+{
+  "$ref": "#/definitions/YaoConnector.ConnectorDSL",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoConnector.ConnectorDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "object"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/YaoConnector.ConnectorEnum"
+            }
+          ]
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "YaoConnector.ConnectorEnum": {
+      "enum": [
+        "mysql",
+        "sqlite",
+        "sqlite3",
+        "postgres",
+        "oracle",
+        "redis",
+        "mongo"
+      ],
+      "type": "string"
+    }
+  }
+}

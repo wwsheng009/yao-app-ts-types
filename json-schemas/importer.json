@@ -1,0 +1,99 @@
+{
+  "$ref": "#/definitions/YaoImport.Importer",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoImport.Column": {
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "match": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nullable": {
+          "type": "boolean"
+        },
+        "primary": {
+          "type": "boolean"
+        },
+        "rules": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "label",
+        "name",
+        "field"
+      ],
+      "type": "object"
+    },
+    "YaoImport.Importer": {
+      "additionalProperties": false,
+      "properties": {
+        "columns": {
+          "items": {
+            "$ref": "#/definitions/YaoImport.Column"
+          },
+          "type": "array"
+        },
+        "option": {
+          "$ref": "#/definitions/YaoImport.Option"
+        },
+        "output": {
+          "type": "string"
+        },
+        "process": {
+          "type": "string"
+        },
+        "rules": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "process",
+        "columns"
+      ],
+      "type": "object"
+    },
+    "YaoImport.Option": {
+      "additionalProperties": false,
+      "properties": {
+        "chunkSize": {
+          "type": "number"
+        },
+        "dataPreview": {
+          "type": "string"
+        },
+        "mappingPreview": {
+          "type": "string"
+        },
+        "templateLink": {
+          "type": "string"
+        },
+        "useTemplate": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

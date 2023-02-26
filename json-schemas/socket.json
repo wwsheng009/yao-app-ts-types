@@ -1,0 +1,80 @@
+{
+  "$ref": "#/definitions/YaoSocket.Socket",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoSocket.Socket": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_after": {
+          "type": "number"
+        },
+        "attempts": {
+          "type": "number"
+        },
+        "buffer": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        },
+        "event": {
+          "$ref": "#/definitions/YaoSocket.SocketEvent"
+        },
+        "host": {
+          "type": "string"
+        },
+        "keep": {
+          "type": "number"
+        },
+        "mode": {
+          "enum": [
+            "server",
+            "client"
+          ],
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "port": {
+          "type": "string"
+        },
+        "process": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "timeout": {
+          "type": "number"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "type": "object"
+    },
+    "YaoSocket.SocketEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "closed": {
+          "type": "string"
+        },
+        "connected": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

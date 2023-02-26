@@ -1,0 +1,63 @@
+{
+  "$ref": "#/definitions/YaoService.Service",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoService.Service": {
+      "additionalProperties": false,
+      "properties": {
+        "after": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "args": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "command": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "output": {
+          "type": "string"
+        },
+        "process": {
+          "type": "string"
+        },
+        "requires": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "restart": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "workdir": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
