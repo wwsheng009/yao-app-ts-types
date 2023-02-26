@@ -5,6 +5,9 @@
     "YaoCustomWidget.Widget": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },

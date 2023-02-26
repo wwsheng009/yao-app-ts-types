@@ -43,6 +43,9 @@
     "YaoImport.Importer": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "columns": {
           "items": {
             "$ref": "#/definitions/YaoImport.Column"

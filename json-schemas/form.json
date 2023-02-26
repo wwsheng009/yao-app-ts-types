@@ -139,7 +139,14 @@
           "type": "string"
         },
         "compute": {
-          "$ref": "#/definitions/YaoComponent.Compute"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.Compute"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "props": {
           "$ref": "#/definitions/YaoComponent.PropsDSL"
@@ -154,10 +161,20 @@
       "additionalProperties": false,
       "properties": {
         "args": {
-          "items": {
-            "$ref": "#/definitions/YaoComponent.CArg"
-          },
-          "type": "array"
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/YaoComponent.CArg"
+              },
+              "type": "array"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ]
         },
         "process": {
           "type": "string"
@@ -228,7 +245,8 @@
           "type": "string"
         },
         "edit": {
-          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+          "$ref": "#/definitions/YaoComponent.ComponentDSL",
+          "description": "编辑控件设置"
         },
         "id": {
           "type": "string"
@@ -240,7 +258,8 @@
           "type": "string"
         },
         "view": {
-          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+          "$ref": "#/definitions/YaoComponent.ComponentDSL",
+          "description": "显示控件设置"
         }
       },
       "type": "object"
@@ -324,18 +343,23 @@
       "additionalProperties": false,
       "properties": {
         "form": {
+          "description": "绑定另外一个表单",
           "type": "string"
         },
         "model": {
+          "description": "绑定模型名称",
           "type": "string"
         },
         "option": {
+          "description": "选项",
           "type": "object"
         },
         "store": {
+          "description": "操作store名称",
           "type": "string"
         },
         "table": {
+          "description": "绑定表格",
           "type": "string"
         }
       },
@@ -379,22 +403,30 @@
     "YaoForm.FormDSL": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "action": {
-          "$ref": "#/definitions/YaoForm.ActionDSL"
+          "$ref": "#/definitions/YaoForm.ActionDSL",
+          "description": "操作"
         },
         "config": {
+          "description": "配置项",
           "type": "object"
         },
         "fields": {
-          "$ref": "#/definitions/YaoForm.FieldsDSL"
+          "$ref": "#/definitions/YaoForm.FieldsDSL",
+          "description": "字段列表"
         },
         "id": {
           "type": "string"
         },
         "layout": {
-          "$ref": "#/definitions/YaoForm.LayoutDSL"
+          "$ref": "#/definitions/YaoForm.LayoutDSL",
+          "description": "表单布局"
         },
         "name": {
+          "description": "表单名称",
           "type": "string"
         }
       },

@@ -47,6 +47,7 @@ export namespace YaoModel {
     values?: any[]; // 初始数值
     /**Object|配置选型*/
     option?: Option; // 元数据配置
+    $schema?: string;
   }
 
   export enum ColumnFieldTypeEnum {

@@ -45,6 +45,9 @@
     "YaoChart.ChartDSL": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "action": {
           "$ref": "#/definitions/YaoChart.ActionDSL"
         },
@@ -238,7 +241,14 @@
           "type": "string"
         },
         "compute": {
-          "$ref": "#/definitions/YaoComponent.Compute"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.Compute"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "props": {
           "$ref": "#/definitions/YaoComponent.PropsDSL"
@@ -253,10 +263,20 @@
       "additionalProperties": false,
       "properties": {
         "args": {
-          "items": {
-            "$ref": "#/definitions/YaoComponent.CArg"
-          },
-          "type": "array"
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/YaoComponent.CArg"
+              },
+              "type": "array"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ]
         },
         "process": {
           "type": "string"
@@ -333,7 +353,8 @@
           "type": "string"
         },
         "edit": {
-          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+          "$ref": "#/definitions/YaoComponent.ComponentDSL",
+          "description": "编辑控件设置"
         },
         "id": {
           "type": "string"
@@ -345,7 +366,8 @@
           "type": "string"
         },
         "view": {
-          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+          "$ref": "#/definitions/YaoComponent.ComponentDSL",
+          "description": "显示控件设置"
         }
       },
       "type": "object"

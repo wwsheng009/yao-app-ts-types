@@ -8,5 +8,6 @@ export namespace YaoSchedule {
     // id?: cron.EntryID;
     // enabled?: boolean;
     // cron?: cron.Cron;
+    $schema?: string;
   }
 }

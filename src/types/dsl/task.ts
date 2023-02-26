@@ -28,5 +28,6 @@ export namespace YaoTask {
       /**任务处理中调用处理器*/
       progress?: string;
     };
+    $schema?: string;
   }
 }

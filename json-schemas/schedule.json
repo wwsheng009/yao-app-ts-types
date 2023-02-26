@@ -5,6 +5,9 @@
     "YaoSchedule.Schedule": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "args": {
           "items": {},
           "type": "array"

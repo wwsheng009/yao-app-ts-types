@@ -5,6 +5,9 @@
     "YaoConnector.ConnectorDSL": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "label": {
           "type": "string"
         },

@@ -19,6 +19,9 @@
     "YaoDashboard.DashboardDSL": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "action": {
           "$ref": "#/definitions/YaoDashboard.ActionDSL"
         },

@@ -20,6 +20,7 @@ export namespace YaoLogin {
     action?: ActionDSL;
     layout?: LayoutDSL;
     thirdPartyLogin?: ThirdPartyLoginDSL[];
+    $schema?: string;
   }
 
   export interface ActionDSL {

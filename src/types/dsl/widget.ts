@@ -9,5 +9,6 @@ export namespace YaoCustomWidget {
     root?: string;
     extension?: string;
     modules?: string[];
+    $schema?: string;
   }
 }

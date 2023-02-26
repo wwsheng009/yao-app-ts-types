@@ -15,6 +15,7 @@ export namespace YaoTable {
     // c_props: field.CloudProps;
     // computable: compute.Computable;
     // mapping: mapping.Mapping;
+    $schema?: string;
   };
 
   export type ActionDSL = {

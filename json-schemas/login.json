@@ -41,6 +41,9 @@
     "YaoLogin.LoginDSL": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "action": {
           "$ref": "#/definitions/YaoLogin.ActionDSL"
         },

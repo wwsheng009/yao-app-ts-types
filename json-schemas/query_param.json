@@ -7,12 +7,15 @@
       "description": "QueryOrder Order 查询排序",
       "properties": {
         "column": {
+          "description": "字段名称",
           "type": "string"
         },
         "option": {
+          "description": "排序方式， `desc`, `asc`, 默认为 `asc`",
           "type": "string"
         },
         "rel": {
+          "description": "如按关联模型的字段排序，则填写关联模型名称",
           "type": "string"
         }
       },
@@ -32,26 +35,31 @@
           "type": "string"
         },
         "limit": {
+          "description": "Integer                          | 限制返回记录条目",
           "type": "number"
         },
         "model": {
           "type": "string"
         },
         "orders": {
+          "description": "| Array<Object Order\\>             | 排序条件",
           "items": {
             "$ref": "#/definitions/YaoQueryParam.QueryOrder"
           },
           "type": "array"
         },
         "page": {
+          "description": "Integer                          | 当前页码",
           "type": "number"
         },
         "pagesize": {
+          "description": "Integer                          | 每页显示记录数量",
           "type": "number"
         },
         "select": {
+          "description": "| Array<String\\>                   | 选择字段清单",
           "items": {
-            "type": "object"
+            "type": "string"
           },
           "type": "array"
         },
@@ -59,6 +67,7 @@
           "type": "string"
         },
         "wheres": {
+          "description": "| Array<Object Where\\>             | 查询条件",
           "items": {
             "$ref": "#/definitions/YaoQueryParam.QueryWhere"
           },
@@ -68,6 +77,7 @@
           "additionalProperties": {
             "$ref": "#/definitions/YaoQueryParam.QueryWith"
           },
+          "description": "`[key:String]:Object QueryParam` | 读取关联模型",
           "type": "object"
         }
       },
@@ -78,21 +88,23 @@
       "description": "QueryWhere Where 查询条件",
       "properties": {
         "column": {
+          "description": "字段名称",
           "type": "string"
         },
         "method": {
-          "description": "where,orwhere, wherein, orwherein...",
+          "description": "查询方法 `where`,`orwhere`, `wherein`, `orwherein`... 默认为 `where`,\n\n| 查询方法 | 说明                                  | | -------- | ------------------------------------- | | where    | WHERE 字段 = 数值, WHERE 字段 >= 数值 | | orwhere  | ... OR WHERE 字段 = 数值              |",
           "type": "string"
         },
         "op": {
-          "description": "操作 eq/gt/lt/ge/le/like...",
+          "description": "匹配关系 `eq`,`like`,`in`,`gt` 等默认为 `eq`\n\n| 匹配关系 | 说明                             | | -------- | -------------------------------- | | eq       | 默认值 等于 WHERE 字段 = 数值    | | like     | 匹配 WHERE 字段 like 数值        | | match    | 匹配 WHERE 字段 全文检索 数值    | | gt       | 大于 WHERE 字段 > 数值           | | ge       | 大于等于 WHERE 字段 >= 数值      | | lt       | 小于 WHERE 字段 < 数值           | | le       | 小于等于 WHERE 字段 <= 数值      | | null     | 为空 WHERE 字段 IS NULL          | | notnull  | 不为空 WHERE 字段 IS NOT NULL    | | in       | 列表包含 WHERE 字段 IN (数值...) | | ne       | 不等于匹配值                     |",
           "type": "string"
         },
         "rel": {
-          "description": "Relation Name",
+          "description": "如按关联模型的字段查询，则填写关联模型名称",
           "type": "string"
         },
         "value": {
+          "description": "匹配数值",
           "type": "string"
         },
         "wheres": {

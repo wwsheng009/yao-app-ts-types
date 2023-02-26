@@ -245,7 +245,7 @@
           "type": "string"
         },
         "stmt": {
-          "description": "SQL 语句",
+          "description": "SQL 语句,不可跟其它sql查询条件一起混用",
           "type": "string"
         }
       },

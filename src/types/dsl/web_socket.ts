@@ -9,12 +9,14 @@ export namespace YaoWebSocket {
     limit?: Limit;
     timeout?: number;
     process?: string;
+    $schema?: string;
   }
 
   // WebSocket the websocket struct
   export interface Client extends WSClientOption {
     event?: WebSocketEvent;
     // Client: WSClient;
+    $schema?: string;
   }
 
   // WebSocketEvent the websocket  struct

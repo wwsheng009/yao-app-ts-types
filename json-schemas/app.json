@@ -5,6 +5,9 @@
     "YaoApp.AppDSL": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "adminroot": {
           "type": "string"
         },

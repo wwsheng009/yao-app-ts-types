@@ -16,6 +16,7 @@ export namespace YaoList {
     // cprops?: field.CloudProps;
     // computable?: compute.Computable;
     // mapping?: mapping.Mapping;
+    $schema?: string;
   }
 
   // ActionDSL the list action DSL

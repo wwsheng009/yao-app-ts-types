@@ -8,14 +8,20 @@ export namespace YaoForm {
   export interface FormDSL {
     id?: string;
     // root?: string;
+    /**表单名称 */
     name?: string;
+    /**操作 */
     action?: ActionDSL;
+    /**表单布局 */
     layout?: LayoutDSL;
+    /**字段列表 */
     fields?: FieldsDSL;
+    /**配置项 */
     config?: { [key: string]: any };
     // cProps?: field.CloudProps;
     // computable?: compute.Computable;
     // mapping?: mapping.Mapping;
+    $schema?: string;
   }
 
   // ActionDSL the form action DSL
@@ -45,10 +51,15 @@ export namespace YaoForm {
 
   // BindActionDSL action.bind
   export interface BindActionDSL {
+    /**绑定模型名称 */
     model?: string; // bind model
+    /**操作store名称 */
     store?: string; // bind store
+    /**绑定表格 */
     table?: string; // bind table
+    /**绑定另外一个表单 */
     form?: string; // bind form
+    /**选项 */
     option?: { [key: string]: any }; // bind option
   }
 

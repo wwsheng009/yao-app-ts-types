@@ -139,7 +139,14 @@
           "type": "string"
         },
         "compute": {
-          "$ref": "#/definitions/YaoComponent.Compute"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.Compute"
+            },
+            {
+              "type": "string"
+            }
+          ]
         },
         "props": {
           "$ref": "#/definitions/YaoComponent.PropsDSL"
@@ -154,10 +161,20 @@
       "additionalProperties": false,
       "properties": {
         "args": {
-          "items": {
-            "$ref": "#/definitions/YaoComponent.CArg"
-          },
-          "type": "array"
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/YaoComponent.CArg"
+              },
+              "type": "array"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ]
         },
         "process": {
           "type": "string"
@@ -234,7 +251,8 @@
           "type": "string"
         },
         "edit": {
-          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+          "$ref": "#/definitions/YaoComponent.ComponentDSL",
+          "description": "编辑控件设置"
         },
         "id": {
           "type": "string"
@@ -246,7 +264,8 @@
           "type": "string"
         },
         "view": {
-          "$ref": "#/definitions/YaoComponent.ComponentDSL"
+          "$ref": "#/definitions/YaoComponent.ComponentDSL",
+          "description": "显示控件设置"
         }
       },
       "type": "object"
@@ -303,7 +322,8 @@
           "$ref": "#/definitions/YaoHook.After"
         },
         "after:find": {
-          "$ref": "#/definitions/YaoHook.After"
+          "$ref": "#/definitions/YaoHook.After",
+          "description": "在 Find 处理器之后调用|Find 接口关联处理器执行结果|自定义(输出结果作为 Find 处理器的最终输出)|"
         },
         "after:get": {
           "$ref": "#/definitions/YaoHook.After"
@@ -312,10 +332,12 @@
           "$ref": "#/definitions/YaoHook.After"
         },
         "after:save": {
-          "$ref": "#/definitions/YaoHook.After"
+          "$ref": "#/definitions/YaoHook.After",
+          "description": "在 Save 处理器之后调用|Save 接口关联处理器执行结果|自定义 (输出结果作为 Save 接口的最终输出)|"
         },
         "after:search": {
-          "$ref": "#/definitions/YaoHook.After"
+          "$ref": "#/definitions/YaoHook.After",
+          "description": "在 Search 处理器之后调用|Search 接口关联处理器执行结果|自定义 (输出结果作为 Search 处理器的最终输出)|"
         },
         "after:update": {
           "$ref": "#/definitions/YaoHook.After"
@@ -339,7 +361,8 @@
           "$ref": "#/definitions/YaoHook.Before"
         },
         "before:find": {
-          "$ref": "#/definitions/YaoHook.Before"
+          "$ref": "#/definitions/YaoHook.Before",
+          "description": "在 Find 处理器之前调用|Find 接口传入数据|输出结果作为 Find 关联处理器输入参数|"
         },
         "before:get": {
           "$ref": "#/definitions/YaoHook.Before"
@@ -348,10 +371,12 @@
           "$ref": "#/definitions/YaoHook.Before"
         },
         "before:save": {
-          "$ref": "#/definitions/YaoHook.Before"
+          "$ref": "#/definitions/YaoHook.Before",
+          "description": "在 Save 处理器之前调用|Save 接口传入数据|输出结果作为 Save 关联处理器输入参数|"
         },
         "before:search": {
-          "$ref": "#/definitions/YaoHook.Before"
+          "$ref": "#/definitions/YaoHook.Before",
+          "description": "在 Search 处理器之前调用|Search 接口传入数据|输出结果作为 Search 关联处理器输入参数|"
         },
         "before:update": {
           "$ref": "#/definitions/YaoHook.Before"
@@ -563,6 +588,9 @@
     "YaoTable.TableDSL": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "action": {
           "$ref": "#/definitions/YaoTable.ActionDSL"
         },

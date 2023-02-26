@@ -3,7 +3,7 @@ namespace YaoComponent {
   export interface ComponentDSL {
     bind?: string;
     type?: string;
-    compute?: Compute;
+    compute?: Compute | string;
     props?: PropsDSL;
   }
 
@@ -81,9 +81,9 @@ namespace YaoComponent {
   // Compute process
   export interface Compute {
     process: string;
-    args?: CArg[];
+    args?: CArg[] | string[];
   }
-
+  // export type ComputeArgs = CArg[] | string[];
   // computeAlias for JSON UnmarshalJSON
   export type computeAlias = Compute;
 

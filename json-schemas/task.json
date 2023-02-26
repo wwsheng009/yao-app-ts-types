@@ -6,6 +6,9 @@
       "additionalProperties": false,
       "description": "并发任务",
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "attempt_after": {
           "description": "重试间隔",
           "type": "number"

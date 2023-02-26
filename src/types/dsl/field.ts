@@ -20,7 +20,9 @@ export namespace YaoField {
     key?: string;
     bind?: string;
     link?: string;
+    /** 显示控件设置 */
     view?: YaoComponent.ComponentDSL;
+    /** 编辑控件设置 */
     edit?: YaoComponent.ComponentDSL;
   };
 

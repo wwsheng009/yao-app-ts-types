@@ -1,0 +1,89 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["/**/*.mod.json", "/**/*.mod.yao"],
+      "url": "/json-schemas/model.json"
+    },
+    {
+      "fileMatch": ["/**/*.app.json", "/**/*.app.yao"],
+      "url": "/json-schemas/app.json"
+    },
+    {
+      "fileMatch": ["/**/*.login.json", "/**/*.login.yao"],
+      "url": "/json-schemas/login.json"
+    },
+    {
+      "fileMatch": ["/**/*.schedule.json", "/**/*.schedule.yao"],
+      "url": "/json-schemas/schedule.json"
+    },
+    {
+      "fileMatch": ["/**/*.service.json", "/**/*.service.yao"],
+      "url": "/json-schemas/service.json"
+    },
+    {
+      "fileMatch": ["/**/*.socket.json", "/**/*.socket.yao"],
+      "url": "/json-schemas/socket.json"
+    },
+    {
+      "fileMatch": ["/**/*.store.json", "/**/*.store.yao"],
+      "url": "/json-schemas/store.json"
+    },
+    {
+      "fileMatch": ["/**/*.task.json", "/**/*.task.yao"],
+      "url": "/json-schemas/task.json"
+    },
+    {
+      "fileMatch": ["/**/*.widget.json", "/**/*.widget.yao"],
+      "url": "/json-schemas/widget.json"
+    },
+    {
+      "fileMatch": ["/**/*.ws.json", "/**/*.ws.yao"],
+      "url": "/json-schemas/web_socket.json"
+    },
+    {
+      "fileMatch": ["/**/*.imp.json", "/**/*.imp.yao"],
+      "url": "/json-schemas/importer.json"
+    },
+    {
+      "fileMatch": ["/**/*.http.json", "/**/*.http.yao"],
+      "url": "/json-schemas/api_http.json"
+    },
+    {
+      "fileMatch": ["/**/*.rest.json", "/**/*.rest.yao"],
+      "url": "/json-schemas/api_rest.json"
+    },
+    {
+      "fileMatch": ["/**/*.chart.json", "/**/*.chart.yao"],
+      "url": "/json-schemas/chart.json"
+    },
+    {
+      "fileMatch": ["/**/*.table.json", "/**/*.table.yao"],
+      "url": "/json-schemas/table.json"
+    },
+    {
+      "fileMatch": ["/**/*.conn.json", "/**/*.conn.yao"],
+      "url": "/json-schemas/connector.json"
+    },
+    {
+      "fileMatch": ["/**/*.model.json", "/**/*.model.yao"],
+      "url": "/json-schemas/model.json"
+    },
+    {
+      "fileMatch": [
+        "/**/*.form.json",
+        "/**/*.form.yao",
+        "!/*dyforms*/*.form.json",
+        "!/*dyforms*/*.form.yao"
+      ],
+      "url": "/json-schemas/form.json"
+    },
+    {
+      "fileMatch": ["/**/*.flow.json", "/**/*.flow.yao"],
+      "url": "/json-schemas/flow.json"
+    },
+    {
+      "fileMatch": ["/**/*.dashboard.json", "/**/*.dashboard.yao"],
+      "url": "/json-schemas/dashboard.json"
+    }
+  ]
+}

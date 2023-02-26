@@ -14,6 +14,7 @@ export namespace YaoApp {
     optional?: OptionalDSL;
     setting?: string;
     setup?: string;
+    $schema?: string;
   };
 
   export type MenuDSL = {

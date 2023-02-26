@@ -1,6 +1,7 @@
-| name    | String         | 查询节点名称                                                                              | 是     |
-| process | String         | 调用处理器 `process`                                                                      | 是     |
-| args    | Array<Any\>    | 处理器参数表.可以引用输入输出或上下文数据                                                 | 是     |
-| script  | String         | 结果处理 JS 脚本                                                                          | 否     |
-| outs    | Array<String\> | 查询节点结果输出.使用 `{{$out}}` 引用处理器返回结果。如不设置，返回值等于处理器返回结果。 | 否     |
-| next    | Object Next    | 当查询结果符合设定条件时跳转至指定查询节点(**尚未实现**)                                  | 否     |
+| path    | String          | API 路由名称。完整路由地址为 `/api/<group>/<path>` ，变量使用 `:` 声明，如 `/api/user/find/:id`, 可以使用 `$param.id` 访问路由请求参数 | 是     |
+| method  | String          | 请求类型。许可值 `GET`、`POST`、`PUT`、`DELETE`、 `HEAD`、`OPTIONS`、`Any`. 其中 `Any` 将响应任何类型的请求                            | 是     |
+| guard   | String          | API 中间件. 如不设置，默认使用全局中间件。如不希望使用全局中间件，可将数值设置为 `-` 。                                                | 否     |
+| process | String          | 调用处理器 `process`                                                                                                                   | 是     |
+| in      | Array\<String\> | 请求参数表，将作为 `process` 的输入参数(`args`)。可以引用传入参数，可以为空数组 [查看输入参数](#输入参数)                              | 是     |
+| out     | Object Out      | 请求响应结果定义。 具体查看 `Object Out` 数据结构                                                                                      | 是     |
+| err     | Object Out      | 自定义调用失败时的响应结果。 **尚未实现**                                                                                              | 否     |

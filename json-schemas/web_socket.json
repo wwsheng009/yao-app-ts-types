@@ -32,6 +32,9 @@
     "YaoWebSocket.Server": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "buffer": {
           "$ref": "#/definitions/YaoWebSocket.BufferSize"
         },

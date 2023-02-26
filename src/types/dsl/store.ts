@@ -6,5 +6,6 @@ export namespace YaoStore {
     connector?: string;
     type?: string; // warning: type is deprecated in the future new version
     option?: { [key: string]: any };
+    $schema?: string;
   }
 }

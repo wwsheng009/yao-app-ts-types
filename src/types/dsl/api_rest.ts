@@ -7,6 +7,7 @@ export namespace YaoRest {
     description?: string;
     guard?: string;
     paths?: Path[];
+    $schema?: string;
   }
 
   // Path The RESTFul API Route path

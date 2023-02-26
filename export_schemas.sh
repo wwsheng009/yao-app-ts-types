@@ -2,10 +2,10 @@
 
 # convert the typescript type to json-schema files
 array=(
+    "api_http:YaoHttp.HttpDSL"
+    "api_rest:YaoRest.RestDSL"
     "form:YaoForm.FormDSL"
     "table:YaoTable.TableDSL"
-    "http:YaoHttp.HttpDSL"
-    "rest:YaoRest.RestDSL"
     "app:YaoApp.AppDSL"
     "chart:YaoChart.ChartDSL"
     "connector:YaoConnector.ConnectorDSL"
@@ -25,16 +25,16 @@ array=(
     "task:YaoTask.Task"
     "web_socket:YaoWebSocket.Server"
     "widget:YaoCustomWidget.Widget"
-
 )
+if [ ! -d "json-schemas" ]; then
+  mkdir json-schemas
+fi
 
-mkdir ./json-schemas
-# array=("task:YaoTask.Task")
 for line in "${array[@]}"
 do
     words=($(echo $line | tr ":" "\n"))
     echo "begin convert schema ${words[1]}"
-    npx ts-json-schema-generator --path "src/types/dsl/${words[0]}.ts" --type "${words[1]}" > "。/json-schemas/${words[0]}.json"
+    npx ts-json-schema-generator --path "src/types/dsl/${words[0]}.ts" --type "${words[1]}" > "./json-schemas/${words[0]}.json"
     echo "schema ${words[1]} converted"
 done
 

@@ -27,6 +27,7 @@ export namespace YaoSocket {
     attempt_after?: number; // Attempt attempt_after
     attempts?: number; // max times try to reconnect server when connection break (client mode only)
     // client?: SocketIOClient;
+    $schema?: string;
   }
 
   // SocketEvent struct

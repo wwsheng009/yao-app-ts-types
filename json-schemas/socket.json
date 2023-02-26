@@ -5,6 +5,9 @@
     "YaoSocket.Socket": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "attempt_after": {
           "type": "number"
         },

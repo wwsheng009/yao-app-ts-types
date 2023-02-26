@@ -5,6 +5,9 @@
     "YaoService.Service": {
       "additionalProperties": false,
       "properties": {
+        "$schema": {
+          "type": "string"
+        },
         "after": {
           "items": {
             "type": "string"

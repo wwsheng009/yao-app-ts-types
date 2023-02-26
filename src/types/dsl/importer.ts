@@ -9,6 +9,7 @@ export namespace YaoImport {
     option?: Option; // 导入配置项
     rules?: { [key: string]: string }; // 许可导入规则
     // sid?: string; // sid
+    $schema?: string;
   }
 
   // Column 导入字段定义

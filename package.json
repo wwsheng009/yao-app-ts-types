@@ -2,12 +2,13 @@
   "name": "yao-app-ts-types",
   "version": "1.0.0",
   "description": "typescript types for yao application",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "doc": "ts-node -r tsconfig-paths/register src/doc/index.ts",
-    "json-schema": "npx ts-json-schema-generator --path src/types/dsl/flow.ts --type YaoFlow.Flow > ./json-schemas/flow.json"
+    "schema:flow": "ts-json-schema-generator --path src/types/dsl/flow.ts --type YaoFlow.Flow > ./json-schemas/flow.json",
+    "schema:api_http": "ts-json-schema-generator --path src/types/dsl/api_http.ts --type YaoHttp.HttpDSL > ./json-schemas/api_http.json",
+    "schema:form": "ts-json-schema-generator --path src/types/dsl/form.ts --type YaoForm.FormDSL > ./json-schemas/form.json"
   },
   "files": [
     "dist",
@@ -27,5 +28,8 @@
     "typescript": "^4.9.5",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2"
+  },
+  "dependencies": {
+    "ts-json-schema-generator": "^1.2.0"
   }
 }

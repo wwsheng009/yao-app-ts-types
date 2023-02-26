@@ -33,5 +33,6 @@ export namespace YaoService {
     user?: string;
     group?: string;
     // Daemon?: Daemon;
+    $schema?: string;
   }
 }

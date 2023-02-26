@@ -18,5 +18,6 @@ export namespace YaoConnector {
     label?: string;
     version?: string;
     options?: { [key: string]: any };
+    $schema?: string;
   }
 }

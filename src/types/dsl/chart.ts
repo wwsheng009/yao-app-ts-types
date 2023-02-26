@@ -14,6 +14,7 @@ export namespace YaoChart {
     // cProps: field.CloudProps;
     // computable: compute.Computable;
     // mapping: mapping.Mapping;
+    $schema?: string;
   }
 
   export interface ActionDSL {

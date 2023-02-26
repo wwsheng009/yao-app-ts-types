@@ -11,6 +11,7 @@ export namespace YaoDashboard {
     // CProps?: any;
     // Computable?: any;
     // Mapping?: any;
+    $schema?: string;
   }
 
   export interface ActionDSL {

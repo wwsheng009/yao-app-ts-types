@@ -1,0 +1,132 @@
+{
+  "$ref": "#/definitions/YaoHttp.HttpDSL",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoHttp.HttpDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "description": {
+          "description": "版本号，用于依赖关系校验和开发平台呈现",
+          "type": "string"
+        },
+        "group": {
+          "description": "API 分组名称，访问时作为 API 路由前缀目录。 `/api/<group>/<path>`",
+          "type": "string"
+        },
+        "guard": {
+          "description": "API 全局中间件，多个用 \",\" 分割。除特别声明，组内所有 API 都将使用全局中间件\n\n常用bearer-jwt",
+          "type": "string"
+        },
+        "name": {
+          "description": "API 呈现名称",
+          "type": "string"
+        },
+        "paths": {
+          "description": "API 列表。具体查看 `Object Path` 数据结构",
+          "items": {
+            "$ref": "#/definitions/YaoHttp.Path"
+          },
+          "type": "array"
+        },
+        "version": {
+          "description": "版本号，用于依赖关系校验和开发平台呈现",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "type": "object"
+    },
+    "YaoHttp.Out": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "description": "请求响应内容"
+        },
+        "headers": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "请求响应 Headers",
+          "type": "object"
+        },
+        "redirect": {
+          "$ref": "#/definitions/YaoHttp.Redirect"
+        },
+        "status": {
+          "description": "请求响应状态码\n\n常用200",
+          "type": "number"
+        },
+        "type": {
+          "description": "请求响应 Content Type\n\n常用application/json",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "type": "object"
+    },
+    "YaoHttp.Path": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "guard": {
+          "description": "API 中间件. 如不设置，默认使用全局中间件。如不希望使用全局中间件，可将数值设置为 `-` 。|\n\n常用bearer-jwt",
+          "type": "string"
+        },
+        "in": {
+          "description": "请求参数表，将作为 `process` 的输入参数(`args`)。可以引用传入参数，可以为空数组 [查看输入参数](#输入参数)",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "label": {
+          "type": "string"
+        },
+        "method": {
+          "description": "请求类型。许可值 `GET`、`POST`、`PUT`、`DELETE`、 `HEAD`、`OPTIONS`、`Any`. 其中 `Any` 将响应任何类型的请求",
+          "type": "string"
+        },
+        "out": {
+          "$ref": "#/definitions/YaoHttp.Out",
+          "description": "请求响应结果定义。 具体查看 `Object Out` 数据结构"
+        },
+        "path": {
+          "description": "API 路由名称。完整路由地址为 `/api/<group>/<path>` ，变量使用 `:` 声明，如 `/api/user/find/:id`, 可以使用 `$param.id` 访问路由请求参数",
+          "type": "string"
+        },
+        "process": {
+          "description": "调用处理器 `process`",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "method",
+        "process"
+      ],
+      "type": "object"
+    },
+    "YaoHttp.Redirect": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "number"
+        },
+        "location": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
