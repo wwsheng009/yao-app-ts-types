@@ -4,29 +4,37 @@
   "definitions": {
     "YaoImport.Column": {
       "additionalProperties": false,
+      "description": "导入字段定义",
       "properties": {
         "field": {
+          "description": "字段名称(原始值)",
           "type": "string"
         },
         "label": {
+          "description": "字段标签",
           "type": "string"
         },
         "match": {
+          "description": "匹配建议",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "name": {
+          "description": "字段名称",
           "type": "string"
         },
         "nullable": {
+          "description": "是否可以为空",
           "type": "boolean"
         },
         "primary": {
+          "description": "是否为主键",
           "type": "boolean"
         },
         "rules": {
+          "description": "清洗规则定义",
           "items": {
             "type": "string"
           },
@@ -42,32 +50,39 @@
     },
     "YaoImport.Importer": {
       "additionalProperties": false,
+      "description": "数据导入器",
       "properties": {
         "$schema": {
           "type": "string"
         },
         "columns": {
+          "description": "字段列表",
           "items": {
             "$ref": "#/definitions/YaoImport.Column"
           },
           "type": "array"
         },
         "option": {
-          "$ref": "#/definitions/YaoImport.Option"
+          "$ref": "#/definitions/YaoImport.Option",
+          "description": "导入配置项"
         },
         "output": {
+          "description": "The process import output",
           "type": "string"
         },
         "process": {
+          "description": "处理器名称",
           "type": "string"
         },
         "rules": {
           "additionalProperties": {
             "type": "string"
           },
+          "description": "许可导入规则",
           "type": "object"
         },
         "title": {
+          "description": "导入名称",
           "type": "string"
         }
       },
@@ -79,20 +94,26 @@
     },
     "YaoImport.Option": {
       "additionalProperties": false,
+      "description": "导入配置项定",
       "properties": {
         "chunkSize": {
+          "description": "每次处理记录数量",
           "type": "number"
         },
         "dataPreview": {
+          "description": "数据预览界面方式 auto 有异常数据时显示, always 一直显示, never 不显示",
           "type": "string"
         },
         "mappingPreview": {
+          "description": "显示字段映射界面方式 auto 匹配模板失败显示, always 一直显示, never 不显示",
           "type": "string"
         },
         "templateLink": {
+          "description": "默认数据模板链接",
           "type": "string"
         },
         "useTemplate": {
+          "description": "使用已匹配过的模板",
           "type": "boolean"
         }
       },

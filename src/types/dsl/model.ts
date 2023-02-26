@@ -31,22 +31,25 @@ export namespace YaoModel {
   //   }
 
   // MetaData 元数据
+  /**模型元数据 */
   export interface ModelDSL {
-    /**String|模型中文名称*/
+    /**模型中文名称*/
     name?: string; // 元数据名称
-    connector?: string; // Bind a connector, MySQL, SQLite, Postgres, Clickhouse, Tidb, Oracle support. default is SQLite
-    /**Object|数据表定义*/
-    table?: Table; // 数据表选项
-    /**Array\<Object\>|字段定义*/
-    columns?: Column[]; // 字段定义
-    /**Array\<Object\>|索引定义*/
-    indexes?: Index[]; // 索引定义
-    /**\[key:String\]:Object|关系映射|非填项|*/
-    relations?: { [key: string]: Relation | undefined }; // 映射关系定义
-    /**Array\<Object\>|默认数据*/
-    values?: any[]; // 初始数值
-    /**Object|配置选型*/
-    option?: Option; // 元数据配置
+    /** Bind a connector, MySQL, SQLite, Postgres, Clickhouse, Tidb, Oracle support. default is SQLite*/
+    /**数据表定义*/
+    connector?: string;
+    /**数据表选项 */
+    table?: Table;
+    /**字段定义*/
+    columns?: Column[];
+    /**索引定义*/
+    indexes?: Index[];
+    /**映射关系定义*/
+    relations?: { [key: string]: Relation | undefined };
+    /**默认数据*/
+    values?: any[];
+    /**配置选型*/
+    option?: Option;
     $schema?: string;
   }
 
@@ -97,44 +100,46 @@ export namespace YaoModel {
   }
   // Column the field description struct
   export interface Column {
-    /**String|字段显示名称，用于在管理表单，开发平台等成场景下呈现*/
+    /**字段显示名称，用于在管理表单，开发平台等成场景下呈现*/
     label?: string;
-    /**String|字段名称，对应数据表中字段名称*/
+    /**字段名称，对应数据表中字段名称*/
     name: string;
-    /**String|字段类型*/
+    /**字段类型*/
     type?: string | ColumnFieldTypeEnum;
-    /**String|字段标题，可用于开发平台中呈现*/
+    /**字段标题，可用于开发平台中呈现*/
     title?: string;
-    /**String|字段介绍，可用于开发平台中呈现*/
+    /**字段介绍，可用于开发平台中呈现*/
     description?: string;
-    /**String|字段注释，对应数据表中字段注释*/
+    /**字段注释，对应数据表中字段注释*/
     comment?: string;
-    /**Integer|字段长度，对 `string` 等类型字段有效*/
+    /**字段长度，对 `string` 等类型字段有效*/
     length?: number;
-    /**Integer|字段位数(含小数位)，对 `float`、`decimal` 等类型字段有效*/
+    /**字段位数(含小数位)，对 `float`、`decimal` 等类型字段有效*/
     precision?: number;
-    /**Integer|字段小数位位数，对 `float`、`decimal` 等类型字段有效*/
+    /**字段小数位位数，对 `float`、`decimal` 等类型字段有效*/
     scale?: number;
-    /**Bool|字段是否可以为空，默认为 false*/
+    /**字段是否可以为空，默认为 false*/
     nullable?: boolean;
-    /**Array\<String\>|字段许可值，对 `enum` 类型字段有效*/
+    /**字段许可值，对 `enum` 类型字段有效*/
     option?: string[];
     /**String\|Integer\|Float|字段默认值*/
     default?: any;
-    /**String|字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高*/
+    /**字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高*/
     default_raw?: string;
     example?: any;
-    generate?: string; // Increment, UUID,...
-    /**String|字段加密存储方式。许可值 `AES(MySQL Only)`, `PASSWORD`*/
-    crypt?: string; // AES, PASSWORD, AES-256, AES-128, PASSWORD-HASH, ...
-    /**Array\<Object\>|字段校验规则*/
+    /** Increment, UUID,...*/
+    generate?: string; //
+    /**字段加密存储方式。许可值 `AES(MySQL Only)`, `PASSWORD`*/
+    crypt?: string;
+    /**字段校验规则*/
     validations?: Validation[];
-    /**Bool|字段是否为索引，默认为 false*/
+    /**字段是否为索引，默认为 false*/
     index?: boolean;
-    /**Bool|字段是否为唯一索引，默认为 false , 如为 true 无需同时将 `index` 设置为 true*/
+    /**字段是否为唯一索引，默认为 false , 如为 true 无需同时将 `index` 设置为 true*/
     unique?: boolean;
-    /**Bool|字段是否为主键，每张表至多一个主键字段。默认为 false*/
+    /**字段是否为主键，每张表至多一个主键字段。默认为 false*/
     primary?: boolean;
+    /**模型元数据 */
     model?: ModelDSL | undefined;
   }
 
@@ -177,24 +182,31 @@ export namespace YaoModel {
 
   // Index the search index struct
   export interface Index {
+    /**备注 */
     comment?: string;
+    /**名称 */
     name?: string;
+    /**列名 */
     columns?: string[];
-    type?: string; // primary,unique,index,match
+    /**类型 primary,unique,index,match*/
+    type?: string;
   }
 
   // Table the model mapping table in DB
   export interface Table {
-    /**数据表名称*/
-    name?: string; // optional, if not set, the default is generate from model name. eg name.space.user, table name is name_space_user
-    prefix?: string; // optional, the table prefix
+    /**数据表名称，if not setthe default is generate from model name. eg name.space.user, table name is name_space_user*/
+    name?: string;
+    /**表名前缀 */
+    prefix?: string;
     /**数据表注释中文名*/
     comment?: string;
-    /**数据表引擎（MySQL ONLY) 许可值 `InnoDB`, `MyISAM`*/
-    engine?: string; // InnoDB,MyISAM ( MySQL Only )
-    collation: string;
-    charset: string;
-    primaryKeys: string[];
+    /**数据表引擎(MySQL ONLY) 许可值 `InnoDB`, `MyISAM`*/
+    engine?: string;
+    /** (MySQL ONLY) */
+    collation?: string;
+    /** (MySQL ONLY) */
+    charset?: string;
+    primaryKeys?: string[];
   }
 
   // Relation the new xun model relation
@@ -215,13 +227,20 @@ export namespace YaoModel {
 
   // Option 模型配置选项
   export interface Option {
-    timestamps?: boolean; // + created_at, updated_at 字段
-    soft_deletes?: boolean; // + deleted_at 字段
-    trackings?: boolean; // + created_by, updated_by, deleted_by 字段
-    constraints?: boolean; // + 约束定义
-    permission?: boolean; // + __permission 字段
-    logging?: boolean; // + __logging_id 字段
-    read_only?: boolean; // Ignore the migrate operation
+    /**created_at, updated_at 字段 */
+    timestamps?: boolean;
+    /**deleted_at 字段 */
+    soft_deletes?: boolean;
+    /**created_by, updated_by, deleted_by 字段 */
+    trackings?: boolean;
+    /**约束定义 */
+    constraints?: boolean;
+    /**__permission 字段 */
+    permission?: boolean;
+    /**__logging_id 字段 */
+    logging?: boolean;
+    /**Ignore the migrate operation */
+    read_only?: boolean;
   }
 
   // ColumnMap ColumnMap 字段映射
@@ -232,9 +251,15 @@ export namespace YaoModel {
   //   }
 
   // ExportData the export data struct
+  /**
+   * 导出/导入数据的模型，结构，数据值
+   */
   export interface ExportData {
+    /**模型名称 */
     model?: string;
+    /**模型的列名 */
     columns?: string[];
+    /**模型的值 */
     values?: any[][];
   }
 }

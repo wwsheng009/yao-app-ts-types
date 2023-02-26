@@ -30,6 +30,10 @@ if [ ! -d "json-schemas" ]; then
   mkdir json-schemas
 fi
 
+
+array=(
+    "model:YaoModel.ModelDSL"
+)  
 for line in "${array[@]}"
 do
     words=($(echo $line | tr ":" "\n"))
