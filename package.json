@@ -8,7 +8,8 @@
     "doc": "ts-node -r tsconfig-paths/register src/doc/index.ts",
     "schema:flow": "ts-json-schema-generator --path src/types/dsl/flow.ts --type YaoFlow.Flow > ./json-schemas/flow.json",
     "schema:api_http": "ts-json-schema-generator --path src/types/dsl/api_http.ts --type YaoHttp.HttpDSL > ./json-schemas/api_http.json",
-    "schema:form": "ts-json-schema-generator --path src/types/dsl/form.ts --type YaoForm.FormDSL > ./json-schemas/form.json"
+    "schema:form": "ts-json-schema-generator --path src/types/dsl/form.ts --type YaoForm.FormDSL > ./json-schemas/form.json",
+    "schema:table": "ts-json-schema-generator --path src/types/dsl/table.ts --type YaoTable.TableDSL > ./json-schemas/table.json"
   },
   "files": [
     "dist",

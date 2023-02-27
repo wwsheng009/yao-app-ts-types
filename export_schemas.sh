@@ -36,8 +36,7 @@ fi
 
 
 # array=(
-#     "web_socket|YaoWebSocket.Server|ws_server.json"
-#     "web_socket|YaoWebSocket.Client|ws_client.json"
+#     "table|YaoTable.TableDSL|table.json"
 # )  
 for line in "${array[@]}"
 do

@@ -34,13 +34,20 @@ namespace YaoComponent {
     compute?: Compute | string;
     /**控件属性，可参考antd控件 */
     props?: PropsDSL & {
-      xProps: {
+      xProps?: {
         // 在字段名称前加 $ 前缀, 指定处理器名称和参数，自动将处理器解析为 API
-        $remote: {
+        $remote?: {
           /**处理器 */
           process: string;
           /**请求参数绑定，可使用{{}}绑定记录结构 */
-          query: { [key: string]: any };
+          query?: { [key: string]: any };
+        };
+        /**onchange 事件 */
+        "$on:change"?: {
+          /**处理器 */
+          process: string;
+          /**请求参数绑定，可使用{{}}绑定记录结构 */
+          query?: { [key: string]: any };
         };
       };
     };
@@ -55,13 +62,20 @@ namespace YaoComponent {
     compute?: Compute | string;
     /**控件属性，可参考antd控件 */
     props?: PropsDSL & {
-      xProps: {
+      xProps?: {
         // 在字段名称前加 $ 前缀, 指定处理器名称和参数，自动将处理器解析为 API
-        $remote: {
+        $remote?: {
           /**处理器 */
           process: string;
           /**请求参数绑定，可使用{{}}绑定记录结构 */
-          query: { [key: string]: any };
+          query?: { [key: string]: any };
+        };
+        /**onchange 事件 */
+        "$on:change"?: {
+          /**处理器 */
+          process: string;
+          /**请求参数绑定，可使用{{}}绑定记录结构 */
+          query?: { [key: string]: any };
         };
       };
     };

@@ -14,9 +14,9 @@ export namespace YaoTable {
     /**表格数据交互。用于指定列表检索、保存等操作的处理器，设置数据 Hook，绑定模型等*/
     action: ActionDSL;
     /**表格界面布局。显示字段、筛选器、批量编辑等*/
-    layout: LayoutDSL;
+    layout?: LayoutDSL;
     /**表格字段定义。指定表格列字段, 表格筛选器字段定义*/
-    fields: FieldsDSL;
+    fields?: FieldsDSL;
     /**表格界面配置项。表格满屏显示等配置*/
     config?: GlobalConfig;
     // c_props: field.CloudProps;

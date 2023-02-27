@@ -64,7 +64,7 @@
       "url": "/json-schemas/chart.json"
     },
     {
-      "fileMatch": ["/**/*.table.json", "/**/*.table.yao"],
+      "fileMatch": ["/**/*.tab.json", "/**/*.tab.yao"],
       "url": "/json-schemas/table.json"
     },
     {

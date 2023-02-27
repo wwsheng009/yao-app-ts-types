@@ -258,6 +258,24 @@
             "xProps": {
               "additionalProperties": false,
               "properties": {
+                "$on:change": {
+                  "additionalProperties": false,
+                  "description": "onchange 事件",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                },
                 "$remote": {
                   "additionalProperties": false,
                   "properties": {
@@ -271,21 +289,14 @@
                     }
                   },
                   "required": [
-                    "process",
-                    "query"
+                    "process"
                   ],
                   "type": "object"
                 }
               },
-              "required": [
-                "$remote"
-              ],
               "type": "object"
             }
           },
-          "required": [
-            "xProps"
-          ],
           "type": "object"
         },
         "type": {
@@ -378,6 +389,24 @@
             "xProps": {
               "additionalProperties": false,
               "properties": {
+                "$on:change": {
+                  "additionalProperties": false,
+                  "description": "onchange 事件",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                },
                 "$remote": {
                   "additionalProperties": false,
                   "properties": {
@@ -391,21 +420,14 @@
                     }
                   },
                   "required": [
-                    "process",
-                    "query"
+                    "process"
                   ],
                   "type": "object"
                 }
               },
-              "required": [
-                "$remote"
-              ],
               "type": "object"
             }
           },
-          "required": [
-            "xProps"
-          ],
           "type": "object"
         },
         "type": {
