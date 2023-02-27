@@ -1,13 +1,15 @@
+import { GlobalConfig } from "./share_types";
 import YaoHook from "./hook";
 
 export namespace YaoDashboard {
   export interface DashboardDSL {
+    /**唯一标识 */
     id?: string;
     name?: string;
     action: ActionDSL;
     layout: LayoutDSL;
     fields: FieldsDSL;
-    config?: { [key: string]: any };
+    config?: GlobalConfig;
     // CProps?: any;
     // Computable?: any;
     // Mapping?: any;

@@ -405,9 +405,11 @@
       "description": "QueryParam 数据查询器参数",
       "properties": {
         "alias": {
+          "description": "别名",
           "type": "string"
         },
         "export": {
+          "description": "导出数据时的前缀",
           "type": "string"
         },
         "limit": {
@@ -415,6 +417,7 @@
           "type": "number"
         },
         "model": {
+          "description": "模型名称",
           "type": "string"
         },
         "orders": {
@@ -440,6 +443,7 @@
           "type": "array"
         },
         "table": {
+          "description": "表格名称",
           "type": "string"
         },
         "wheres": {
@@ -453,7 +457,7 @@
           "additionalProperties": {
             "$ref": "#/definitions/YaoQueryParam.QueryWith"
           },
-          "description": "`[key:String]:Object QueryParam` | 读取关联模型",
+          "description": "读取关联模型",
           "type": "object"
         }
       },

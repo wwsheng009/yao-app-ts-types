@@ -16,8 +16,9 @@ export namespace YaoTask {
     attempts?: number;
     /**超时时间，秒钟，默认300*/
     timeout?: number;
+    /**事件处理 */
     event: {
-      /**生成任务唯一 id的处理器*/
+      /**生成任务唯一id的回调处理器*/
       next?: string;
       /**添加任务时触发的处理器*/
       add?: string;

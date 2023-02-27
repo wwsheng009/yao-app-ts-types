@@ -32,18 +32,18 @@
 - 模型: model 文件
 - HTTP API: http api 文件
 - 流程: flow 文件
-- chart: 图表文件
-- dashboard: 大屏文件
-- connector: 数据库连接器
-- store: 存储
-- list: 列表
-- login: 用户登录配置
-- app: 应用信息
-- service
-- web socket
-- socket _官方还没支持_
-- task: 并发任务
-- widget: 自定义 widget
+- Chart: 图表文件
+- Dashboard: 大屏文件
+- Connector: 数据库连接器
+- Store: 存储
+- List: 列表
+- Login: 用户登录配置
+- App: 应用信息
+- Service
+- Web socket
+- Socket _官方还没支持_
+- Task: 并发任务
+- Widget: 自定义 widget
 
 ## Vscode 配置
 

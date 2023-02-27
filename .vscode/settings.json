@@ -25,7 +25,7 @@
       "url": "/json-schemas/socket.json"
     },
     {
-      "fileMatch": ["/**/*.store.json", "/**/*.store.yao"],
+      "fileMatch": ["/**/*.stor.json", "/**/*.stor.yao"],
       "url": "/json-schemas/store.json"
     },
     {
@@ -37,8 +37,15 @@
       "url": "/json-schemas/widget.json"
     },
     {
-      "fileMatch": ["/**/*.ws.json", "/**/*.ws.yao"],
-      "url": "/json-schemas/web_socket.json"
+      "fileMatch": ["/**/apis/**/*.ws.json", "/**/apis/**/*.ws.yao"],
+      "url": "/json-schemas/ws_server.json"
+    },
+    {
+      "fileMatch": [
+        "/**/websockets/**/*.ws.json",
+        "/**/websockets/**/*.ws.yao"
+      ],
+      "url": "/json-schemas/ws_client.json"
     },
     {
       "fileMatch": ["/**/*.imp.json", "/**/*.imp.yao"],
@@ -72,8 +79,8 @@
       "fileMatch": [
         "/**/*.form.json",
         "/**/*.form.yao",
-        "!/*dyforms*/*.form.json",
-        "!/*dyforms*/*.form.yao"
+        "!/**/dyforms/**/*.form.json",
+        "!/**/dyforms/**/*.form.yao"
       ],
       "url": "/json-schemas/form.json"
     },
@@ -82,7 +89,7 @@
       "url": "/json-schemas/flow.json"
     },
     {
-      "fileMatch": ["/**/*.dashboard.json", "/**/*.dashboard.yao"],
+      "fileMatch": ["/**/*.dash.json", "/**/*.dash.yao"],
       "url": "/json-schemas/dashboard.json"
     }
   ]

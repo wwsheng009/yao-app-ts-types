@@ -9,7 +9,7 @@
           "type": "string"
         },
         "description": {
-          "description": "版本号，用于依赖关系校验和开发平台呈现",
+          "description": "描述",
           "type": "string"
         },
         "group": {
@@ -59,11 +59,11 @@
           "$ref": "#/definitions/YaoHttp.Redirect"
         },
         "status": {
-          "description": "请求响应状态码\n\n常用200",
+          "description": "请求响应状态码",
           "type": "number"
         },
         "type": {
-          "description": "请求响应 Content Type\n\n常用application/json",
+          "description": "请求响应 Content Type",
           "type": "string"
         }
       },
@@ -76,6 +76,7 @@
       "additionalProperties": false,
       "properties": {
         "description": {
+          "description": "描述",
           "type": "string"
         },
         "guard": {
@@ -90,6 +91,7 @@
           "type": "array"
         },
         "label": {
+          "description": "标签",
           "type": "string"
         },
         "method": {

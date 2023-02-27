@@ -490,21 +490,21 @@ export namespace ProcessEnum {
      * ！！！不要直接使用，请自行替换成ID
      */
     export enum _ID_ {
-      /**`[<Key>]`|Value|查询给定键的数值|*/
+      /**`[key:String]查询给定键的数值*/
       Get = "stores.<ID>.Get",
-      /**`[<Key>, <Value>, <有效期(可选)>]`|-|存储数值|*/
+      /**`[key:String, value:Any]`写入给定键的数值*/
       Set = "stores.<ID>.Set",
-      /**`[<Key>]`|存在返回 true, 不存在返回 false|查询给定键是否存在|*/
+      /**`[key:String]`|存在返回 true, 不存在返回 false|查询给定键是否存在|*/
       Has = "stores.<ID>.Has",
-      /**`[<Key>]`|-|删除键|*/
+      /**`[key:String]`|删除数据|*/
       Del = "stores.<ID>.Del",
-      /**`[<Key>]`|Value|查询给定键的数值, 然后删除键|*/
+      /**`[key:String]`|查询给定键的数值, 然后删除键|*/
       GetDel = "stores.<ID>.GetDel",
-      /**`[]`|键数量|查询存储器键数量|*/
+      /**查询存储器键数量*/
       Len = "stores.<ID>.Len",
-      /**`[]`|键名数组|查询所有键名|*/
+      /**查询所有键名*/
       Keys = "stores.<ID>.Keys",
-      /**`[]`|-|清除所有键|*/
+      /**清除所有键*/
       Clear = "stores.<ID>.Clear",
     }
   }

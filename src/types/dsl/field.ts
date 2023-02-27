@@ -15,25 +15,31 @@ export namespace YaoField {
 
   // ColumnDSL the field column dsl
   export type ColumnDSL = {
+    /**唯一标识 */
     id?: string;
     $data?: YaoComponent.CloudPropsDSL;
+    /**列主键名，不需要显式设置 */
     key?: string;
+    /**默认绑定API接口返回字段名称 */
     bind?: string;
     link?: string;
     /** 显示控件设置 */
-    view?: YaoComponent.ComponentDSL;
+    view?: YaoComponent.ViewComponentDSL;
     /** 编辑控件设置 */
-    edit?: YaoComponent.ComponentDSL;
+    edit?: YaoComponent.EditComponentDSL;
   };
 
   export type aliasColumnDSL = ColumnDSL;
 
   // FilterDSL the field filter dsl
   export type FilterDSL = {
+    /**唯一标识 */
     id?: string;
     key?: string;
+    /**绑定字段列标识 */
     bind?: string;
-    edit?: YaoComponent.ComponentDSL;
+    /**关联编辑控件 */
+    edit?: YaoComponent.EditComponentDSL;
   };
 
   export type aliasFilterDSL = FilterDSL;

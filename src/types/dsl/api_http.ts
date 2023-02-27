@@ -14,7 +14,7 @@ export namespace YaoHttp {
     name: string;
     /**版本号，用于依赖关系校验和开发平台呈现*/
     version: string;
-    /**版本号，用于依赖关系校验和开发平台呈现*/
+    /**描述*/
     description?: string;
     /**API 分组名称，访问时作为 API 路由前缀目录。 `/api/<group>/<path>`*/
     group?: string;
@@ -30,7 +30,9 @@ export namespace YaoHttp {
 
   // Path HTTP Path
   export interface Path {
+    /**标签 */
     label?: string;
+    /**描述 */
     description?: string;
     /**API 路由名称。完整路由地址为 `/api/<group>/<path>` ，变量使用 `:` 声明，如 `/api/user/find/:id`, 可以使用 `$param.id` 访问路由请求参数*/
     path: string;
@@ -51,15 +53,9 @@ export namespace YaoHttp {
 
   // Out http 输出
   export interface Out {
-    /**请求响应状态码
-     *
-     * 常用200
-     */
+    /**请求响应状态码*/
     status: number;
-    /**请求响应 Content Type
-     *
-     * 常用application/json
-     */
+    /**请求响应 Content Type*/
     type?: string;
     /**请求响应内容*/
     body?: any;

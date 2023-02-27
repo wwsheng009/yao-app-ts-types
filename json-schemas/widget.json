@@ -9,24 +9,30 @@
           "type": "string"
         },
         "description": {
+          "description": "Widget 介绍",
           "type": "string"
         },
         "extension": {
+          "description": "DSL 文件扩展名",
           "type": "string"
         },
         "label": {
+          "description": "Widget 名称",
           "type": "string"
         },
         "modules": {
+          "description": "需要导出的模块。 在 export.js 中根据 DSL 描述，转换的 YAO 内建 widgets。 如 model, table 等。这些 widgets 与保存在项目目录中的 DSL 文件等效。",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "root": {
+          "description": "DSL 文件保存路径(相对于项目根目录)",
           "type": "string"
         },
         "version": {
+          "description": "版本号",
           "type": "string"
         }
       },

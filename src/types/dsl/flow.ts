@@ -14,7 +14,7 @@ export namespace YaoFlow {
     description?: string;
     /**查询节点*/
     nodes?: FlowNode[];
-    /**Object|输出结果定义*/
+    /**输出结果定义*/
     output?: any;
     // global?: { [key: string]: any }; // 全局变量
     // sid?: string; // 会话ID
@@ -28,9 +28,9 @@ export namespace YaoFlow {
     /**调用处理器 `process`*/
     process?: string;
     /**数据分析引擎名称,默认`xiang` */
-    engine?: string; //
+    engine?: string;
     /**数据分析语言*/
-    query?: YaoQuery.QueryDSL; //
+    query?: YaoQuery.QueryDSL;
     /**关联的脚本名称*/
     script?: string;
     /**处理器参数表.可以引用输入输出或上下文数据*/

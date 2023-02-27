@@ -9,13 +9,29 @@
           "type": "string"
         },
         "label": {
+          "description": "标签显示",
           "type": "string"
         },
         "name": {
+          "description": "连接器名称",
           "type": "string"
         },
         "options": {
-          "type": "object"
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoConnector.MySqlOption"
+            },
+            {
+              "$ref": "#/definitions/YaoConnector.RedisOption"
+            },
+            {
+              "$ref": "#/definitions/YaoConnector.Sqlite3Option"
+            },
+            {
+              "$ref": "#/definitions/YaoConnector.MongoDBOption"
+            }
+          ],
+          "description": "连接器配置项"
         },
         "type": {
           "anyOf": [
@@ -25,9 +41,11 @@
             {
               "$ref": "#/definitions/YaoConnector.ConnectorEnum"
             }
-          ]
+          ],
+          "description": "连接器类型, 当前支持 `mysql`, `sqlite3`, `mongo` 和 `redis`"
         },
         "version": {
+          "description": "版本说明",
           "type": "string"
         }
       },
@@ -38,15 +56,140 @@
     },
     "YaoConnector.ConnectorEnum": {
       "enum": [
-        "mysql",
-        "sqlite",
-        "sqlite3",
-        "postgres",
-        "oracle",
-        "redis",
-        "mongo"
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
       ],
-      "type": "string"
+      "type": "number"
+    },
+    "YaoConnector.DBHost": {
+      "additionalProperties": false,
+      "description": "服务器列表",
+      "properties": {
+        "host": {
+          "description": "MySQL Host, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "pass": {
+          "description": "MySQL Password, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "port": {
+          "description": "MySQL Port, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "primary": {
+          "description": "`true` 为主库, `false`为从库",
+          "type": "boolean"
+        },
+        "user": {
+          "description": "MySQL User name, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        }
+      },
+      "required": [
+        "host"
+      ],
+      "type": "object"
+    },
+    "YaoConnector.MongoDBOption": {
+      "additionalProperties": false,
+      "properties": {
+        "db": {
+          "description": "数据库名称, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "hosts": {
+          "description": "服务器列表",
+          "items": {
+            "$ref": "#/definitions/YaoConnector.DBHost"
+          },
+          "type": "array"
+        },
+        "params": {
+          "description": "连接参数",
+          "type": "object"
+        }
+      },
+      "required": [
+        "db"
+      ],
+      "type": "object"
+    },
+    "YaoConnector.MySqlOption": {
+      "additionalProperties": false,
+      "properties": {
+        "chartset": {
+          "description": "MySQL charset",
+          "type": "string"
+        },
+        "collation": {
+          "description": "MySQL collation",
+          "type": "string"
+        },
+        "db": {
+          "description": "数据库名称, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "hosts": {
+          "description": "服务器列表",
+          "items": {
+            "$ref": "#/definitions/YaoConnector.DBHost"
+          },
+          "type": "array"
+        },
+        "parseTime": {
+          "description": "解析时间",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "db"
+      ],
+      "type": "object"
+    },
+    "YaoConnector.RedisOption": {
+      "additionalProperties": false,
+      "properties": {
+        "db": {
+          "description": "Redis DB, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "host": {
+          "description": "Redis Host, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "pass": {
+          "description": "Redis Password, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "port": {
+          "description": "Redis Port, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        },
+        "user": {
+          "description": "Redis User name, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoConnector.Sqlite3Option": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "description": "数据库文件地址, 支持使用`$EVN.变量名` 读取环境变量",
+          "type": "string"
+        }
+      },
+      "required": [
+        "file"
+      ],
+      "type": "object"
     }
   }
 }

@@ -24,7 +24,7 @@
           "type": "array"
         },
         "output": {
-          "description": "Object|输出结果定义"
+          "description": "输出结果定义"
         },
         "version": {
           "description": "版本号，用于依赖关系校验和开发平台呈现",

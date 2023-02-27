@@ -19,6 +19,7 @@
         },
         "event": {
           "additionalProperties": false,
+          "description": "事件处理",
           "properties": {
             "add": {
               "description": "添加任务时触发的处理器",
@@ -29,7 +30,7 @@
               "type": "string"
             },
             "next": {
-              "description": "生成任务唯一 id的处理器",
+              "description": "生成任务唯一id的回调处理器",
               "type": "string"
             },
             "progress": {

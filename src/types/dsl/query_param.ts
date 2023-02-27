@@ -1,9 +1,13 @@
 export namespace YaoQueryParam {
   /**QueryParam 数据查询器参数 */
   export interface QueryParam {
+    /**模型名称 */
     model?: string;
+    /**表格名称 */
     table?: string;
+    /**别名 */
     alias?: string;
+    /**导出数据时的前缀 */
     export?: string;
     /**| Array<String\>                   | 选择字段清单*/
     select?: string[];
@@ -17,7 +21,7 @@ export namespace YaoQueryParam {
     page?: number;
     /**Integer                          | 每页显示记录数量*/
     pagesize?: number;
-    /**`[key:String]:Object QueryParam` | 读取关联模型*/
+    /**读取关联模型*/
     withs?: { [key: string]: QueryWith }; //Map<string, QueryWith>;
   }
 

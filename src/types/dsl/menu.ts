@@ -11,10 +11,13 @@ export namespace YaoMenu {
     name: string;
     /**图标 */
     icon?: string;
+    /**上级菜单 */
     parent?: string;
     /**路径 */
     path: string;
+    /**显示成块 */
     blocks?: boolean;
+    /**是否显示 */
     visible_menu?: boolean;
     /**上标 */
     badge?: number;

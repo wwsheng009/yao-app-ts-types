@@ -4,59 +4,72 @@
   "definitions": {
     "YaoService.Service": {
       "additionalProperties": false,
+      "description": "后台服务定义，不支持windows操作系统",
       "properties": {
         "$schema": {
           "type": "string"
         },
         "after": {
+          "description": "前置作业",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "args": {
-          "items": {
-            "type": "string"
-          },
+          "description": "处理器运行的参数",
+          "items": {},
           "type": "array"
         },
         "command": {
+          "description": "作业运行命令，默认是`yao run `,使用yao执行脚本等，可替换成其它的系统命令",
           "type": "string"
         },
         "description": {
+          "description": "描述",
           "type": "string"
         },
         "error": {
+          "description": "错误日志文件路径，默认/var/log/yao-{{.Name}}-error.log",
           "type": "string"
         },
         "group": {
+          "description": "运行用户组，Group=root",
           "type": "string"
         },
         "name": {
+          "description": "名称",
           "type": "string"
         },
         "output": {
+          "description": "结果输出文件路径，默认/var/log/yao-{{.Name}}.log",
           "type": "string"
         },
         "process": {
+          "description": "处理器，运行目录是环境变量YAO_ROOT，或是使用当前目录",
           "type": "string"
         },
         "requires": {
+          "description": "前置作业",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "restart": {
+          "description": "重启条件，默认on-failure",
           "type": "string"
         },
         "user": {
+          "description": "运行用户，默认User=root",
           "type": "string"
         },
         "version": {
+          "description": "版本",
           "type": "string"
         },
         "workdir": {
+          "description": "工作目录",
           "type": "string"
         }
       },

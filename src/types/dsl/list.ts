@@ -1,3 +1,4 @@
+import { GlobalConfig } from "./share_types";
 import YaoAction from "./action";
 import YaoComponent from "./component";
 import YaoField from "./field";
@@ -6,13 +7,17 @@ import YaoHook from "./hook";
 export namespace YaoList {
   // DSL the list DSL
   export interface ListDSL {
+    /**唯一标识 */
     id?: string;
     // root?: string;
     name?: string;
     action: ActionDSL;
+    /**布局 */
     layout: LayoutDSL;
+    /**字段定义 */
     fields: FieldsDSL;
-    config?: { [key: string]: any };
+    /**配置 */
+    config?: GlobalConfig;
     // cprops?: field.CloudProps;
     // computable?: compute.Computable;
     // mapping?: mapping.Mapping;
@@ -45,7 +50,7 @@ export namespace YaoList {
   // LayoutDSL the list layout DSL
   export interface LayoutDSL {
     list?: ViewLayoutDSL;
-    config?: { [key: string]: any };
+    config?: GlobalConfig;
   }
 
   // OperationLayoutDSL layout.operation

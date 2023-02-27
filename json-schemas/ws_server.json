@@ -1,0 +1,85 @@
+{
+  "$ref": "#/definitions/YaoWebSocket.Server",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoWebSocket.BufferSize": {
+      "additionalProperties": false,
+      "properties": {
+        "read": {
+          "description": "读取缓存区大小（大小），默认1024",
+          "type": "number"
+        },
+        "write": {
+          "description": "写入缓存区大小（字节），默认1024",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "YaoWebSocket.Limit": {
+      "additionalProperties": false,
+      "properties": {
+        "max-message": {
+          "description": "最大消息大小限制，单位字节，默认1024",
+          "type": "number"
+        },
+        "pong-wait": {
+          "description": "回应等待（秒），默认60",
+          "type": "number"
+        },
+        "write-wait": {
+          "description": "写等待（秒），默认10",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "YaoWebSocket.Server": {
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "buffer": {
+          "$ref": "#/definitions/YaoWebSocket.BufferSize",
+          "description": "接收的缓存区大小，按字节算"
+        },
+        "description": {
+          "description": "描述",
+          "type": "string"
+        },
+        "guard": {
+          "type": "string"
+        },
+        "limit": {
+          "$ref": "#/definitions/YaoWebSocket.Limit",
+          "description": "限制"
+        },
+        "name": {
+          "description": "名称",
+          "type": "string"
+        },
+        "process": {
+          "description": "ws消息处理器",
+          "type": "string"
+        },
+        "protocols": {
+          "description": "ws协议",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "timeout": {
+          "description": "ws连接超时时间（秒），默认5秒",
+          "type": "number"
+        },
+        "version": {
+          "description": "版本",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

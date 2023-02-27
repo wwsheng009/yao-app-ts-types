@@ -2,6 +2,18 @@
   "$ref": "#/definitions/YaoDashboard.DashboardDSL",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "GlobalConfig": {
+      "properties": {
+        "full": {
+          "description": "是否满屏显示表格",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "full"
+      ],
+      "type": "object"
+    },
     "YaoDashboard.ActionDSL": {
       "additionalProperties": false,
       "properties": {
@@ -26,12 +38,13 @@
           "$ref": "#/definitions/YaoDashboard.ActionDSL"
         },
         "config": {
-          "type": "object"
+          "$ref": "#/definitions/GlobalConfig"
         },
         "fields": {
           "$ref": "#/definitions/YaoDashboard.FieldsDSL"
         },
         "id": {
+          "description": "唯一标识",
           "type": "string"
         },
         "layout": {

@@ -1,0 +1,118 @@
+{
+  "$ref": "#/definitions/YaoWebSocket.Client",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoWebSocket.BufferSize": {
+      "additionalProperties": false,
+      "properties": {
+        "read": {
+          "description": "读取缓存区大小（大小），默认1024",
+          "type": "number"
+        },
+        "write": {
+          "description": "写入缓存区大小（字节），默认1024",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "YaoWebSocket.Client": {
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "attempt_after": {
+          "description": "多久时间后多试连接（秒），默认50",
+          "type": "number"
+        },
+        "attempts": {
+          "description": "max times try to reconnect server when connection break (client mode only)",
+          "type": "number"
+        },
+        "buffer": {
+          "$ref": "#/definitions/YaoWebSocket.BufferSize",
+          "description": "缓存设置"
+        },
+        "description": {
+          "description": "描述",
+          "type": "string"
+        },
+        "event": {
+          "$ref": "#/definitions/YaoWebSocket.WebSocketEvent",
+          "description": "ws事件处理"
+        },
+        "guard": {
+          "type": "string"
+        },
+        "ip": {
+          "description": "ip地址",
+          "type": "string"
+        },
+        "keep": {
+          "description": "-1 not keep alive, 0 keep alive always, keep alive n seconds.",
+          "type": "number"
+        },
+        "name": {
+          "description": "名称",
+          "type": "string"
+        },
+        "ping": {
+          "description": "ping超时（秒），默认2592000",
+          "type": "number"
+        },
+        "port": {
+          "description": "端口号",
+          "type": "number"
+        },
+        "protocols": {
+          "description": "协议",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "timeout": {
+          "description": "超时设置（秒），默认5",
+          "type": "number"
+        },
+        "timestamp": {
+          "description": "时间戳",
+          "type": "number"
+        },
+        "url": {
+          "description": "地址",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "YaoWebSocket.WebSocketEvent": {
+      "additionalProperties": false,
+      "description": "客户端事件处理",
+      "properties": {
+        "closed": {
+          "description": "ws连接关闭时回调处理器",
+          "type": "string"
+        },
+        "connected": {
+          "description": "ws连接后回调处理器",
+          "type": "string"
+        },
+        "data": {
+          "description": "ws数据连接回调处理器",
+          "type": "string"
+        },
+        "error": {
+          "description": "ws连接错误时回调处理器",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
