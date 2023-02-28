@@ -375,6 +375,24 @@
             "xProps": {
               "additionalProperties": false,
               "properties": {
+                "$on:change": {
+                  "additionalProperties": false,
+                  "description": "onchange 事件",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                },
                 "$remote": {
                   "additionalProperties": false,
                   "properties": {
@@ -388,21 +406,14 @@
                     }
                   },
                   "required": [
-                    "process",
-                    "query"
+                    "process"
                   ],
                   "type": "object"
                 }
               },
-              "required": [
-                "$remote"
-              ],
               "type": "object"
             }
           },
-          "required": [
-            "xProps"
-          ],
           "type": "object"
         },
         "type": {
@@ -414,7 +425,7 @@
               "type": "string"
             },
             {
-              "const": "pulic/xxx",
+              "const": "public/xxx",
               "type": "string"
             }
           ],
@@ -425,21 +436,21 @@
     },
     "YaoComponent.EditComponentEnum": {
       "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
+        "Cascader",
+        "CheckboxGroup",
+        "ColorPicker",
+        "DatePicker",
+        "Input",
+        "InputNumber",
+        "Mentions",
+        "RadioGroup",
+        "RangePicker",
+        "Select",
+        "TextArea",
+        "Tree",
+        "Upload"
       ],
-      "type": "number"
+      "type": "string"
     },
     "YaoComponent.InstanceDSL": {
       "additionalProperties": false,
@@ -501,6 +512,24 @@
             "xProps": {
               "additionalProperties": false,
               "properties": {
+                "$on:change": {
+                  "additionalProperties": false,
+                  "description": "onchange 事件",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                },
                 "$remote": {
                   "additionalProperties": false,
                   "properties": {
@@ -514,21 +543,14 @@
                     }
                   },
                   "required": [
-                    "process",
-                    "query"
+                    "process"
                   ],
                   "type": "object"
                 }
               },
-              "required": [
-                "$remote"
-              ],
               "type": "object"
             }
           },
-          "required": [
-            "xProps"
-          ],
           "type": "object"
         },
         "type": {
@@ -540,7 +562,7 @@
               "type": "string"
             },
             {
-              "const": "pulic/xxx",
+              "const": "public/xxx",
               "type": "string"
             }
           ],
@@ -551,15 +573,15 @@
     },
     "YaoComponent.ViewComponentEnum": {
       "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
+        "A",
+        "Text",
+        "Image",
+        "Tag",
+        "Tooltip",
+        "Checkbox",
+        "Switch"
       ],
-      "type": "number"
+      "type": "string"
     },
     "YaoField.ColumnDSL": {
       "additionalProperties": false,

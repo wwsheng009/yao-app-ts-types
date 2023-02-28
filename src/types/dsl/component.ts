@@ -1,27 +1,27 @@
 namespace YaoComponent {
   export enum ViewComponentEnum {
-    "A",
-    "Text",
-    "Image",
-    "Tag",
-    "Tooltip",
-    "Checkbox",
-    "Switch",
+    "A" = "A",
+    "Text" = "Text",
+    "Image" = "Image",
+    "Tag" = "Tag",
+    "Tooltip" = "Tooltip",
+    "Checkbox" = "Checkbox",
+    "Switch" = "Switch",
   }
   export enum EditComponentEnum {
-    "Cascader",
-    "CheckboxGroup",
-    "ColorPicker",
-    "DatePicker",
-    "Input",
-    "InputNumber",
-    "Mentions",
-    "RadioGroup",
-    "RangePicker",
-    "Select",
-    "TextArea",
-    "Tree",
-    "Upload",
+    "Cascader" = "Cascader",
+    "CheckboxGroup" = "CheckboxGroup",
+    "ColorPicker" = "ColorPicker",
+    "DatePicker" = "DatePicker",
+    "Input" = "Input",
+    "InputNumber" = "InputNumber",
+    "Mentions" = "Mentions",
+    "RadioGroup" = "RadioGroup",
+    "RangePicker" = "RangePicker",
+    "Select" = "Select",
+    "TextArea" = "TextArea",
+    "Tree" = "Tree",
+    "Upload" = "Upload",
   }
 
   // DSL the component DSL
@@ -29,7 +29,7 @@ namespace YaoComponent {
     /**绑定字段名称，如不指定使用默认值 */
     bind?: string;
     /**组件名称，可用组件参考文档 https://yaoapps.com/components */
-    type?: ViewComponentEnum | string | "pulic/xxx";
+    type?: ViewComponentEnum | string | "public/xxx";
     /**数据数值计算 */
     compute?: Compute | string;
     /**控件属性，可参考antd控件 */
@@ -57,7 +57,7 @@ namespace YaoComponent {
     /**绑定字段名称，如不指定使用默认值 */
     bind?: string;
     /**组件名称，可用组件参考文档 https://yaoapps.com/components */
-    type?: EditComponentEnum | string | "pulic/xxx";
+    type?: EditComponentEnum | string | "public/xxx";
     /**数据数值计算*/
     compute?: Compute | string;
     /**控件属性，可参考antd控件 */

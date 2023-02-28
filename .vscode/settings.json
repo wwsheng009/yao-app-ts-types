@@ -5,7 +5,7 @@
       "url": "/json-schemas/model.json"
     },
     {
-      "fileMatch": ["/**/*.app.json", "/**/*.app.yao"],
+      "fileMatch": ["/**/*app.json", "/**/*app.yao"],
       "url": "/json-schemas/app.json"
     },
     {

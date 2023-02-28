@@ -8,10 +8,12 @@
         "$schema": {
           "type": "string"
         },
-        "adminroot": {
+        "adminRoot": {
+          "description": "管理后台路由前缀",
           "type": "string"
         },
         "description": {
+          "description": "应用介绍, 支持多语言。",
           "type": "string"
         },
         "favicon": {
@@ -24,21 +26,26 @@
           "type": "string"
         },
         "menu": {
-          "$ref": "#/definitions/YaoApp.MenuDSL"
+          "$ref": "#/definitions/YaoApp.MenuDSL",
+          "description": "管理后台菜单读取处理器"
         },
         "name": {
+          "description": "应用名称, 支持多语言",
           "type": "string"
         },
         "optional": {
-          "$ref": "#/definitions/YaoApp.OptionalDSL"
+          "$ref": "#/definitions/YaoApp.OptionalDSL",
+          "description": "应用可选配置项"
         },
         "setting": {
           "type": "string"
         },
         "setup": {
+          "description": "应用首次安装后运行的处理器名称， 一般可以用来建立初始化数据；处理器第一个参数为应用配置信息。支持使用 `studio` 命名空间，调用 studio 脚本函数",
           "type": "string"
         },
         "short": {
+          "description": "应用简称, 支持多语言。",
           "type": "string"
         },
         "sid": {
@@ -48,6 +55,11 @@
           "type": "string"
         },
         "version": {
+          "description": "应用版本号，建议遵循 [Semantic Versioning 标准](https://semver.org/lang/zh-CN/)",
+          "type": "string"
+        },
+        "xgen": {
+          "description": "XGen 界面引擎版本, 推荐使用 `1.0` 版，旧版已停止维护",
           "type": "string"
         }
       },
@@ -57,18 +69,34 @@
       "additionalProperties": false,
       "properties": {
         "args": {
+          "description": "处理器参数表",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "process": {
+          "description": "处理器名称",
           "type": "string"
         }
       },
       "type": "object"
     },
     "YaoApp.OptionalDSL": {
+      "properties": {
+        "hideNotification": {
+          "description": "隐藏系统通知面板。 **字段名大小写敏感**",
+          "type": "boolean"
+        },
+        "hideSetting": {
+          "description": "隐藏导航栏下方配置菜单。 **字段名大小写敏感**",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "hideNotification",
+        "hideSetting"
+      ],
       "type": "object"
     }
   }

@@ -308,7 +308,7 @@
               "type": "string"
             },
             {
-              "const": "pulic/xxx",
+              "const": "public/xxx",
               "type": "string"
             }
           ],
@@ -319,21 +319,21 @@
     },
     "YaoComponent.EditComponentEnum": {
       "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
+        "Cascader",
+        "CheckboxGroup",
+        "ColorPicker",
+        "DatePicker",
+        "Input",
+        "InputNumber",
+        "Mentions",
+        "RadioGroup",
+        "RangePicker",
+        "Select",
+        "TextArea",
+        "Tree",
+        "Upload"
       ],
-      "type": "number"
+      "type": "string"
     },
     "YaoComponent.InstanceDSL": {
       "additionalProperties": false,
@@ -445,7 +445,7 @@
               "type": "string"
             },
             {
-              "const": "pulic/xxx",
+              "const": "public/xxx",
               "type": "string"
             }
           ],
@@ -456,15 +456,15 @@
     },
     "YaoComponent.ViewComponentEnum": {
       "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
+        "A",
+        "Text",
+        "Image",
+        "Tag",
+        "Tooltip",
+        "Checkbox",
+        "Switch"
       ],
-      "type": "number"
+      "type": "string"
     },
     "YaoField.ColumnDSL": {
       "additionalProperties": false,
