@@ -14,6 +14,18 @@
       ],
       "type": "object"
     },
+    "HookType": {
+      "description": "hook事件，框架自动生成",
+      "properties": {
+        "onChange": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "onChange"
+      ],
+      "type": "object"
+    },
     "YaoAction.Process": {
       "additionalProperties": false,
       "description": "自定义关联处理器",
@@ -202,15 +214,22 @@
       "enum": [
         "Cascader",
         "CheckboxGroup",
+        "CodeEditor",
         "ColorPicker",
         "DatePicker",
+        "Grant",
         "Input",
         "InputNumber",
+        "List",
         "Mentions",
+        "Password",
         "RadioGroup",
         "RangePicker",
+        "RichText",
         "Select",
+        "Table",
         "TextArea",
+        "TimePicker",
         "Tree",
         "Upload"
       ],
@@ -332,12 +351,13 @@
     "YaoComponent.ViewComponentEnum": {
       "enum": [
         "A",
-        "Text",
-        "Image",
-        "Tag",
-        "Tooltip",
         "Checkbox",
-        "Switch"
+        "Color",
+        "Image",
+        "Switch",
+        "Tag",
+        "Text",
+        "Tooltip"
       ],
       "type": "string"
     },
@@ -361,9 +381,6 @@
         },
         "key": {
           "description": "列主键名，不需要显式设置",
-          "type": "string"
-        },
-        "link": {
           "type": "string"
         },
         "view": {
@@ -479,6 +496,10 @@
         "fields": {
           "$ref": "#/definitions/YaoList.FieldsDSL",
           "description": "字段定义"
+        },
+        "hooks": {
+          "$ref": "#/definitions/HookType",
+          "description": "hook事件，框架自动生成"
         },
         "id": {
           "description": "唯一标识",

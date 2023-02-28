@@ -1,4 +1,4 @@
-import { GlobalConfig } from "./share_types";
+import { GlobalConfig, HookType } from "./share_types";
 import YaoHook from "./hook";
 
 export namespace YaoDashboard {
@@ -13,6 +13,8 @@ export namespace YaoDashboard {
     // CProps?: any;
     // Computable?: any;
     // Mapping?: any;
+    /**hook事件，框架自动生成 */
+    hooks?: HookType;
     $schema?: string;
   }
 

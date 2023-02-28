@@ -45,7 +45,8 @@
       "description": "可用自定义操作",
       "properties": {
         "action": {
-          "$ref": "#/definitions/YaoComponent.ActionNodes"
+          "$ref": "#/definitions/YaoComponent.ActionNodes",
+          "description": "用户操作"
         },
         "confirm": {
           "$ref": "#/definitions/YaoComponent.ConfirmActionDSL",
@@ -79,7 +80,8 @@
           "type": "string"
         },
         "props": {
-          "$ref": "#/definitions/YaoComponent.PropsDSL"
+          "$ref": "#/definitions/YaoComponent.PropsDSL",
+          "description": "属性"
         },
         "showWhenAdd": {
           "description": "增加数据时显示",
@@ -321,15 +323,22 @@
       "enum": [
         "Cascader",
         "CheckboxGroup",
+        "CodeEditor",
         "ColorPicker",
         "DatePicker",
+        "Grant",
         "Input",
         "InputNumber",
+        "List",
         "Mentions",
+        "Password",
         "RadioGroup",
         "RangePicker",
+        "RichText",
         "Select",
+        "Table",
         "TextArea",
+        "TimePicker",
         "Tree",
         "Upload"
       ],
@@ -457,12 +466,13 @@
     "YaoComponent.ViewComponentEnum": {
       "enum": [
         "A",
-        "Text",
-        "Image",
-        "Tag",
-        "Tooltip",
         "Checkbox",
-        "Switch"
+        "Color",
+        "Image",
+        "Switch",
+        "Tag",
+        "Text",
+        "Tooltip"
       ],
       "type": "string"
     },
@@ -486,9 +496,6 @@
         },
         "key": {
           "description": "列主键名，不需要显式设置",
-          "type": "string"
-        },
-        "link": {
           "type": "string"
         },
         "view": {

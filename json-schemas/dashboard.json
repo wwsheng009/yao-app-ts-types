@@ -14,6 +14,18 @@
       ],
       "type": "object"
     },
+    "HookType": {
+      "description": "hook事件，框架自动生成",
+      "properties": {
+        "onChange": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "onChange"
+      ],
+      "type": "object"
+    },
     "YaoDashboard.ActionDSL": {
       "additionalProperties": false,
       "properties": {
@@ -42,6 +54,10 @@
         },
         "fields": {
           "$ref": "#/definitions/YaoDashboard.FieldsDSL"
+        },
+        "hooks": {
+          "$ref": "#/definitions/HookType",
+          "description": "hook事件，框架自动生成"
         },
         "id": {
           "description": "唯一标识",

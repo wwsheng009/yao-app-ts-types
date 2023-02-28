@@ -1,4 +1,4 @@
-import { GlobalConfig } from "./share_types";
+import { GlobalConfig, HookType } from "./share_types";
 import YaoAction from "./action";
 import YaoComponent from "./component";
 import YaoField from "./field";
@@ -21,6 +21,8 @@ export namespace YaoList {
     // cprops?: field.CloudProps;
     // computable?: compute.Computable;
     // mapping?: mapping.Mapping;
+    /**hook事件，框架自动生成 */
+    hooks?: HookType;
     $schema?: string;
   }
 

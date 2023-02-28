@@ -1,25 +1,33 @@
 namespace YaoComponent {
   export enum ViewComponentEnum {
     "A" = "A",
-    "Text" = "Text",
-    "Image" = "Image",
-    "Tag" = "Tag",
-    "Tooltip" = "Tooltip",
     "Checkbox" = "Checkbox",
+    "Color" = "Color",
+    "Image" = "Image",
     "Switch" = "Switch",
+    "Tag" = "Tag",
+    "Text" = "Text",
+    "Tooltip" = "Tooltip",
   }
   export enum EditComponentEnum {
     "Cascader" = "Cascader",
     "CheckboxGroup" = "CheckboxGroup",
+    "CodeEditor" = "CodeEditor",
     "ColorPicker" = "ColorPicker",
     "DatePicker" = "DatePicker",
+    "Grant" = "Grant",
     "Input" = "Input",
     "InputNumber" = "InputNumber",
+    "List" = "List",
     "Mentions" = "Mentions",
+    "Password" = "Password",
     "RadioGroup" = "RadioGroup",
     "RangePicker" = "RangePicker",
+    "RichText" = "RichText",
     "Select" = "Select",
+    "Table" = "Table",
     "TextArea" = "TextArea",
+    "TimePicker" = "TimePicker",
     "Tree" = "Tree",
     "Upload" = "Upload",
   }
@@ -102,11 +110,14 @@ namespace YaoComponent {
   }
 
   // ActionsExport the export actions
-  export interface ActionsExport {
-    type?: string;
-    xpath: string;
-    actions?: Actions;
-  }
+  // export interface ActionsExport {
+  //   /**类型 */
+  //   type?: string;
+  //   /**组件xpath */
+  //   xpath: string;
+  //   /**操作 */
+  //   actions?: Actions;
+  // }
 
   export type aliasActionDSL = ActionDSL;
 
@@ -134,9 +145,11 @@ namespace YaoComponent {
     showWhenView?: boolean;
     /**编辑时隐藏 */
     hideWhenEdit?: boolean;
+    /**属性 */
     props?: PropsDSL;
     /**确认提示 */
     confirm?: ConfirmActionDSL;
+    /**用户操作 */
     action?: ActionNodes;
     /**满足条件时禁用 */
     disabled?: DisabledDSL;

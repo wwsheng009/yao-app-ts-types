@@ -5,6 +5,16 @@ import YaoField from "./field";
 import YaoHook from "./hook";
 
 export namespace YaoChart {
+  export enum ChartComponentEnum {
+    "Bar" = "Bar",
+    "Funnel" = "Funnel",
+    "Line" = "Line",
+    "LineBar" = "LineBar",
+    "Number" = "Number",
+    "NumberChart" = "NumberChart",
+    "Pie" = "Pie",
+    "Table" = "Table",
+  }
   export interface ChartDSL {
     /**唯一标识 */
     id?: string;
@@ -38,9 +48,60 @@ export namespace YaoChart {
 
   export interface FieldsDSL {
     filter?: YaoField.Filters;
-    chart?: YaoField.Columns;
+    chart?: ChartColumns;
     // filterMap?: { [key: string]: field.FilterDSL };
     // chartMap?: { [key: string]: field.ColumnDSL };
+  }
+
+  // Columns the columns DSL
+  export type ChartColumns = { [key: string]: ChartColumnDSL };
+
+  // ColumnDSL the field column dsl
+  export type ChartColumnDSL = {
+    /**唯一标识 */
+    id?: string;
+    $data?: YaoComponent.CloudPropsDSL;
+    /**列主键名，不需要显式设置 */
+    key?: string;
+    /**默认绑定API接口返回字段名称 */
+    bind?: string;
+    /**chart图表链接地址 */
+    link?: string;
+    /** 显示控件设置 */
+    view?: ChartComponentDSL;
+    /** 编辑控件设置 */
+    // edit?: YaoComponent.EditComponentDSL;
+  };
+
+  export interface ChartComponentDSL {
+    /**绑定字段名称，如不指定使用默认值 */
+    bind?: string;
+    /**组件名称，可用组件参考文档 https://yaoapps.com/components */
+    type?: ChartComponentEnum | string | "public/xxx";
+    /**数据数值计算 */
+    compute?: YaoComponent.Compute | string;
+    /**控件属性，可参考antd控件 */
+    props?: YaoComponent.PropsDSL & {
+      /**显示成卡片的样式 */
+      cardStyle?: YaoComponent.PropsDSL & {
+        padding?: number;
+      };
+      type?: string;
+      /**图表高度 */
+      chartHeight?: number;
+      /**颜色 */
+      color?: string;
+      /**显示单位 */
+      unit: string;
+      /**显示前缀 */
+      prefix?: string;
+      /** */
+      decimals?: number;
+      /**绑定数据的key字段 */
+      nameKey?: string;
+      /**绑定数据的value字段 */
+      valueKey?: string;
+    };
   }
 
   export interface LayoutDSL {
