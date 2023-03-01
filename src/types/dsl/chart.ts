@@ -92,7 +92,7 @@ export namespace YaoChart {
       /**颜色 */
       color?: string;
       /**显示单位 */
-      unit: string;
+      unit?: string;
       /**显示前缀 */
       prefix?: string;
       /** */

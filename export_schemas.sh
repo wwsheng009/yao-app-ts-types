@@ -36,7 +36,7 @@ fi
 
 
 # array=(
-#     "app|YaoApp.AppDSL|app.json"
+#     "dashboard|YaoDashboard.DashboardDSL|dashboard.json"
 # )  
 for line in "${array[@]}"
 do

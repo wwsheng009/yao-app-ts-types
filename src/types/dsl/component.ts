@@ -234,7 +234,9 @@ namespace YaoComponent {
     xpath?: string;
     type?: string;
     name?: string;
+    /**处理器 */
     process?: string;
+    /**处理器参数 */
     query?: { [key: string]: any };
   }
 }
