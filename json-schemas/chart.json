@@ -158,9 +158,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "unit"
-          ],
           "type": "object"
         },
         "type": {
@@ -403,9 +400,11 @@
           "type": "string"
         },
         "process": {
+          "description": "处理器",
           "type": "string"
         },
         "query": {
+          "description": "处理器参数",
           "type": "object"
         },
         "type": {
