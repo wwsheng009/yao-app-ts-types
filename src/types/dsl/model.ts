@@ -122,7 +122,7 @@ export namespace YaoModel {
     nullable?: boolean;
     /**字段许可值，对 `enum` 类型字段有效*/
     option?: string[];
-    /**String\|Integer\|Float|字段默认值*/
+    /**string\|number\|float|字段默认值*/
     default?: any;
     /**字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高*/
     default_raw?: string;
@@ -147,23 +147,23 @@ export namespace YaoModel {
   export interface Validation {
     /**校验方法名称，可选值 `typeof`, `pattern`, `min`,`max`,`enum`,`minLength`,`maxLength`,  `email`,`mobile`
      *
-     *typeof    | `[<String>]` 许可值 `string`, `integer`, `float`, `number`, `datetime`, `timestamp`
+     *typeof    | `[<string>]` 许可值 `string`, `integer`, `float`, `number`, `datetime`, `timestamp`
      *
-     *min       | `[<Integer\|Float>]`
+     *min       | `[<number\|float>]`
      *
-     *max       | `[<Integer\|Float>]`
+     *max       | `[<number\|float>]`
      *
-     *enum      | `[String...]`
+     *enum      | `[string...]`
      *
-     *pattern   | `[String]`
+     *pattern   | `[string]`
      *
-     *minLength | `[<Integer>]`
+     *minLength | `[<number>]`
      *
-     *maxLength | `[<Integer>]`
+     *maxLength | `[<number>]`
      *
      *email     | `邮件地址格式username@domain`
      *
-     *mobile    | `[<String>]` 电话
+     *mobile    | `[<string>]` 电话
      *
      */
     method: string;

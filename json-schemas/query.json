@@ -110,19 +110,8 @@
       "description": "QueryDSL Gou Query Domain Specific Language",
       "properties": {
         "comment": {
-          "additionalProperties": {
-            "type": "string"
-          },
           "description": "查询条件注释，用于帮助理解查询条件逻辑和在开发平台中呈现。",
-          "properties": {
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "length"
-          ],
-          "type": "object"
+          "type": "string"
         },
         "data-only": {
           "description": "设定为 true, 查询结果为 []Record; 设定为 false, 查询结果为 Paginate, 仅在设定 `page` 或 `pagesize`时有效。",
@@ -133,19 +122,8 @@
           "type": "boolean"
         },
         "from": {
-          "additionalProperties": {
-            "type": "string"
-          },
           "description": "查询数据表名称或数据模型",
-          "properties": {
-            "length": {
-              "type": "number"
-            }
-          },
-          "required": [
-            "length"
-          ],
-          "type": "object"
+          "type": "string"
         },
         "groups": {
           "$ref": "#/definitions/YaoQuery.Groups",

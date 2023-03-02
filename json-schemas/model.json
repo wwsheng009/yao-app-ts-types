@@ -14,7 +14,7 @@
           "type": "string"
         },
         "default": {
-          "description": "String\\|Integer\\|Float|字段默认值"
+          "description": "string\\|number\\|float|字段默认值"
         },
         "default_raw": {
           "description": "字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高",
@@ -369,7 +369,7 @@
           "type": "string"
         },
         "method": {
-          "description": "校验方法名称，可选值 `typeof`, `pattern`, `min`,`max`,`enum`,`minLength`,`maxLength`,  `email`,`mobile`\n\ntypeof    | `[<String>]` 许可值 `string`, `integer`, `float`, `number`, `datetime`, `timestamp`\n\nmin       | `[<Integer\\|Float>]`\n\nmax       | `[<Integer\\|Float>]`\n\nenum      | `[String...]`\n\npattern   | `[String]`\n\nminLength | `[<Integer>]`\n\nmaxLength | `[<Integer>]`\n\nemail     | `邮件地址格式username@domain`\n\nmobile    | `[<String>]` 电话",
+          "description": "校验方法名称，可选值 `typeof`, `pattern`, `min`,`max`,`enum`,`minLength`,`maxLength`,  `email`,`mobile`\n\ntypeof    | `[<string>]` 许可值 `string`, `integer`, `float`, `number`, `datetime`, `timestamp`\n\nmin       | `[<number\\|float>]`\n\nmax       | `[<number\\|float>]`\n\nenum      | `[string...]`\n\npattern   | `[string]`\n\nminLength | `[<number>]`\n\nmaxLength | `[<number>]`\n\nemail     | `邮件地址格式username@domain`\n\nmobile    | `[<string>]` 电话",
           "type": "string"
         }
       },
@@ -413,7 +413,7 @@
           "type": "string"
         },
         "limit": {
-          "description": "Integer                          | 限制返回记录条目",
+          "description": "number                          | 限制返回记录条目",
           "type": "number"
         },
         "model": {
@@ -428,15 +428,15 @@
           "type": "array"
         },
         "page": {
-          "description": "Integer                          | 当前页码",
+          "description": "number                          | 当前页码",
           "type": "number"
         },
         "pagesize": {
-          "description": "Integer                          | 每页显示记录数量",
+          "description": "number                          | 每页显示记录数量",
           "type": "number"
         },
         "select": {
-          "description": "| Array<String\\>                   | 选择字段清单",
+          "description": "| Array<string\\>                   | 选择字段清单",
           "items": {
             "type": "string"
           },

@@ -37,7 +37,7 @@
           "type": "string"
         },
         "limit": {
-          "description": "Integer                          | 限制返回记录条目",
+          "description": "number                          | 限制返回记录条目",
           "type": "number"
         },
         "model": {
@@ -52,15 +52,15 @@
           "type": "array"
         },
         "page": {
-          "description": "Integer                          | 当前页码",
+          "description": "number                          | 当前页码",
           "type": "number"
         },
         "pagesize": {
-          "description": "Integer                          | 每页显示记录数量",
+          "description": "number                          | 每页显示记录数量",
           "type": "number"
         },
         "select": {
-          "description": "| Array<String\\>                   | 选择字段清单",
+          "description": "| Array<string\\>                   | 选择字段清单",
           "items": {
             "type": "string"
           },
