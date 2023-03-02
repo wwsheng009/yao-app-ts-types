@@ -60,8 +60,7 @@ export namespace YaoQuery {
   /**Where 查询条件*/
   export interface Where extends Condition {
     /**分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景*/
-
-    wheres: Where[];
+    wheres?: Where[];
     [key: string]: any;
   }
   /**Order 排序条件*/

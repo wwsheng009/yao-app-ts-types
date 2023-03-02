@@ -267,9 +267,6 @@
           "type": "array"
         }
       },
-      "required": [
-        "wheres"
-      ],
       "type": "object"
     }
   }
