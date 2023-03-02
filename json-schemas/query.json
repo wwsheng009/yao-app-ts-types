@@ -233,7 +233,6 @@
       "type": "string"
     },
     "YaoQuery.Where": {
-      "additionalProperties": false,
       "description": "Where 查询条件",
       "properties": {
         "comment": {
