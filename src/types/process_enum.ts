@@ -446,6 +446,18 @@ export namespace ProcessEnum {
       Operation = "scripts.<ID>.<Operation>",
     }
   }
+  export namespace Xiang {
+    export enum network {
+      ip = "xiang.network.ip",
+      FreePort = "xiang.network.FreePort",
+      Get = "xiang.network.Get",
+      Post = "xiang.network.Post",
+      PostJSON = "xiang.network.PostJSON",
+      Put = "xiang.network.Put",
+      PutJSON = "xiang.network.PutJSON",
+      Send = "xiang.network.Send",
+    }
+  }
   export namespace Tasks {
     /**
      * ！！！不要直接使用，请自行替换成ID
