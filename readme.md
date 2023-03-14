@@ -102,6 +102,12 @@ yao version
   ]
 ```
 
+方法三，直接使用 github 在线文档
+
+```sh
+wget https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/.vscode/settings-online.json -O .vscode/settings.json
+```
+
 如果需要直接修改 json-schema,配置额外的配置，请参考：https://code.visualstudio.com/docs/languages/json
 
 ## 目前支持的 yao DSL 列表
