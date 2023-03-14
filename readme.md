@@ -1,5 +1,13 @@
 # YAO 应用 JSON-SCHEMA
 
+先看效果:
+
+- 检验 json 配置文件的有效性
+
+- 编辑器自动完成与代码提示
+
+![演示效果](./docs/yao-json-schema.gif "json-schema演示")
+
 **此项目非官方文档，有可能部分信息不准确，仅供参考学习**
 
 使用 json-schema 文件可以方便用户编写 json 文件，也方便用户检验 json 文件的有效性。
