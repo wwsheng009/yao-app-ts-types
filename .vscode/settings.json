@@ -2,78 +2,78 @@
   "json.schemas": [
     {
       "fileMatch": ["/**/*.mod.json", "/**/*.mod.yao"],
-      "url": "/json-schemas/model.json"
+      "url": "/json-schemas/0.10.3/model.json"
     },
     {
       "fileMatch": ["/**/*app.json", "/**/*app.yao"],
-      "url": "/json-schemas/app.json"
+      "url": "/json-schemas/0.10.3/app.json"
     },
     {
       "fileMatch": ["/**/*.login.json", "/**/*.login.yao"],
-      "url": "/json-schemas/login.json"
+      "url": "/json-schemas/0.10.3/login.json"
     },
     {
       "fileMatch": ["/**/*.schedule.json", "/**/*.schedule.yao"],
-      "url": "/json-schemas/schedule.json"
+      "url": "/json-schemas/0.10.3/schedule.json"
     },
     {
       "fileMatch": ["/**/*.service.json", "/**/*.service.yao"],
-      "url": "/json-schemas/service.json"
+      "url": "/json-schemas/0.10.3/service.json"
     },
     {
       "fileMatch": ["/**/*.socket.json", "/**/*.socket.yao"],
-      "url": "/json-schemas/socket.json"
+      "url": "/json-schemas/0.10.3/socket.json"
     },
     {
       "fileMatch": ["/**/*.stor.json", "/**/*.stor.yao"],
-      "url": "/json-schemas/store.json"
+      "url": "/json-schemas/0.10.3/store.json"
     },
     {
       "fileMatch": ["/**/*.task.json", "/**/*.task.yao"],
-      "url": "/json-schemas/task.json"
+      "url": "/json-schemas/0.10.3/task.json"
     },
     {
       "fileMatch": ["/**/*.widget.json", "/**/*.widget.yao"],
-      "url": "/json-schemas/widget.json"
+      "url": "/json-schemas/0.10.3/widget.json"
     },
     {
       "fileMatch": ["/**/apis/**/*.ws.json", "/**/apis/**/*.ws.yao"],
-      "url": "/json-schemas/ws_server.json"
+      "url": "/json-schemas/0.10.3/ws_server.json"
     },
     {
       "fileMatch": [
         "/**/websockets/**/*.ws.json",
         "/**/websockets/**/*.ws.yao"
       ],
-      "url": "/json-schemas/ws_client.json"
+      "url": "/json-schemas/0.10.3/ws_client.json"
     },
     {
       "fileMatch": ["/**/*.imp.json", "/**/*.imp.yao"],
-      "url": "/json-schemas/importer.json"
+      "url": "/json-schemas/0.10.3/importer.json"
     },
     {
       "fileMatch": ["/**/*.http.json", "/**/*.http.yao"],
-      "url": "/json-schemas/api_http.json"
+      "url": "/json-schemas/0.10.3/api_http.json"
     },
     {
       "fileMatch": ["/**/*.rest.json", "/**/*.rest.yao"],
-      "url": "/json-schemas/api_rest.json"
+      "url": "/json-schemas/0.10.3/api_rest.json"
     },
     {
       "fileMatch": ["/**/*.chart.json", "/**/*.chart.yao"],
-      "url": "/json-schemas/chart.json"
+      "url": "/json-schemas/0.10.3/chart.json"
     },
     {
       "fileMatch": ["/**/*.tab.json", "/**/*.tab.yao"],
-      "url": "/json-schemas/table.json"
+      "url": "/json-schemas/0.10.3/table.json"
     },
     {
       "fileMatch": ["/**/*.conn.json", "/**/*.conn.yao"],
-      "url": "/json-schemas/connector.json"
+      "url": "/json-schemas/0.10.3/connector.json"
     },
     {
       "fileMatch": ["/**/*.model.json", "/**/*.model.yao"],
-      "url": "/json-schemas/model.json"
+      "url": "/json-schemas/0.10.3/model.json"
     },
     {
       "fileMatch": [
@@ -82,15 +82,15 @@
         "!/**/dyforms/**/*.form.json",
         "!/**/dyforms/**/*.form.yao"
       ],
-      "url": "/json-schemas/form.json"
+      "url": "/json-schemas/0.10.3/form.json"
     },
     {
       "fileMatch": ["/**/*.flow.json", "/**/*.flow.yao"],
-      "url": "/json-schemas/flow.json"
+      "url": "/json-schemas/0.10.3/flow.json"
     },
     {
       "fileMatch": ["/**/*.dash.json", "/**/*.dash.yao"],
-      "url": "/json-schemas/dashboard.json"
+      "url": "/json-schemas/0.10.3/dashboard.json"
     }
   ]
 }
