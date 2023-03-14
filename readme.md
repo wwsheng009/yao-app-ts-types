@@ -34,81 +34,29 @@ yao version
 
 ## 使用方法
 
-- 下载项目中的 json-schema 文件夹中所有的配置文件到本地
-- 下载项目中.vscode 目录下的 settings.json 到本地或是在需要编辑的 json 文件中加入 "$schema"引用对应的 json-schema 文件
-- 使用 vscode 编辑器
+需要使用 vscode 编辑器
 
-- 如果需要 vscode 支持后缀名为.yao 的配置文件
+### 在线配置文件
 
-  > - 使用 vscode 命令：更改语言模型/Change Language Mode,再修改文件类型关联。
-  > - 直接编辑 setting.json 配置
+直接使用 github 上的文件，优点是不需要下载 json-schema 文件,但是前提是电脑的网络能够直接连接到 github。
 
-  ```json
-   "files.associations": {
-     "*.yao": "jsonc"
-  },
-  ```
-
-## 配置 VScode 编辑器
-
-方法一，在 json 文件中加入 "$schema"引用对应的 json-schema,
-
-```json
-{
-  "$schema": "../../../json-schemas/flow.json",
-  "description": "测试",
-  "label": "test",
-  "nodes": [
-    {
-      "engine": "xiang",
-      "process": "",
-      "args": [],
-      "name": "测试",
-      "outs": [],
-      "query": { "select": [], "sql": { "stmt": "" } },
-      "script": ""
-    }
-  ],
-  "output": "",
-  "version": ""
-}
-```
-
-方法二，配置.vscode/settings.json，示例请参考本项目的.vscode/settings.json
-
-```json
-//使用工作区文件
-"json.schemas": [
-    {
-        "fileMatch": [
-            "/*.flow.json"
-        ],
-        "url": ".json-schema/flow.json"
-    }
-]
-```
-
-```json
-//模糊匹配文件或是排除文件
-
-"json.schemas": [
-    {
-      "fileMatch": [
-        "/receipts/*.json",
-        "!/receipts/*.excluded.json"
-      ],
-      "url": "./receipts.schema.json"
-    }
-  ]
-```
-
-方法三，直接使用 github 在线文档
+切换到 yao 应用目录执行以下命令。
 
 ```sh
+mkdir .vscode
 wget https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/.vscode/settings-online.json -O .vscode/settings.json
 ```
 
-如果需要直接修改 json-schema,配置额外的配置，请参考：https://code.visualstudio.com/docs/languages/json
+### 本地 json-schema 文件
+
+- 下载项目中的 json-schema 文件夹中所有的配置文件到本地
+- 下载项目中.vscode/settings.json 到本地目录.vscode/settings.json，这会对项目内所有的配置文件生效
+- 如果只是效验单个文件，也可以在需要编辑的 json 文件中加入字段 "$schema"引用对应的 json-schema 文件
+  ```json
+  {
+    "$schema": "../../../json-schemas/0.10.3/flow.json"
+  }
+  ```
 
 ## 目前支持的 yao DSL 列表
 
@@ -134,7 +82,7 @@ wget https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/.vscode/
 
 项目提供了一些内置处理器的 ts 类型定义与语法提示，方便用户理解 yao 的特有对象。
 
-在目录 src/types/dsl 下包含了 yao 的各种 dsl 类型定义，每一个文件都包含了一种 DSL 类型的定义。可以根据自己的需要自行调整。
+在目录 src/types/dsl 下包含了 yao 的各种 dsl 类型定义，每一个文件都包含了一种 DSL 类型的定义。用户可以根据自己的需要自行调整。
 
 ### 生成 json-schema 文件
 
@@ -155,3 +103,18 @@ npx ts-json-schema-generator --path 'src/types/dsl/**/*.ts' --type 'YaoForm.Form
 ```sh
 export_schemas.sh
 ```
+
+## 其它
+
+如果需要 vscode 支持后缀名为.yao 的配置文件
+
+> - 使用 vscode 命令：更改语言模型/Change Language Mode,再修改文件类型关联。
+> - 直接编辑 setting.json 配置
+
+```json
+ "files.associations": {
+   "*.yao": "jsonc"
+},
+```
+
+如果需要直接修改 json-schema,配置额外的配置，请参考：https://code.visualstudio.com/docs/languages/json
