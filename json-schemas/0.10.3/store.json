@@ -1,0 +1,38 @@
+{
+  "$ref": "#/definitions/YaoStore.Store",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "YaoStore.Store": {
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "type": "string"
+        },
+        "connector": {
+          "description": "绑定连接器名称(连接器) Yao v0.10.2+",
+          "type": "string"
+        },
+        "description": {
+          "description": "描述",
+          "type": "string"
+        },
+        "name": {
+          "description": "名称",
+          "type": "string"
+        },
+        "option": {
+          "description": "配置项 `{\"size\":10240}` type 为 `lru` 时有效， size 为 LRU 缓存大小",
+          "type": "object"
+        },
+        "type": {
+          "description": "类型 `lru` LRU 缓存 (connector 为空时有效)",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    }
+  }
+}

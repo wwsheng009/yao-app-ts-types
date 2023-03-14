@@ -79,6 +79,7 @@
       "additionalProperties": false,
       "properties": {
         "name": {
+          "description": "名称",
           "type": "string"
         },
         "process": {
@@ -90,6 +91,7 @@
           "type": "object"
         },
         "type": {
+          "description": "类型",
           "type": "string"
         },
         "xpath": {
@@ -207,7 +209,7 @@
               "type": "string"
             }
           ],
-          "description": "组件名称，可用组件参考文档 https://yaoapps.com/components"
+          "description": "组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件"
         }
       },
       "type": "object"
@@ -345,7 +347,7 @@
               "type": "string"
             }
           ],
-          "description": "组件名称，可用组件参考文档 https://yaoapps.com/components"
+          "description": "组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件"
         }
       },
       "type": "object"

@@ -24,7 +24,7 @@ array=(
     "schedule|YaoSchedule.Schedule|schedule.json"
     "service|YaoService.Service|service.json"
     "socket|YaoSocket.Socket|socket.json"
-    "store|YaoStoreStore|store.json"
+    "store|YaoStore.Store|store.json"
     "task|YaoTask.Task|task.json"
     "web_socket|YaoWebSocket.Server|ws_server.json"
     "web_socket|YaoWebSocket.Client|ws_client.json"
@@ -36,7 +36,7 @@ fi
 
 
 # array=(
-#     "dashboard|YaoDashboard.DashboardDSL|dashboard.json"
+#     "store|YaoStore.Store|store.json"
 # )  
 for line in "${array[@]}"
 do

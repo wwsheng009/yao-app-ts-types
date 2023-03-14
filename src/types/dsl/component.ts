@@ -36,7 +36,7 @@ namespace YaoComponent {
   export interface ViewComponentDSL {
     /**绑定字段名称，如不指定使用默认值 */
     bind?: string;
-    /**组件名称，可用组件参考文档 https://yaoapps.com/components */
+    /**组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件*/
     type?: ViewComponentEnum | string | "public/xxx";
     /**数据数值计算 */
     compute?: Compute | string;
@@ -64,7 +64,7 @@ namespace YaoComponent {
   export interface EditComponentDSL {
     /**绑定字段名称，如不指定使用默认值 */
     bind?: string;
-    /**组件名称，可用组件参考文档 https://yaoapps.com/components */
+    /**组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件*/
     type?: EditComponentEnum | string | "public/xxx";
     /**数据数值计算*/
     compute?: Compute | string;
@@ -176,6 +176,13 @@ namespace YaoComponent {
 
   // ActionNode the action node
   export interface ActionNode {
+    /**动作名称 */
+    name?: string,
+    /**动作类型 */
+    type?: string | "Common.closeModal" | "Form.delete" | "Form.submit",
+    /**动作携带的信息 */
+    payload?: { [key: string]: any }
+
     [key: string]: any;
   }
 
@@ -232,7 +239,9 @@ namespace YaoComponent {
   // CloudPropsDSL the cloud props
   export interface CloudPropsDSL {
     xpath?: string;
+    /**类型 */
     type?: string;
+    /**名称 */
     name?: string;
     /**处理器 */
     process?: string;
