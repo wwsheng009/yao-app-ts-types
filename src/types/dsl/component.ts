@@ -97,7 +97,7 @@ namespace YaoComponent {
 
   // InstanceDSL the component instance DSL
   export interface InstanceDSL {
-    /**字段名称key */
+    /**字段标称名Label */
     name?: string;
     /**宽度 */
     width?: any;
@@ -179,7 +179,7 @@ namespace YaoComponent {
     /**动作名称 */
     name?: string,
     /**动作类型 */
-    type?: string | "Common.closeModal" | "Form.delete" | "Form.submit",
+    type?: "Common.closeModal" | "Form.delete" | "Form.submit" | string,
     /**动作携带的信息 */
     payload?: { [key: string]: any }
 

@@ -37,7 +37,7 @@
           "type": "string"
         },
         "limit": {
-          "description": "number                          | 限制返回记录条目",
+          "description": "限制返回记录条目",
           "type": "number"
         },
         "model": {
@@ -45,22 +45,22 @@
           "type": "string"
         },
         "orders": {
-          "description": "| Array<Object Order\\>             | 排序条件",
+          "description": "排序条件",
           "items": {
             "$ref": "#/definitions/YaoQueryParam.QueryOrder"
           },
           "type": "array"
         },
         "page": {
-          "description": "number                          | 当前页码",
+          "description": "当前页码",
           "type": "number"
         },
         "pagesize": {
-          "description": "number                          | 每页显示记录数量",
+          "description": "每页显示记录数量",
           "type": "number"
         },
         "select": {
-          "description": "| Array<string\\>                   | 选择字段清单",
+          "description": "选择字段清单",
           "items": {
             "type": "string"
           },
@@ -71,7 +71,7 @@
           "type": "string"
         },
         "wheres": {
-          "description": "| Array<Object Where\\>             | 查询条件",
+          "description": "查询条件",
           "items": {
             "$ref": "#/definitions/YaoQueryParam.QueryWhere"
           },
@@ -132,10 +132,6 @@
           "$ref": "#/definitions/YaoQueryParam.QueryParam"
         }
       },
-      "required": [
-        "name",
-        "query"
-      ],
       "type": "object"
     }
   }

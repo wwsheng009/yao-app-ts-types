@@ -68,6 +68,10 @@
       "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/table.json"
     },
     {
+      "fileMatch": ["/**/*.list.json", "/**/*.list.yao"],
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/list.json"
+    },
+    {
       "fileMatch": ["/**/*.conn.json", "/**/*.conn.yao"],
       "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/connector.json"
     },

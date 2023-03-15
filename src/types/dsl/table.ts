@@ -3,6 +3,7 @@ import YaoAction from "./action";
 import YaoComponent from "./component";
 import YaoField from "./field";
 import YaoHook from "./hook";
+import { YaoQueryParam } from "./query_param";
 
 export namespace YaoTable {
   export type TableDSL = {
@@ -120,14 +121,14 @@ export namespace YaoTable {
     /**绑定表单 */
     form?: string;
     /**指定 Form Widget ID 关联表单, **bind.model 不为空时有效** */
-    option?: { [key: string]: any } & { form: string };
+    option?: { [key: string]: any } & { form?: string, withs?: { [key: string]: YaoQueryParam.QueryWith } };
   };
 
   export type LayoutDSL = {
     /**数据主键,默认id */
     primary?: string;
     /**表格界面头部布局。设置批量操作、导入配置等 */
-    header?: HeaderLayoutDSL;
+    header: HeaderLayoutDSL;
     /**表格筛选器。设置筛选条件和右上角操作按钮等 */
     filter?: FilterLayoutDSL;
     /**表格布局。设置显示列，行操作按钮等 */
@@ -137,8 +138,8 @@ export namespace YaoTable {
   export type HeaderLayoutDSL = {
     /**批量操作、导入配置等 */
     preset?: PresetHeaderDSL;
-    /**自定义操作按钮 */
-    actions: YaoComponent.ActionDSL[];
+    /**自定义操作按钮,请使用filter.actions */
+    actions?: YaoComponent.ActionDSL[];
   };
 
   export type PresetHeaderDSL = {

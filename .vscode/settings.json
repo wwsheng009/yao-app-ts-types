@@ -68,6 +68,10 @@
       "url": "/json-schemas/0.10.3/table.json"
     },
     {
+      "fileMatch": ["/**/*.list.json", "/**/*.list.yao"],
+      "url": "/json-schemas/0.10.3/list.json"
+    },
+    {
       "fileMatch": ["/**/*.conn.json", "/**/*.conn.yao"],
       "url": "/json-schemas/0.10.3/connector.json"
     },

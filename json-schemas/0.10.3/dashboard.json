@@ -31,6 +31,7 @@
       "description": "自定义关联处理器",
       "properties": {
         "bind": {
+          "description": "关联处理器名称，同process",
           "type": "string"
         },
         "default": {
@@ -39,6 +40,7 @@
           "type": "array"
         },
         "disable": {
+          "description": "没使用",
           "type": "boolean"
         },
         "guard": {
@@ -385,7 +387,7 @@
           "description": "高度"
         },
         "name": {
-          "description": "字段名称key",
+          "description": "字段标称名Label",
           "type": "string"
         },
         "rows": {

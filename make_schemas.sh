@@ -36,7 +36,7 @@ fi
 
 
 # array=(
-#     "store|YaoStore.Store|store.json"
+#     "form|YaoForm.FormDSL|form.json"
 # )  
 for line in "${array[@]}"
 do

@@ -9,17 +9,17 @@ export namespace YaoQueryParam {
     alias?: string;
     /**导出数据时的前缀 */
     export?: string;
-    /**| Array<string\>                   | 选择字段清单*/
+    /**选择字段清单*/
     select?: string[];
-    /**| Array<Object Where\>             | 查询条件*/
+    /**查询条件*/
     wheres?: QueryWhere[];
-    /**| Array<Object Order\>             | 排序条件*/
+    /**排序条件*/
     orders?: QueryOrder[];
-    /**number                          | 限制返回记录条目*/
+    /**限制返回记录条目*/
     limit?: number;
-    /**number                          | 当前页码*/
+    /**当前页码*/
     page?: number;
-    /**number                          | 每页显示记录数量*/
+    /**每页显示记录数量*/
     pagesize?: number;
     /**读取关联模型*/
     withs?: { [key: string]: QueryWith }; //Map<string, QueryWith>;
@@ -75,7 +75,7 @@ export namespace YaoQueryParam {
 
   /**With relations 关联查询 */
   export interface QueryWith {
-    name: string;
-    query: QueryParam;
+    name?: string;
+    query?: QueryParam;
   }
 }
