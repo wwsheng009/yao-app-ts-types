@@ -7,7 +7,7 @@
       "description": "导入字段定义",
       "properties": {
         "field": {
-          "description": "字段名称(原始值)",
+          "description": "字段名称(原始值),不需要配置",
           "type": "string"
         },
         "label": {
@@ -43,8 +43,7 @@
       },
       "required": [
         "label",
-        "name",
-        "field"
+        "name"
       ],
       "type": "object"
     },

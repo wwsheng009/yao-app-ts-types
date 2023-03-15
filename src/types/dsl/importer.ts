@@ -25,8 +25,8 @@ export namespace YaoImport {
     label: string;
     /**字段名称 */
     name: string;
-    /**字段名称(原始值) */
-    field: string;
+    /**字段名称(原始值),不需要配置*/
+    field?: string;
     /**匹配建议 */
     match?: string[];
     /**清洗规则定义 */
@@ -55,7 +55,7 @@ export namespace YaoImport {
     dataPreview?: string;
   }
 
-  /**字段映射表 */
+  /**字段映射表，输出值*/
   export interface Mapping {
     /**数据表 */
     sheet: string;

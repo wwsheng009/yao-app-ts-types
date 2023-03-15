@@ -621,6 +621,9 @@
           "$ref": "#/definitions/YaoAction.Process"
         }
       },
+      "required": [
+        "bind"
+      ],
       "type": "object"
     },
     "YaoForm.BindActionDSL": {
@@ -738,6 +741,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "name"
+      ],
       "type": "object"
     },
     "YaoForm.LayoutDSL": {

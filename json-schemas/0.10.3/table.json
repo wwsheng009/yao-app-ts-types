@@ -864,6 +864,9 @@
           "$ref": "#/definitions/YaoAction.Process"
         }
       },
+      "required": [
+        "bind"
+      ],
       "type": "object"
     },
     "YaoTable.BatchPresetDSL": {
@@ -1077,6 +1080,7 @@
         }
       },
       "required": [
+        "name",
         "action"
       ],
       "type": "object"

@@ -11,7 +11,7 @@ export namespace YaoTable {
     /**唯一标识 */
     id?: string;
     /**表格名称, 支持多语言*/
-    name?: string;
+    name: string;
     /**表格数据交互。用于指定列表检索、保存等操作的处理器，设置数据 Hook，绑定模型等*/
     action: ActionDSL;
     /**表格界面布局。显示字段、筛选器、批量编辑等*/
@@ -29,7 +29,7 @@ export namespace YaoTable {
   export type ActionDSL = {
     guard?: string;
     /**绑定 model 或 table。 根据关联 Widget ID 设定表格关联处理器和界面呈现默认值 */
-    bind?: BindActionDSL;
+    bind: BindActionDSL;
     /**关联处理器。返回表格页面配置 */
     setting?: YaoAction.Process;
     /** */

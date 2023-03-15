@@ -12,7 +12,7 @@ export namespace YaoForm {
     id?: string;
     // root?: string;
     /**表单名称, 支持多语言 */
-    name?: string;
+    name: string;
     /**表单数据交互。用于指定数据读取、保存等操作的处理器，设置数据 Hook，绑定模型等 */
     action?: ActionDSL;
     /**表单界面布局 */
@@ -33,7 +33,7 @@ export namespace YaoForm {
   export interface ActionDSL {
     guard?: string; // the default guard
     /**绑定 model 或 form。 根据关联 Widget ID 设定表单关联处理器和界面呈现默认值 */
-    bind?: BindActionDSL;
+    bind: BindActionDSL;
     /**关联处理器。返回表单页面配置 */
     setting?: YaoAction.Process;
     component?: YaoAction.Process;
