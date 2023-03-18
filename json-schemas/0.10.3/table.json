@@ -2,6 +2,14 @@
   "$ref": "#/definitions/YaoTable.TableDSL",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "ActionDefault": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/YaoQueryParam.QueryParam"
+        },
+        {}
+      ]
+    },
     "GlobalConfig": {
       "properties": {
         "full": {
@@ -19,16 +27,18 @@
       "description": "自定义关联处理器",
       "properties": {
         "bind": {
-          "description": "关联处理器名称，同process",
+          "description": "框架默认的关联处理器名称，如果不指定process,会使用的处理器",
           "type": "string"
         },
         "default": {
           "description": "关联处理器默认值，null 表示不设定默认值",
-          "items": {},
+          "items": {
+            "$ref": "#/definitions/ActionDefault"
+          },
           "type": "array"
         },
         "disable": {
-          "description": "没使用",
+          "description": "未使用",
           "type": "boolean"
         },
         "guard": {

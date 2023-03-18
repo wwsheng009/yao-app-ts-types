@@ -2,6 +2,14 @@
   "$ref": "#/definitions/YaoChart.ChartDSL",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "ActionDefault": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/YaoQueryParam.QueryParam"
+        },
+        {}
+      ]
+    },
     "GlobalConfig": {
       "properties": {
         "full": {
@@ -19,16 +27,18 @@
       "description": "自定义关联处理器",
       "properties": {
         "bind": {
-          "description": "关联处理器名称，同process",
+          "description": "框架默认的关联处理器名称，如果不指定process,会使用的处理器",
           "type": "string"
         },
         "default": {
           "description": "关联处理器默认值，null 表示不设定默认值",
-          "items": {},
+          "items": {
+            "$ref": "#/definitions/ActionDefault"
+          },
           "type": "array"
         },
         "disable": {
-          "description": "没使用",
+          "description": "未使用",
           "type": "boolean"
         },
         "guard": {
@@ -678,6 +688,138 @@
     },
     "YaoHook.Before": {
       "type": "string"
+    },
+    "YaoQueryParam.QueryOrder": {
+      "additionalProperties": false,
+      "description": "QueryOrder Order 查询排序",
+      "properties": {
+        "column": {
+          "description": "字段名称",
+          "type": "string"
+        },
+        "option": {
+          "description": "排序方式， `desc`, `asc`, 默认为 `asc`",
+          "type": "string"
+        },
+        "rel": {
+          "description": "如按关联模型的字段排序，则填写关联模型名称",
+          "type": "string"
+        }
+      },
+      "required": [
+        "column"
+      ],
+      "type": "object"
+    },
+    "YaoQueryParam.QueryParam": {
+      "additionalProperties": false,
+      "description": "QueryParam 数据查询器参数",
+      "properties": {
+        "alias": {
+          "description": "别名",
+          "type": "string"
+        },
+        "export": {
+          "description": "导出数据时的前缀",
+          "type": "string"
+        },
+        "limit": {
+          "description": "限制返回记录条目",
+          "type": "number"
+        },
+        "model": {
+          "description": "模型名称",
+          "type": "string"
+        },
+        "orders": {
+          "description": "排序条件",
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryOrder"
+          },
+          "type": "array"
+        },
+        "page": {
+          "description": "当前页码",
+          "type": "number"
+        },
+        "pagesize": {
+          "description": "每页显示记录数量",
+          "type": "number"
+        },
+        "select": {
+          "description": "选择字段清单",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "table": {
+          "description": "表格名称",
+          "type": "string"
+        },
+        "wheres": {
+          "description": "查询条件",
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWhere"
+          },
+          "type": "array"
+        },
+        "withs": {
+          "additionalProperties": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWith"
+          },
+          "description": "读取关联模型",
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "YaoQueryParam.QueryWhere": {
+      "additionalProperties": false,
+      "description": "QueryWhere Where 查询条件",
+      "properties": {
+        "column": {
+          "description": "字段名称",
+          "type": "string"
+        },
+        "method": {
+          "description": "查询方法 `where`,`orwhere`, `wherein`, `orwherein`... 默认为 `where`,\n\n| 查询方法 | 说明                                  | | -------- | ------------------------------------- | | where    | WHERE 字段 = 数值, WHERE 字段 >= 数值 | | orwhere  | ... OR WHERE 字段 = 数值              |",
+          "type": "string"
+        },
+        "op": {
+          "description": "匹配关系 `eq`,`like`,`in`,`gt` 等默认为 `eq`\n\n| 匹配关系 | 说明                             | | -------- | -------------------------------- | | eq       | 默认值 等于 WHERE 字段 = 数值    | | like     | 匹配 WHERE 字段 like 数值        | | match    | 匹配 WHERE 字段 全文检索 数值    | | gt       | 大于 WHERE 字段 > 数值           | | ge       | 大于等于 WHERE 字段 >= 数值      | | lt       | 小于 WHERE 字段 < 数值           | | le       | 小于等于 WHERE 字段 <= 数值      | | null     | 为空 WHERE 字段 IS NULL          | | notnull  | 不为空 WHERE 字段 IS NOT NULL    | | in       | 列表包含 WHERE 字段 IN (数值...) | | ne       | 不等于匹配值                     |",
+          "type": "string"
+        },
+        "rel": {
+          "description": "如按关联模型的字段查询，则填写关联模型名称",
+          "type": "string"
+        },
+        "value": {
+          "description": "匹配数值",
+          "type": "string"
+        },
+        "wheres": {
+          "description": "分组查询",
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWhere"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "YaoQueryParam.QueryWith": {
+      "additionalProperties": false,
+      "description": "With relations 关联查询",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "query": {
+          "$ref": "#/definitions/YaoQueryParam.QueryParam"
+        }
+      },
+      "type": "object"
     }
   }
 }

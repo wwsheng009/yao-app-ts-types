@@ -34,9 +34,8 @@ if [ ! -d "json-schemas" ]; then
   mkdir json-schemas
 fi
 
-
 # array=(
-#     "form|YaoForm.FormDSL|form.json"
+#     "table|YaoTable.TableDSL|table.json"
 # )  
 for line in "${array[@]}"
 do
