@@ -83,15 +83,15 @@
           "type": "boolean"
         },
         "href": {
-          "description": "跳转地址",
+          "description": "第三方登录跳转地址",
           "type": "string"
         },
         "icon": {
-          "description": "图标",
+          "description": "按钮前缀图标",
           "type": "string"
         },
         "title": {
-          "description": "标题",
+          "description": "按钮标题",
           "type": "string"
         }
       },

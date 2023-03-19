@@ -49,11 +49,11 @@ export namespace YaoLogin {
   }
 
   export interface ThirdPartyLoginDSL {
-    /**标题 */
+    /**按钮标题 */
     title?: string;
-    /**跳转地址 */
+    /**第三方登录跳转地址 */
     href?: string;
-    /**图标 */
+    /**按钮前缀图标 */
     icon?: string;
     /**是否在浏览器打开新标签 */
     blank?: boolean;
