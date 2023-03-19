@@ -1,4 +1,4 @@
-import { GlobalConfig } from "./share_types";
+import { CommonConfig } from "./share_types";
 import YaoAction from "./action";
 import YaoComponent from "./component";
 import YaoField from "./field";
@@ -27,7 +27,7 @@ export namespace YaoChart {
     /**图表字段定义。指定图表字段, 图表筛选器字段定义 */
     fields?: FieldsDSL;
     /**图表界面配置项。图表满屏显示等配置*/
-    config?: GlobalConfig;
+    config?: CommonConfig;
     // cProps: field.CloudProps;
     // computable: compute.Computable;
     // mapping: mapping.Mapping;

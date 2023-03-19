@@ -1,4 +1,4 @@
-import { GlobalConfig, HookType } from "./share_types";
+import { CommonConfig, HookType } from "./share_types";
 import YaoAction from "./action";
 import YaoComponent from "./component";
 import YaoField from "./field";
@@ -17,7 +17,7 @@ export namespace YaoList {
     /**字段定义 */
     fields: FieldsDSL;
     /**配置 */
-    config?: GlobalConfig;
+    config?: CommonConfig;
     // cprops?: field.CloudProps;
     // computable?: compute.Computable;
     // mapping?: mapping.Mapping;
@@ -52,7 +52,7 @@ export namespace YaoList {
   // LayoutDSL the list layout DSL
   export interface LayoutDSL {
     list?: ViewLayoutDSL;
-    config?: GlobalConfig;
+    config?: CommonConfig;
   }
 
   // OperationLayoutDSL layout.operation

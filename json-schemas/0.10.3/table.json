@@ -10,16 +10,14 @@
         {}
       ]
     },
-    "GlobalConfig": {
+    "CommonConfig": {
+      "additionalProperties": false,
       "properties": {
         "full": {
           "description": "是否满屏显示表格",
           "type": "boolean"
         }
       },
-      "required": [
-        "full"
-      ],
       "type": "object"
     },
     "YaoAction.Process": {
@@ -1069,7 +1067,7 @@
           "description": "表格数据交互。用于指定列表检索、保存等操作的处理器，设置数据 Hook，绑定模型等"
         },
         "config": {
-          "$ref": "#/definitions/GlobalConfig",
+          "$ref": "#/definitions/CommonConfig",
           "description": "表格界面配置项。表格满屏显示等配置"
         },
         "fields": {

@@ -1,4 +1,4 @@
-import { GlobalConfig, HookType } from "./share_types";
+import { CommonConfig, HookType } from "./share_types";
 import YaoAction from "./action";
 import YaoComponent from "./component";
 import YaoField from "./field";
@@ -20,7 +20,10 @@ export namespace YaoForm {
     /**表单字段定义。指定表单字段定义 */
     fields?: FieldsDSL;
     /**表单界面配置项。表单满屏显示等配置 */
-    config?: GlobalConfig;
+    config?: CommonConfig & {
+      /**是否在表单右边显示导航栏 */
+      showAnchor?: boolean
+    };
     // cProps?: field.CloudProps;
     // computable?: compute.Computable;
     // mapping?: mapping.Mapping;
@@ -96,7 +99,7 @@ export namespace YaoForm {
     /**表单布局配置 */
     form?: ViewLayoutDSL;
     /**全局配置 */
-    config?: GlobalConfig;
+    config?: CommonConfig;
   }
 
   // FieldsDSL the form fields DSL
@@ -149,8 +152,8 @@ export namespace YaoForm {
   }
 
 
-  export interface FormProperty extends YaoComponent.PropsDSL {
-    /**同步加载 */
+  export interface FormProperty { // extends YaoComponent.PropsDSL {
+    /**是否触发Form字段的onValueChange事件 */
     onLoadSync?: boolean,
     /**参照对象 */
     reference?: Reference,
@@ -160,7 +163,7 @@ export namespace YaoForm {
   }
   // ViewLayoutDSL layout.form
   export interface ViewLayoutDSL {
-    props?: YaoComponent.PropsDSL;
+    props?: FormProperty;
     /**节点配置 */
     sections?: SectionDSL[];
   }

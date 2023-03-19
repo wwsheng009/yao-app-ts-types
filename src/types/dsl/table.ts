@@ -1,4 +1,4 @@
-import { GlobalConfig } from "./share_types";
+import { CommonConfig } from "./share_types";
 import YaoAction from "./action";
 import YaoComponent from "./component";
 import YaoField from "./field";
@@ -19,7 +19,7 @@ export namespace YaoTable {
     /**表格字段定义。指定表格列字段, 表格筛选器字段定义*/
     fields?: FieldsDSL;
     /**表格界面配置项。表格满屏显示等配置*/
-    config?: GlobalConfig;
+    config?: CommonConfig;
     // c_props: field.CloudProps;
     // computable: compute.Computable;
     // mapping: mapping.Mapping;

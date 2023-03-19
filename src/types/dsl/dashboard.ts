@@ -1,4 +1,4 @@
-import { GlobalConfig, HookType } from "./share_types";
+import { CommonConfig, HookType } from "./share_types";
 import YaoHook from "./hook";
 import action from "./action";
 import field from "./field";
@@ -18,7 +18,7 @@ export namespace YaoDashboard {
     /**字段配置 */
     fields: FieldsDSL;
     /**全局配置项 */
-    config?: GlobalConfig;
+    config?: CommonConfig;
     // CProps?: any;
     // Computable?: any;
     // Mapping?: any;

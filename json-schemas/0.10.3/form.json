@@ -10,22 +10,21 @@
         {}
       ]
     },
-    "GlobalConfig": {
+    "CommonConfig": {
+      "additionalProperties": false,
       "properties": {
         "full": {
           "description": "是否满屏显示表格",
           "type": "boolean"
         }
       },
-      "required": [
-        "full"
-      ],
       "type": "object"
     },
     "HookType": {
-      "description": "hook事件，框架自动生成",
+      "description": "hook事件，收集编辑控件的$on:change事件",
       "properties": {
         "onChange": {
+          "description": "收集编辑控件的$on:change事件",
           "type": "object"
         }
       },
@@ -727,8 +726,19 @@
           "description": "表单数据交互。用于指定数据读取、保存等操作的处理器，设置数据 Hook，绑定模型等"
         },
         "config": {
-          "$ref": "#/definitions/GlobalConfig",
-          "description": "表单界面配置项。表单满屏显示等配置"
+          "additionalProperties": false,
+          "description": "表单界面配置项。表单满屏显示等配置",
+          "properties": {
+            "full": {
+              "description": "是否满屏显示表格",
+              "type": "boolean"
+            },
+            "showAnchor": {
+              "description": "是否在表单右边显示导航栏",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
         },
         "fields": {
           "$ref": "#/definitions/YaoForm.FieldsDSL",
@@ -756,6 +766,191 @@
       ],
       "type": "object"
     },
+    "YaoForm.FormProperty": {
+      "additionalProperties": false,
+      "properties": {
+        "onLoadSync": {
+          "description": "是否触发Form字段的onValueChange事件",
+          "type": "boolean"
+        },
+        "reference": {
+          "additionalProperties": false,
+          "description": "参照对象",
+          "properties": {
+            "flatContent": {
+              "additionalProperties": false,
+              "properties": {
+                "defaultOpen": {
+                  "description": "默认打开",
+                  "type": "boolean"
+                },
+                "name": {
+                  "description": "名称标识",
+                  "type": "string"
+                },
+                "payload": {
+                  "additionalProperties": false,
+                  "description": "参数",
+                  "properties": {
+                    "Form": {
+                      "additionalProperties": false,
+                      "description": "引用表单",
+                      "properties": {
+                        "id": {
+                          "description": "id标识可使用{{}}",
+                          "type": "string"
+                        },
+                        "model": {
+                          "description": "模型",
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "查看或是编辑",
+                          "enum": [
+                            "view",
+                            "edit"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "model",
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    "Page": {
+                      "additionalProperties": false,
+                      "description": "引用页面，Xgen未启用",
+                      "properties": {
+                        "id": {
+                          "description": "标识",
+                          "type": "string"
+                        },
+                        "model": {
+                          "description": "模型",
+                          "type": "string"
+                        },
+                        "type": {
+                          "const": "chart",
+                          "description": "图表",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "model",
+                        "id"
+                      ],
+                      "type": "object"
+                    },
+                    "width": {
+                      "description": "宽度px，默认600",
+                      "type": [
+                        "number",
+                        "string"
+                      ]
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "name",
+                "payload"
+              ],
+              "type": "object"
+            },
+            "floatContents": {
+              "description": "浮动页面",
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "description": "名称标识",
+                    "type": "string"
+                  },
+                  "payload": {
+                    "additionalProperties": false,
+                    "description": "参数",
+                    "properties": {
+                      "Form": {
+                        "additionalProperties": false,
+                        "description": "引用表单",
+                        "properties": {
+                          "id": {
+                            "description": "id标识可使用{{}}",
+                            "type": "string"
+                          },
+                          "model": {
+                            "description": "模型",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "查看或是编辑",
+                            "enum": [
+                              "view",
+                              "edit"
+                            ],
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "model",
+                          "id"
+                        ],
+                        "type": "object"
+                      },
+                      "Page": {
+                        "additionalProperties": false,
+                        "description": "引用页面，Xgen未启用",
+                        "properties": {
+                          "id": {
+                            "description": "标识",
+                            "type": "string"
+                          },
+                          "model": {
+                            "description": "模型",
+                            "type": "string"
+                          },
+                          "type": {
+                            "const": "chart",
+                            "description": "图表",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "model",
+                          "id"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "name",
+                  "payload"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "showSectionDivideLine": {
+          "const": true,
+          "description": "显示分区分隔线",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "YaoForm.LayoutDSL": {
       "additionalProperties": false,
       "description": "表单布局配置",
@@ -765,7 +960,7 @@
           "description": "自定义操作"
         },
         "config": {
-          "$ref": "#/definitions/GlobalConfig",
+          "$ref": "#/definitions/CommonConfig",
           "description": "全局配置"
         },
         "form": {
@@ -804,7 +999,7 @@
       "additionalProperties": false,
       "properties": {
         "props": {
-          "$ref": "#/definitions/YaoComponent.PropsDSL"
+          "$ref": "#/definitions/YaoForm.FormProperty"
         },
         "sections": {
           "description": "节点配置",
