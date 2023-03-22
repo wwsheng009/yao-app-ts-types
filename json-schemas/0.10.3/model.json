@@ -77,14 +77,7 @@
           "type": "string"
         },
         "type": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/YaoModel.ColumnFieldTypeEnum"
-            }
-          ],
+          "$ref": "#/definitions/YaoModel.ColumnFieldTypeEnum",
           "description": "字段类型"
         },
         "unique": {

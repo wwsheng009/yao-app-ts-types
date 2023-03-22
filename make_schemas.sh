@@ -35,7 +35,7 @@ if [ ! -d "json-schemas" ]; then
 fi
 
 # array=(
-#     "login|YaoLogin.LoginDSL|login.json"
+#     "model|YaoModel.ModelDSL|model.json"
 # )  
 for line in "${array[@]}"
 do

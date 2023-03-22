@@ -111,7 +111,7 @@ export namespace YaoModel {
     /**字段名称，对应数据表中字段名称*/
     name: string;
     /**字段类型*/
-    type?: string | ColumnFieldTypeEnum;
+    type?: ColumnFieldTypeEnum;
     /**字段标题，可用于开发平台中呈现*/
     title?: string;
     /**字段介绍，可用于开发平台中呈现*/
