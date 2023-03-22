@@ -1,13 +1,17 @@
 export namespace YaoApp {
   export type AppDSL = {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**XGen 界面引擎版本, 推荐使用 `1.0` 版，旧版已停止维护*/
     xgen?: string;
     /**应用名称, 支持多语言 */
     name?: string;
     /**应用简称, 支持多语言。 */
     short?: string;
-    /**应用版本号，建议遵循 [Semantic Versioning 标准](https://semver.org/lang/zh-CN/) */
-    version?: string;
     /**应用介绍, 支持多语言。 */
     description?: string;
     /** */

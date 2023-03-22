@@ -45,6 +45,14 @@
           "items": {},
           "type": "array"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "engine": {
           "description": "数据分析引擎名称,默认`xiang`",
           "type": "string"
@@ -68,6 +76,10 @@
         },
         "script": {
           "description": "关联的脚本名称",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },
@@ -181,7 +193,7 @@
       "description": "QueryDSL Gou Query Domain Specific Language",
       "properties": {
         "comment": {
-          "description": "查询条件注释，用于帮助理解查询条件逻辑和在开发平台中呈现。",
+          "description": "备注【管理字段】",
           "type": "string"
         },
         "data-only": {

@@ -53,6 +53,14 @@
           "$ref": "#/definitions/YaoLogin.ActionDSL",
           "description": "自定义用户登录逻辑处理器，默认是yao.login.Admin"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "id": {
           "description": "唯一标识",
           "type": "string"
@@ -71,6 +79,10 @@
             "$ref": "#/definitions/YaoLogin.ThirdPartyLoginDSL"
           },
           "type": "array"
+        },
+        "version": {
+          "description": "版本【管理字段】",
+          "type": "string"
         }
       },
       "type": "object"

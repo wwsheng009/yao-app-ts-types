@@ -8,6 +8,14 @@
         "$schema": {
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "description": {
           "description": "描述",
           "type": "string"
@@ -32,14 +40,10 @@
           "type": "array"
         },
         "version": {
-          "description": "版本号，用于依赖关系校验和开发平台呈现",
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "version"
-      ],
       "type": "object"
     },
     "YaoHttp.Out": {

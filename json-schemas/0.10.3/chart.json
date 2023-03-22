@@ -28,6 +28,10 @@
           "description": "框架默认的关联处理器名称，如果不指定process,会使用的处理器",
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "default": {
           "description": "关联处理器默认值，null 表示不设定默认值",
           "items": {
@@ -211,9 +215,17 @@
           "$ref": "#/definitions/YaoChart.ActionDSL",
           "description": "图表数据交互。用于指定统计数据读取处理器，设置数据 Hook，绑定模型等"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "config": {
           "$ref": "#/definitions/CommonConfig",
           "description": "图表界面配置项。图表满屏显示等配置"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
         },
         "fields": {
           "$ref": "#/definitions/YaoChart.FieldsDSL",
@@ -229,6 +241,10 @@
         },
         "name": {
           "description": "图表名称, 支持多语言",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },
@@ -715,6 +731,10 @@
       "properties": {
         "alias": {
           "description": "别名",
+          "type": "string"
+        },
+        "comment": {
+          "description": "备注【管理字段】",
           "type": "string"
         },
         "export": {

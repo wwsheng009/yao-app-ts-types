@@ -33,6 +33,12 @@ export namespace YaoModel {
   // MetaData 元数据
   /**模型元数据 */
   export interface ModelDSL {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**模型中文名称*/
     name?: string; // 元数据名称
     /** Bind a connector, MySQL, SQLite, Postgres, Clickhouse, Tidb, Oracle support. default is SQLite*/

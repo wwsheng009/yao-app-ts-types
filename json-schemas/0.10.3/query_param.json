@@ -32,6 +32,10 @@
           "description": "别名",
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "export": {
           "description": "导出数据时的前缀",
           "type": "string"

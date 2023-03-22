@@ -15,6 +15,8 @@ export namespace YaoField {
 
   // ColumnDSL the field column dsl
   export type ColumnDSL = {
+    /**备注【管理字段】 */
+    comment?: string;
     /**唯一标识 */
     id?: string;
     $data?: YaoComponent.CloudPropsDSL;

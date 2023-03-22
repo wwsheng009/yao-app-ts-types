@@ -1,14 +1,16 @@
 export namespace YaoCustomWidget {
   // gou/widget/types.go
   export interface Widget {
-    // name: string;
-    // path: string;
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**Widget 名称*/
     label?: string;
     /**Widget 介绍*/
     description?: string;
-    /**版本号*/
-    version?: string;
     /**DSL 文件保存路径(相对于项目根目录) */
     root?: string;
     /**DSL 文件扩展名  */

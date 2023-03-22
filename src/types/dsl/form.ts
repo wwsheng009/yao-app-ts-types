@@ -8,6 +8,12 @@ import { YaoQueryParam } from "./query_param";
 export namespace YaoForm {
   // DSL the form DSL
   export interface FormDSL {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**唯一标识 */
     id?: string;
     // root?: string;

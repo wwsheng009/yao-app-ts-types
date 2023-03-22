@@ -8,8 +8,16 @@
         "$schema": {
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "connector": {
           "description": "绑定连接器名称(连接器) Yao v0.10.2+",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
           "type": "string"
         },
         "description": {
@@ -26,6 +34,10 @@
         },
         "type": {
           "description": "类型 `lru` LRU 缓存 (connector 为空时有效)",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },

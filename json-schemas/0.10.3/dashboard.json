@@ -41,6 +41,10 @@
           "description": "框架默认的关联处理器名称，如果不指定process,会使用的处理器",
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "default": {
           "description": "关联处理器默认值，null 表示不设定默认值",
           "items": {
@@ -586,9 +590,17 @@
           "$ref": "#/definitions/YaoDashboard.ActionDSL",
           "description": "操作"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "config": {
           "$ref": "#/definitions/CommonConfig",
           "description": "全局配置项"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
         },
         "fields": {
           "$ref": "#/definitions/YaoDashboard.FieldsDSL",
@@ -608,6 +620,10 @@
         },
         "name": {
           "description": "名称",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },
@@ -735,6 +751,10 @@
       "properties": {
         "alias": {
           "description": "别名",
+          "type": "string"
+        },
+        "comment": {
+          "description": "备注【管理字段】",
           "type": "string"
         },
         "export": {

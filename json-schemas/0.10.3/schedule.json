@@ -13,6 +13,14 @@
           "items": {},
           "type": "array"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "name": {
           "description": "名称",
           "type": "string"
@@ -27,6 +35,10 @@
         },
         "task": {
           "description": "任务名称，使用task.json定义的任务",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },

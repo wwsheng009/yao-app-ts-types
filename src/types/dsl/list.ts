@@ -7,6 +7,12 @@ import YaoHook from "./hook";
 export namespace YaoList {
   // DSL the list DSL
   export interface ListDSL {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**唯一标识 */
     id?: string;
     // root?: string;

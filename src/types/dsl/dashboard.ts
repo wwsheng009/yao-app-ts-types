@@ -7,6 +7,12 @@ import YaoChart from "./chart";
 
 export namespace YaoDashboard {
   export interface DashboardDSL {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**唯一标识 */
     id?: string;
     /**名称 */

@@ -17,6 +17,14 @@
           "description": "失败重试次数",
           "type": "number"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "event": {
           "additionalProperties": false,
           "description": "事件处理",
@@ -59,6 +67,10 @@
         "timeout": {
           "description": "超时时间，秒钟，默认300",
           "type": "number"
+        },
+        "version": {
+          "description": "版本【管理字段】",
+          "type": "string"
         },
         "worker_nums": {
           "description": "指定进程数,默认是1",

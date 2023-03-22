@@ -34,6 +34,14 @@
           "$ref": "#/definitions/YaoWebSocket.BufferSize",
           "description": "缓存设置"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "description": {
           "description": "描述",
           "type": "string"
@@ -85,7 +93,7 @@
           "type": "string"
         },
         "version": {
-          "description": "版本",
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },

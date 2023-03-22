@@ -41,12 +41,14 @@ export namespace YaoService {
 
   /**后台服务定义，不支持windows操作系统 */
   export interface Service {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**名称 */
     name?: string;
-    /**描述 */
-    description?: string;
-    /**版本 */
-    version?: string;
     /**处理器，运行目录是环境变量YAO_ROOT，或是使用当前目录 */
     process?: string;
     /**作业运行命令，默认是`yao run `,使用yao执行脚本等，可替换成其它的系统命令*/

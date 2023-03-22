@@ -28,6 +28,10 @@
           "description": "框架默认的关联处理器名称，如果不指定process,会使用的处理器",
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "default": {
           "description": "关联处理器默认值，null 表示不设定默认值",
           "items": {
@@ -514,6 +518,10 @@
           "description": "默认绑定API接口返回字段名称",
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "edit": {
           "$ref": "#/definitions/YaoComponent.EditComponentDSL",
           "description": "编辑控件设置"
@@ -600,6 +608,10 @@
       "properties": {
         "alias": {
           "description": "别名",
+          "type": "string"
+        },
+        "comment": {
+          "description": "备注【管理字段】",
           "type": "string"
         },
         "export": {
@@ -1066,9 +1078,17 @@
           "$ref": "#/definitions/YaoTable.ActionDSL",
           "description": "表格数据交互。用于指定列表检索、保存等操作的处理器，设置数据 Hook，绑定模型等"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "config": {
           "$ref": "#/definitions/CommonConfig",
           "description": "表格界面配置项。表格满屏显示等配置"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
         },
         "fields": {
           "$ref": "#/definitions/YaoTable.FieldsDSL",
@@ -1084,6 +1104,10 @@
         },
         "name": {
           "description": "表格名称, 支持多语言",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },

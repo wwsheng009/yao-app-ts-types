@@ -44,12 +44,16 @@ export namespace YaoWebSocket {
     connected?: string;
   }
   export interface WSClientOption {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**名称 */
     name?: string;
     /**描述 */
     description?: string;
-    /**版本 */
-    version?: string;
     /**地址 */
     url?: string;
     /**协议 */

@@ -61,6 +61,14 @@
           },
           "type": "array"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "option": {
           "$ref": "#/definitions/YaoImport.Option",
           "description": "导入配置项"
@@ -82,6 +90,10 @@
         },
         "title": {
           "description": "导入名称",
+          "type": "string"
+        },
+        "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },

@@ -16,6 +16,12 @@ export namespace YaoChart {
     "Table" = "Table",
   }
   export interface ChartDSL {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**唯一标识 */
     id?: string;
     /**图表名称, 支持多语言 */

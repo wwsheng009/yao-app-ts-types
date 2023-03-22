@@ -3,6 +3,12 @@ export namespace YaoImport {
 
   /**数据导入器 */
   export interface Importer {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**导入名称*/
     title?: string;
     /**处理器名称*/

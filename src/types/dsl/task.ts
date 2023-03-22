@@ -2,6 +2,12 @@ export namespace YaoTask {
   // TaskOption the task option
   /**并发任务*/
   export interface Task {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**任务名称*/
     name: string;
     /**该task绑定的处理器，必须配置*/

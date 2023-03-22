@@ -6,6 +6,13 @@ export namespace YaoMenu {
   /**0.10.3以前的版本 */
   export type Menu2 = MenuItem[];
   export interface MenuItem {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
+    /**唯一标识 */
     id?: number;
     /**菜单名称，显示标题 */
     name: string;

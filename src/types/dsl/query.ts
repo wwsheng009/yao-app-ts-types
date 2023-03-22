@@ -4,6 +4,8 @@ export namespace YaoQuery {
   /**QueryDSL Gou Query Domain Specific Language*/
 
   export interface QueryDSL {
+    /**备注【管理字段】 */
+    comment?: string;
     /**选择字段列表*/
     select?: Array<string>;
     /**查询数据表名称或数据模型*/
@@ -36,8 +38,6 @@ export namespace YaoQuery {
     joins?: Array<Join>;
     /**SQL 语句。**非必要，勿使用***/
     sql?: SQL;
-    /**查询条件注释，用于帮助理解查询条件逻辑和在开发平台中呈现。*/
-    comment?: string;
     /**是否开启调试(开启后计入查询日志)*/
     debug?: boolean;
   }

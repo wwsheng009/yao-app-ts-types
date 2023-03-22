@@ -10,10 +10,14 @@ export namespace YaoHttp {
 
   // HTTP http 协议服务
   export interface HttpDSL {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**API 呈现名称 */
-    name: string;
-    /**版本号，用于依赖关系校验和开发平台呈现*/
-    version: string;
+    name?: string;
     /**描述*/
     description?: string;
     /**API 分组名称，访问时作为 API 路由前缀目录。 `/api/<group>/<path>`*/

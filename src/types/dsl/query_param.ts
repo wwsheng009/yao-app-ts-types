@@ -1,6 +1,8 @@
 export namespace YaoQueryParam {
   /**QueryParam 数据查询器参数 */
   export interface QueryParam {
+    /**备注【管理字段】 */
+    comment?: string;
     /**模型名称 */
     model?: string;
     /**表格名称 */

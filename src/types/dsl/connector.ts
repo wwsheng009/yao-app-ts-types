@@ -14,14 +14,19 @@ export namespace YaoConnector {
     // script = "script",
   }
   export interface ConnectorDSL {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**连接器类型, 当前支持 `mysql`, `sqlite3`, `mongo` 和 `redis` */
     type: string | ConnectorEnum;
     /**连接器名称 */
     name?: string;
     /**标签显示 */
     label?: string;
-    /**版本说明 */
-    version?: string;
+
     /**连接器配置项 */
     options?: // | { [key: string]: any }
     MySqlOption | RedisOption | Sqlite3Option | MongoDBOption;

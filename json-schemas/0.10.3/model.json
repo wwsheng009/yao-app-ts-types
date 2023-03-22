@@ -191,8 +191,16 @@
           },
           "type": "array"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
         "connector": {
           "description": "数据表定义",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
           "type": "string"
         },
         "indexes": {
@@ -232,6 +240,10 @@
           "description": "默认数据",
           "items": {},
           "type": "array"
+        },
+        "version": {
+          "description": "版本【管理字段】",
+          "type": "string"
         }
       },
       "type": "object"
@@ -406,6 +418,10 @@
       "properties": {
         "alias": {
           "description": "别名",
+          "type": "string"
+        },
+        "comment": {
+          "description": "备注【管理字段】",
           "type": "string"
         },
         "export": {

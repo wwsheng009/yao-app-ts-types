@@ -8,6 +8,14 @@
         "$schema": {
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "label": {
           "description": "标签显示",
           "type": "string"
@@ -45,7 +53,7 @@
           "description": "连接器类型, 当前支持 `mysql`, `sqlite3`, `mongo` 和 `redis`"
         },
         "version": {
-          "description": "版本说明",
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },

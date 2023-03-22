@@ -8,6 +8,14 @@
         "$schema": {
           "type": "string"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "description": {
           "description": "Widget 介绍",
           "type": "string"
@@ -32,7 +40,7 @@
           "type": "string"
         },
         "version": {
-          "description": "版本号",
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },

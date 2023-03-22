@@ -23,6 +23,12 @@ export namespace YaoFlow {
 
   // FlowNode 工作流节点
   export interface FlowNode {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     /**查询节点名称*/
     name?: string;
     /**调用处理器 `process`*/

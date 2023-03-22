@@ -12,8 +12,13 @@ export namespace YaoSocket {
 
   // Socket struct
   export interface Socket {
+    /**版本【管理字段】 */
+    version?: string;
+    /**描述【管理字段】 */
+    decription?: string;
+    /**备注【管理字段】 */
+    comment?: string;
     name: string;
-    version: string;
     mode?: "server" | "client"; // Server | client
     description?: string;
     protocol?: string;

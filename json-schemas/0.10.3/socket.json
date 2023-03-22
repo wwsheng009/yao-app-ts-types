@@ -17,6 +17,14 @@
         "buffer": {
           "type": "number"
         },
+        "comment": {
+          "description": "备注【管理字段】",
+          "type": "string"
+        },
+        "decription": {
+          "description": "描述【管理字段】",
+          "type": "string"
+        },
         "description": {
           "type": "string"
         },
@@ -52,12 +60,12 @@
           "type": "number"
         },
         "version": {
+          "description": "版本【管理字段】",
           "type": "string"
         }
       },
       "required": [
-        "name",
-        "version"
+        "name"
       ],
       "type": "object"
     },

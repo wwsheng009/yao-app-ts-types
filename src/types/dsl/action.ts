@@ -5,6 +5,8 @@ export type ActionDefault = YaoQueryParam.QueryParam | any
 export namespace YaoAction {
   /**自定义关联处理器*/
   export type Process = {
+    /**备注【管理字段】 */
+    comment?: string;
     // name?: string;
     /**关联处理器名称 */
     process?: string;
