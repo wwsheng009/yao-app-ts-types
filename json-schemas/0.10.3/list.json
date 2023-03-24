@@ -204,6 +204,24 @@
                     "process"
                   ],
                   "type": "object"
+                },
+                "$search": {
+                  "additionalProperties": false,
+                  "description": "控件搜索回调api",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
                 }
               },
               "type": "object"

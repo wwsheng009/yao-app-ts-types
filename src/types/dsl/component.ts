@@ -71,6 +71,13 @@ namespace YaoComponent {
     /**控件属性，可参考antd控件 */
     props?: PropsDSL & {
       xProps?: {
+        /**控件搜索回调api */
+        $search?: {
+          /**处理器 */
+          process: string;
+          /**请求参数绑定，可使用{{}}绑定记录结构 */
+          query?: { [key: string]: any };
+        };
         // 在字段名称前加 $ 前缀, 指定处理器名称和参数，自动将处理器解析为 API
         $remote?: {
           /**处理器 */
@@ -84,8 +91,8 @@ namespace YaoComponent {
           process: string;
           /**请求参数绑定，可使用{{}}绑定记录结构 */
           query?: { [key: string]: any };
-        };
-      };
+        }
+      }
     };
   }
 
