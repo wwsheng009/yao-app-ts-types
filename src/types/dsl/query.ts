@@ -86,7 +86,7 @@ export namespace YaoQuery {
     comment?: string;
   }
   /**Groups 聚合条件集合*/
-  export type Groups = Group[];
+  export type Groups = Group[] | string[];
 
   /**Having 聚合结果筛选条件*/
   export interface Having {

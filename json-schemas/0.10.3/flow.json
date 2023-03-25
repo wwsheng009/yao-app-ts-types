@@ -108,11 +108,21 @@
       "type": "object"
     },
     "YaoQuery.Groups": {
-      "description": "Groups 聚合条件集合",
-      "items": {
-        "$ref": "#/definitions/YaoQuery.Group"
-      },
-      "type": "array"
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/definitions/YaoQuery.Group"
+          },
+          "type": "array"
+        },
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      ],
+      "description": "Groups 聚合条件集合"
     },
     "YaoQuery.Having": {
       "additionalProperties": false,
