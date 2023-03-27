@@ -123,7 +123,7 @@ export namespace YaoChart {
     /**自定义操作按钮 */
     actions?: YaoComponent.Actions;
     /**筛选条件, 在 fields.filter 中定义的筛选条件字段 */
-    columns?: YaoComponent.Instances;
+    columns?: YaoComponent.LayoutColumns;
   }
 
   export interface OperationLayoutDSL {
@@ -131,7 +131,7 @@ export namespace YaoChart {
   }
 
   export interface ViewLayoutDSL {
-    columns?: YaoComponent.Instances;
+    columns?: YaoComponent.LayoutColumns;
   }
 }
 export default YaoChart;

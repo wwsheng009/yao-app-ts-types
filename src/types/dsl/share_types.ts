@@ -9,3 +9,10 @@ export type HookType = {
   /**收集编辑控件的$on:change事件 */
   onChange: { [key: string]: any };
 };
+
+export type MapStr = {
+  [key: string]: string;
+};
+export type MapAny = {
+  [key: string]: any;
+};

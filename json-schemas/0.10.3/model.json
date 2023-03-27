@@ -2,101 +2,6 @@
   "$ref": "#/definitions/YaoModel.ModelDSL",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    "YaoModel.Column": {
-      "additionalProperties": false,
-      "properties": {
-        "comment": {
-          "description": "字段注释，对应数据表中字段注释",
-          "type": "string"
-        },
-        "crypt": {
-          "description": "字段加密存储方式。许可值 `AES(MySQL Only)`, `PASSWORD`",
-          "type": "string"
-        },
-        "default": {
-          "description": "string\\|number\\|float|字段默认值"
-        },
-        "default_raw": {
-          "description": "字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高",
-          "type": "string"
-        },
-        "description": {
-          "description": "字段介绍，可用于开发平台中呈现",
-          "type": "string"
-        },
-        "example": {},
-        "generate": {
-          "description": "Increment, UUID,...",
-          "type": "string"
-        },
-        "index": {
-          "description": "字段是否为索引，默认为 false",
-          "type": "boolean"
-        },
-        "label": {
-          "description": "字段显示名称，用于在管理表单，开发平台等成场景下呈现",
-          "type": "string"
-        },
-        "length": {
-          "description": "字段长度，对 `string` 等类型字段有效",
-          "type": "number"
-        },
-        "model": {
-          "$ref": "#/definitions/YaoModel.ModelDSL",
-          "description": "模型元数据"
-        },
-        "name": {
-          "description": "字段名称，对应数据表中字段名称",
-          "type": "string"
-        },
-        "nullable": {
-          "description": "字段是否可以为空，默认为 false",
-          "type": "boolean"
-        },
-        "option": {
-          "description": "字段许可值，对 `enum` 类型字段有效",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "precision": {
-          "description": "字段位数(含小数位)，对 `float`、`decimal` 等类型字段有效",
-          "type": "number"
-        },
-        "primary": {
-          "description": "字段是否为主键，每张表至多一个主键字段。默认为 false",
-          "type": "boolean"
-        },
-        "scale": {
-          "description": "字段小数位位数，对 `float`、`decimal` 等类型字段有效",
-          "type": "number"
-        },
-        "title": {
-          "description": "字段标题，可用于开发平台中呈现",
-          "type": "string"
-        },
-        "type": {
-          "$ref": "#/definitions/YaoModel.ColumnFieldTypeEnum",
-          "description": "字段类型"
-        },
-        "unique": {
-          "description": "字段是否为唯一索引，默认为 false , 如为 true 无需同时将 `index` 设置为 true",
-          "type": "boolean"
-        },
-        "validations": {
-          "description": "字段校验规则",
-          "items": {
-            "$ref": "#/definitions/YaoModel.Validation"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "type": "object"
-    },
     "YaoModel.ColumnFieldTypeEnum": {
       "enum": [
         "string",
@@ -145,6 +50,13 @@
       ],
       "type": "string"
     },
+    "YaoModel.ColumnOption": {
+      "type": [
+        "string",
+        "number",
+        "boolean"
+      ]
+    },
     "YaoModel.Index": {
       "additionalProperties": false,
       "properties": {
@@ -170,6 +82,109 @@
       },
       "type": "object"
     },
+    "YaoModel.ModelColumn": {
+      "additionalProperties": false,
+      "description": "模型中的字段定义",
+      "properties": {
+        "comment": {
+          "description": "字段注释，对应数据表中字段注释",
+          "type": "string"
+        },
+        "crypt": {
+          "description": "字段加密存储方式。许可值 `AES(MySQL Only)`, `PASSWORD`",
+          "type": "string"
+        },
+        "default": {
+          "description": "string\\|number\\|float|字段默认值"
+        },
+        "default_raw": {
+          "description": "字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高",
+          "type": "string"
+        },
+        "description": {
+          "description": "字段介绍，可用于开发平台中呈现",
+          "type": "string"
+        },
+        "example": {},
+        "generate": {
+          "description": "Increment, UUID,...",
+          "type": "string"
+        },
+        "index": {
+          "description": "字段是否为索引，默认为 false",
+          "type": "boolean"
+        },
+        "label": {
+          "description": "字段显示名称，用于在管理表单，开发平台等成场景下呈现",
+          "type": "string"
+        },
+        "length": {
+          "description": "字段长度，对 `string` 等类型字段有效",
+          "type": "number"
+        },
+        "name": {
+          "description": "字段名称，对应数据表中字段名称",
+          "type": "string"
+        },
+        "nullable": {
+          "description": "字段是否可以为空，默认为 false",
+          "type": "boolean"
+        },
+        "option": {
+          "description": "字段许可值，对 `enum` 类型字段有效",
+          "items": {
+            "$ref": "#/definitions/YaoModel.ColumnOption"
+          },
+          "type": "array"
+        },
+        "precision": {
+          "description": "字段位数(含小数位)，对 `float`、`decimal` 等类型字段有效",
+          "type": "number"
+        },
+        "primary": {
+          "description": "字段是否为主键，每张表至多一个主键字段。默认为 false",
+          "type": "boolean"
+        },
+        "props": {
+          "description": "额外的配置属性",
+          "type": "object"
+        },
+        "scale": {
+          "description": "字段小数位位数，对 `float`、`decimal` 等类型字段有效",
+          "type": "number"
+        },
+        "title": {
+          "description": "字段标题，可用于开发平台中呈现",
+          "type": "string"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoModel.ColumnFieldTypeEnum"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "字段类型"
+        },
+        "unique": {
+          "description": "字段是否为唯一索引，默认为 false , 如为 true 无需同时将 `index` 设置为 true",
+          "type": "boolean"
+        },
+        "validations": {
+          "description": "字段校验规则",
+          "items": {
+            "$ref": "#/definitions/YaoModel.Validation"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
     "YaoModel.ModelDSL": {
       "additionalProperties": false,
       "description": "模型元数据",
@@ -180,7 +195,7 @@
         "columns": {
           "description": "字段定义",
           "items": {
-            "$ref": "#/definitions/YaoModel.Column"
+            "$ref": "#/definitions/YaoModel.ModelColumn"
           },
           "type": "array"
         },
@@ -204,11 +219,11 @@
           "type": "array"
         },
         "name": {
-          "description": "模型中文名称",
+          "description": "模型名称",
           "type": "string"
         },
         "option": {
-          "$ref": "#/definitions/YaoModel.Option",
+          "$ref": "#/definitions/YaoModel.ModelOption",
           "description": "配置选型"
         },
         "relations": {
@@ -241,7 +256,7 @@
       },
       "type": "object"
     },
-    "YaoModel.Option": {
+    "YaoModel.ModelOption": {
       "additionalProperties": false,
       "properties": {
         "constraints": {

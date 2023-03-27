@@ -76,7 +76,7 @@ export namespace YaoList {
   // ViewLayoutDSL layout.list
   export interface ViewLayoutDSL {
     props?: YaoComponent.PropsDSL;
-    columns?: YaoComponent.InstanceDSL[];
+    columns?: YaoComponent.LayoutColumnDSL[];
   }
 }
 export default YaoList;

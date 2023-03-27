@@ -235,9 +235,6 @@
               "$ref": "#/definitions/YaoComponent.EditComponentEnum"
             },
             {
-              "type": "string"
-            },
-            {
               "const": "public/xxx",
               "type": "string"
             }
@@ -272,7 +269,7 @@
       ],
       "type": "string"
     },
-    "YaoComponent.InstanceDSL": {
+    "YaoComponent.LayoutColumnDSL": {
       "additionalProperties": false,
       "properties": {
         "fixed": {
@@ -289,7 +286,7 @@
         "rows": {
           "description": "配置rows",
           "items": {
-            "$ref": "#/definitions/YaoComponent.InstanceDSL"
+            "$ref": "#/definitions/YaoComponent.LayoutColumnDSL"
           },
           "type": "array"
         },
@@ -373,9 +370,6 @@
               "$ref": "#/definitions/YaoComponent.ViewComponentEnum"
             },
             {
-              "type": "string"
-            },
-            {
               "const": "public/xxx",
               "type": "string"
             }
@@ -402,7 +396,8 @@
       "additionalProperties": false,
       "properties": {
         "$data": {
-          "$ref": "#/definitions/YaoComponent.CloudPropsDSL"
+          "$ref": "#/definitions/YaoComponent.CloudPropsDSL",
+          "description": "远程data数据接口"
         },
         "bind": {
           "description": "默认绑定API接口返回字段名称",
@@ -578,7 +573,7 @@
       "properties": {
         "columns": {
           "items": {
-            "$ref": "#/definitions/YaoComponent.InstanceDSL"
+            "$ref": "#/definitions/YaoComponent.LayoutColumnDSL"
           },
           "type": "array"
         },

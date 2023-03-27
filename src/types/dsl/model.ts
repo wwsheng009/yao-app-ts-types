@@ -2,19 +2,21 @@ import { YaoQueryParam } from "./query_param";
 
 export namespace YaoModel {
   // Relationship types
-  export enum RelationEnum {
-    RelHasOne = "hasOne", // 1 v 1
-    RelHasMany = "hasMany", // 1 v n
-    // RelBelongsTo = "belongsTo", // inverse  1 v 1 / 1 v n / n v n
-    RelHasOneThrough = "hasOneThrough", // 1 v 1 ( t1 <-> t2 <-> t3)
-    // RelHasManyThrough = "hasManyThrough", // 1 v n ( t1 <-> t2 <-> t3)
-    // RelBelongsToMany = "belongsToMany", // 1 v1 / 1 v n / n v n
-    // RelMorphOne = "morphOne",
-    // RelMorphMany = "morphMany",
-    // RelMorphToMany = "morphToMany",
-    // RelMorphByMany = "morphByMany",
-    // RelMorphMap = "morphMap",
-  }
+  export type RelationEnum = "hasOne" | "hasMany" | "hasOneThrough";
+
+  // {
+  //   RelHasOne = "hasOne", // 1 v 1
+  //   RelHasMany = "hasMany", // 1 v n
+  //   // RelBelongsTo = "belongsTo", // inverse  1 v 1 / 1 v n / n v n
+  //   RelHasOneThrough = "hasOneThrough", // 1 v 1 ( t1 <-> t2 <-> t3)
+  //   // RelHasManyThrough = "hasManyThrough", // 1 v n ( t1 <-> t2 <-> t3)
+  //   // RelBelongsToMany = "belongsToMany", // 1 v1 / 1 v n / n v n
+  //   // RelMorphOne = "morphOne",
+  //   // RelMorphMany = "morphMany",
+  //   // RelMorphToMany = "morphToMany",
+  //   // RelMorphByMany = "morphByMany",
+  //   // RelMorphMap = "morphMap",
+  // }
 
   // Model 数据模型
   //   export interface Model {
@@ -39,7 +41,7 @@ export namespace YaoModel {
     decription?: string;
     /**备注【管理字段】 */
     comment?: string;
-    /**模型中文名称*/
+    /**模型名称*/
     name?: string; // 元数据名称
     /** Bind a connector, MySQL, SQLite, Postgres, Clickhouse, Tidb, Oracle support. default is SQLite*/
     /**数据表定义*/
@@ -47,7 +49,7 @@ export namespace YaoModel {
     /**数据表选项 */
     table?: Table;
     /**字段定义*/
-    columns?: Column[];
+    columns?: ModelColumn[];
     /**索引定义*/
     indexes?: Index[];
     /**映射关系定义*/
@@ -55,63 +57,66 @@ export namespace YaoModel {
     /**默认数据*/
     values?: any[];
     /**配置选型*/
-    option?: Option;
+    option?: ModelOption;
     $schema?: string;
   }
 
-  export enum ColumnFieldTypeEnum {
-    "字符串" = "string",
-    "字符" = "char",
-    "文本" = "text",
-    "中文本" = "mediumText",
-    "长文本" = "longText",
-    "二进制数据" = "binary",
-    "日期" = "date",
-    "日期时间" = "datetime",
-    "带时区的日期时间" = "datetimeTz",
-    "时间" = "time",
-    "带时区的时间" = "timeTz",
-    "时间戳" = "timestamp",
-    "带时区的时间戳" = "timestampTz",
-    "微整型" = "tinyInteger",
-    "无符号微整型+自增" = "tinyIncrements",
-    "无符号微整型" = "unsignedTinyInteger",
-    "小整型" = "smallInteger",
-    "无符号小整型+自增" = "smallIncrements",
-    "无符号小整型" = "unsignedSmallInteger",
-    "整型" = "integer",
-    "无符号整型+自增" = "increments",
-    "无符号整型" = "unsignedInteger",
-    "长整型" = "bigInteger",
-    "无符号长整型+自增" = "bigIncrements",
-    "无符号长整型" = "unsignedBigInteger",
-    "长整型+自增" = "id",
-    "长整型+自增(同id)" = "ID",
-    "小数(一般用于存储货币)" = "decimal",
-    "无符号小数(一般用于存储货币)" = "unsignedDecimal",
-    "浮点数" = "float",
-    "无符号浮点数" = "unsignedFloat",
-    "双精度" = "double",
-    "无符号双精度" = "unsignedDouble",
-    "布尔型" = "boolean",
-    "枚举型" = "enum",
-    "JSON文本" = "json",
-    "JSON文本(同json)" = "JSON",
-    "JSON(二进制格式存储)" = "jsonb",
-    "JSON(二进制格式存储同jsonb)" = "JSONB",
-    "UUID格式字符串" = "uuid",
-    "IP地址" = "ipAddress",
-    "MAC地址" = "macAddress",
-    "年份" = "year",
-  }
+  export type ColumnFieldTypeEnum =
+    | "string" //"字符串",
+    | "char" //"字符",
+    | "text" //"文本",
+    | "mediumText" //"中文本",
+    | "longText" //"长文本",
+    | "binary" //"二进制数据",
+    | "date" //"日期",
+    | "datetime" //"日期时间",
+    | "datetimeTz" //"带时区的日期时间",
+    | "time" //"时间",
+    | "timeTz" //"带时区的时间",
+    | "timestamp" //"时间戳",
+    | "timestampTz" //"带时区的时间戳",
+    | "tinyInteger" //"微整型",
+    | "tinyIncrements" //"无符号微整型+自增",
+    | "unsignedTinyInteger" //"无符号微整型",
+    | "smallInteger" //"小整型",
+    | "smallIncrements" //"无符号小整型+自增",
+    | "unsignedSmallInteger" //"无符号小整型",
+    | "integer" //"整型",
+    | "increments" //"无符号整型+自增",
+    | "unsignedInteger" //"无符号整型",
+    | "bigInteger" //"长整型",
+    | "bigIncrements" //"无符号长整型+自增",
+    | "unsignedBigInteger" //"无符号长整型",
+    | "id" //"长整型+自增",
+    | "ID" //"长整型+自增(同id)",
+    | "decimal" //"小数(一般用于存储货币)",
+    | "unsignedDecimal" //"无符号小数(一般用于存储货币)",
+    | "float" //"浮点数",
+    | "unsignedFloat" //"无符号浮点数",
+    | "double" //"双精度",
+    | "unsignedDouble" //"无符号双精度",
+    | "boolean" //"布尔型",
+    | "enum" //"枚举型",
+    | "json" //"JSON文本",
+    | "JSON" //"JSON文本(同json)",
+    | "jsonb" //"JSON(二进制格式存储)",
+    | "JSONB" //"JSON(二进制格式存储同jsonb)",
+    | "uuid" //"UUID格式字符串",
+    | "ipAddress" //"IP地址",
+    | "macAddress" //"MAC地址",
+    | "year"; //"年份"
   // Column the field description struct
-  export interface Column {
+
+  export type ColumnOption = string | number | boolean;
+
+  /**模型中的字段定义 */
+  export interface ModelColumn {
     /**字段显示名称，用于在管理表单，开发平台等成场景下呈现*/
     label?: string;
     /**字段名称，对应数据表中字段名称*/
     name: string;
     /**字段类型*/
-    type?: ColumnFieldTypeEnum;
+    type?: ColumnFieldTypeEnum | string;
     /**字段标题，可用于开发平台中呈现*/
     title?: string;
     /**字段介绍，可用于开发平台中呈现*/
@@ -127,11 +132,12 @@ export namespace YaoModel {
     /**字段是否可以为空，默认为 false*/
     nullable?: boolean;
     /**字段许可值，对 `enum` 类型字段有效*/
-    option?: string[];
+    option?: ColumnOption[];
     /**string\|number\|float|字段默认值*/
     default?: any;
     /**字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高*/
     default_raw?: string;
+
     example?: any;
     /** Increment, UUID,...*/
     generate?: string; //
@@ -145,8 +151,11 @@ export namespace YaoModel {
     unique?: boolean;
     /**字段是否为主键，每张表至多一个主键字段。默认为 false*/
     primary?: boolean;
+
+    /**额外的配置属性 */
+    props?: { [key: string]: any };
     /**模型元数据 */
-    model?: ModelDSL | undefined;
+    // model?: ModelDSL | undefined;
   }
 
   // Validation the field validation struct
@@ -232,7 +241,7 @@ export namespace YaoModel {
   }
 
   // Option 模型配置选项
-  export interface Option {
+  export interface ModelOption {
     /**created_at, updated_at 字段 */
     timestamps?: boolean;
     /**deleted_at 字段 */

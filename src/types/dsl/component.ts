@@ -1,43 +1,42 @@
-namespace YaoComponent {
-  export enum ViewComponentEnum {
-    "A" = "A",
-    "Checkbox" = "Checkbox",
-    "Color" = "Color",
-    "Image" = "Image",
-    "Switch" = "Switch",
-    "Tag" = "Tag",
-    "Text" = "Text",
-    "Tooltip" = "Tooltip",
-  }
-  export enum EditComponentEnum {
-    "Cascader" = "Cascader",
-    "CheckboxGroup" = "CheckboxGroup",
-    "CodeEditor" = "CodeEditor",
-    "ColorPicker" = "ColorPicker",
-    "DatePicker" = "DatePicker",
-    "Grant" = "Grant",
-    "Input" = "Input",
-    "InputNumber" = "InputNumber",
-    "List" = "List",
-    "Mentions" = "Mentions",
-    "Password" = "Password",
-    "RadioGroup" = "RadioGroup",
-    "RangePicker" = "RangePicker",
-    "RichText" = "RichText",
-    "Select" = "Select",
-    "Table" = "Table",
-    "TextArea" = "TextArea",
-    "TimePicker" = "TimePicker",
-    "Tree" = "Tree",
-    "Upload" = "Upload",
-  }
+export namespace YaoComponent {
+  export type ViewComponentEnum =
+    | "A"
+    | "Checkbox"
+    | "Color"
+    | "Image"
+    | "Switch"
+    | "Tag"
+    | "Text"
+    | "Tooltip";
+
+  export type EditComponentEnum =
+    | "Cascader"
+    | "CheckboxGroup"
+    | "CodeEditor"
+    | "ColorPicker"
+    | "DatePicker"
+    | "Grant"
+    | "Input"
+    | "InputNumber"
+    | "List"
+    | "Mentions"
+    | "Password"
+    | "RadioGroup"
+    | "RangePicker"
+    | "RichText"
+    | "Select"
+    | "Table"
+    | "TextArea"
+    | "TimePicker"
+    | "Tree"
+    | "Upload";
 
   // DSL the component DSL
   export interface ViewComponentDSL {
     /**绑定字段名称，如不指定使用默认值 */
     bind?: string;
     /**组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件*/
-    type?: ViewComponentEnum | string | "public/xxx";
+    type?: ViewComponentEnum | "public/xxx";
     /**数据数值计算 */
     compute?: Compute | string;
     /**控件属性，可参考antd控件 */
@@ -65,11 +64,11 @@ namespace YaoComponent {
     /**绑定字段名称，如不指定使用默认值 */
     bind?: string;
     /**组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件*/
-    type?: EditComponentEnum | string | "public/xxx";
+    type?: EditComponentEnum | "public/xxx";
     /**数据数值计算*/
     compute?: Compute | string;
     /**控件属性，可参考antd控件 */
-    props?: PropsDSL & {
+    props?: {
       xProps?: {
         /**控件搜索回调api */
         $search?: {
@@ -91,19 +90,19 @@ namespace YaoComponent {
           process: string;
           /**请求参数绑定，可使用{{}}绑定记录结构 */
           query?: { [key: string]: any };
-        }
-      }
-    };
+        };
+      };
+    } & PropsDSL;
   }
 
   // Actions the actions
   export type Actions = ActionDSL[];
 
   // Instances the Instances
-  export type Instances = InstanceDSL[];
+  export type LayoutColumns = LayoutColumnDSL[];
 
   // InstanceDSL the component instance DSL
-  export interface InstanceDSL {
+  export interface LayoutColumnDSL {
     /**字段标称名Label */
     name?: string;
     /**宽度 */
@@ -113,7 +112,7 @@ namespace YaoComponent {
     /**固定 */
     fixed?: boolean; // for widget table
     /**配置rows */
-    rows?: InstanceDSL[];
+    rows?: LayoutColumnDSL[];
   }
 
   // ActionsExport the export actions
@@ -183,14 +182,19 @@ namespace YaoComponent {
 
   // ActionNode the action node
   export interface ActionNode {
-    /**动作名称 */
-    name?: string,
-    /**动作类型 */
-    type?: "Common.closeModal" | "Form.delete" | "Form.submit" | string,
-    /**动作携带的信息 */
-    payload?: { [key: string]: any }
+    /**操作名称 */
+    name?: string;
+    /**操作类型 */
+    type?: "Common.closeModal" | "Form.delete" | "Form.submit" | string;
+    /**操作携带的信息 */
+    payload?: {
+      /**关联模型 */
+      model?: string;
+      /**关联Form */
+      Form?: PropsDSL;
+    } & PropsDSL;
 
-    [key: string]: any;
+    //[key: string]: any;
   }
 
   // ConfirmActionDSL action.confirm

@@ -3,13 +3,13 @@ export namespace YaoFlow {
   // 可以使用 JavaScript 脚本，对数据流节点返回值进行处理，按需返回数据结构。
   // Flow 工作流
   export interface Flow {
-    // name: string;
+    name?: string;
     // source: string;
     // scripts: { [key: string]: string };
     /**数据流呈现名称，用于开发平台呈现*/
-    label: string;
+    label?: string;
     /**版本号，用于依赖关系校验和开发平台呈现*/
-    version: string;
+    version?: string;
     /**数据流介绍，用于开发平台呈现*/
     description?: string;
     /**查询节点*/

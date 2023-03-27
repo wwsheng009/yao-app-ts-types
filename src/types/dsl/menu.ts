@@ -4,7 +4,7 @@ export namespace YaoMenu {
     setting: MenuItem[];
   }
   /**0.10.3以前的版本 */
-  export type Menu2 = MenuItem[];
+  export type MenuItems = MenuItem[];
   export interface MenuItem {
     /**版本【管理字段】 */
     version?: string;
@@ -23,13 +23,19 @@ export namespace YaoMenu {
     /**菜单路由地址，**不含管理后台路由前缀**  */
     path: string;
     /**是否显示为图标, 二级菜单有效 `0` 文字, `1` 图标  */
-    blocks?: boolean;
+    blocks?: boolean | 0 | 1;
     /**二级菜单默认显示方式, `1` 打开， `0` 关闭*/
-    visible_menu?: boolean;
+    visible_menu?: boolean | 0 | 1;
+    /**状态 */
+    status?: "enabled" | "disabled";
+    /**排名 */
+    rank?: number;
+    /**模型名称 */
+    model?: string;
     /**上标 */
     badge?: number;
     /**二级菜单列表*/
-    children?: Menu[];
+    children?: MenuItem[];
     /**不展示数字，只有一个小红点 */
     dot?: boolean;
   }

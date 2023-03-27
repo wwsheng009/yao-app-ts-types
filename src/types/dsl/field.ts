@@ -19,6 +19,7 @@ export namespace YaoField {
     comment?: string;
     /**唯一标识 */
     id?: string;
+    /**远程data数据接口 */
     $data?: YaoComponent.CloudPropsDSL;
     /**列主键名，不需要显式设置 */
     key?: string;

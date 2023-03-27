@@ -16,6 +16,9 @@
           "description": "数据流呈现名称，用于开发平台呈现",
           "type": "string"
         },
+        "name": {
+          "type": "string"
+        },
         "nodes": {
           "description": "查询节点",
           "items": {
@@ -31,10 +34,6 @@
           "type": "string"
         }
       },
-      "required": [
-        "label",
-        "version"
-      ],
       "type": "object"
     },
     "YaoFlow.FlowNode": {

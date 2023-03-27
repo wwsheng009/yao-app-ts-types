@@ -137,17 +137,28 @@
       "type": "object"
     },
     "YaoComponent.ActionNode": {
+      "additionalProperties": false,
       "properties": {
         "name": {
-          "description": "动作名称",
+          "description": "操作名称",
           "type": "string"
         },
         "payload": {
-          "description": "动作携带的信息",
+          "description": "操作携带的信息",
+          "properties": {
+            "Form": {
+              "$ref": "#/definitions/YaoComponent.PropsDSL",
+              "description": "关联Form"
+            },
+            "model": {
+              "description": "关联模型",
+              "type": "string"
+            }
+          },
           "type": "object"
         },
         "type": {
-          "description": "动作类型",
+          "description": "操作类型",
           "type": "string"
         }
       },
@@ -370,9 +381,6 @@
               "$ref": "#/definitions/YaoComponent.EditComponentEnum"
             },
             {
-              "type": "string"
-            },
-            {
               "const": "public/xxx",
               "type": "string"
             }
@@ -407,7 +415,7 @@
       ],
       "type": "string"
     },
-    "YaoComponent.InstanceDSL": {
+    "YaoComponent.LayoutColumnDSL": {
       "additionalProperties": false,
       "properties": {
         "fixed": {
@@ -424,7 +432,7 @@
         "rows": {
           "description": "配置rows",
           "items": {
-            "$ref": "#/definitions/YaoComponent.InstanceDSL"
+            "$ref": "#/definitions/YaoComponent.LayoutColumnDSL"
           },
           "type": "array"
         },
@@ -508,9 +516,6 @@
               "$ref": "#/definitions/YaoComponent.ViewComponentEnum"
             },
             {
-              "type": "string"
-            },
-            {
               "const": "public/xxx",
               "type": "string"
             }
@@ -537,7 +542,8 @@
       "additionalProperties": false,
       "properties": {
         "$data": {
-          "$ref": "#/definitions/YaoComponent.CloudPropsDSL"
+          "$ref": "#/definitions/YaoComponent.CloudPropsDSL",
+          "description": "远程data数据接口"
         },
         "bind": {
           "description": "默认绑定API接口返回字段名称",
@@ -715,7 +721,7 @@
         "rows": {
           "description": "配置rows",
           "items": {
-            "$ref": "#/definitions/YaoComponent.InstanceDSL"
+            "$ref": "#/definitions/YaoComponent.LayoutColumnDSL"
           },
           "type": "array"
         },
@@ -736,7 +742,8 @@
       "additionalProperties": false,
       "properties": {
         "form": {
-          "$ref": "#/definitions/YaoField.Columns"
+          "$ref": "#/definitions/YaoField.Columns",
+          "description": "Form页面字段列表布局"
         }
       },
       "type": "object"

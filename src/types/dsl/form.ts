@@ -28,7 +28,7 @@ export namespace YaoForm {
     /**表单界面配置项。表单满屏显示等配置 */
     config?: CommonConfig & {
       /**是否在表单右边显示导航栏 */
-      showAnchor?: boolean
+      showAnchor?: boolean;
     };
     // cProps?: field.CloudProps;
     // computable?: compute.Computable;
@@ -91,8 +91,10 @@ export namespace YaoForm {
     /**绑定另外一个表单 */
     form?: string;
     /**绑定选项 */
-    option?: { [key: string]: any } & { form?: string, withs?: { [key: string]: YaoQueryParam.QueryWith } };
-
+    option?: { [key: string]: any } & {
+      form?: string;
+      withs?: { [key: string]: YaoQueryParam.QueryWith };
+    };
   }
 
   // LayoutDSL the form layout DSL
@@ -110,6 +112,7 @@ export namespace YaoForm {
 
   // FieldsDSL the form fields DSL
   export interface FieldsDSL {
+    /**Form页面字段列表布局 */
     form?: YaoField.Columns;
     // formMap?: { [key: string]: field.ColumnDSL };
   }
@@ -118,54 +121,53 @@ export namespace YaoForm {
     /**引用表单 */
     Form?: {
       /**查看或是编辑 */
-      type: 'view' | 'edit'
+      type: "view" | "edit";
       /**模型*/
-      model: string
+      model: string;
       /**id标识可使用{{}} */
-      id: string
-    }
+      id: string;
+    };
     /**引用页面，Xgen未启用 */
     Page?: {
       /**图表 */
-      type: 'chart'
+      type: "chart";
       /**模型 */
-      model: string
+      model: string;
       /**标识 */
-      id: string
-    }
+      id: string;
+    };
   }
   interface FloatContentItem {
     /**名称标识 */
-    name: string
+    name: string;
     /**参数 */
-    payload: OpenRef
+    payload: OpenRef;
   }
 
   interface Reference {
     flatContent?: {
       /**名称标识 */
-      name: string
+      name: string;
       /**默认打开 */
-      defaultOpen?: boolean
+      defaultOpen?: boolean;
       /**参数 */
       payload: OpenRef & {
         /**宽度px，默认600 */
-        width?: number | string
-      }
-    }
+        width?: number | string;
+      };
+    };
     /**浮动页面 */
-    floatContents?: Array<FloatContentItem>
+    floatContents?: Array<FloatContentItem>;
   }
 
-
-  export interface FormProperty { // extends YaoComponent.PropsDSL {
+  export interface FormProperty {
+    // extends YaoComponent.PropsDSL {
     /**是否触发Form字段的onValueChange事件 */
-    onLoadSync?: boolean,
+    onLoadSync?: boolean;
     /**参照对象 */
-    reference?: Reference,
+    reference?: Reference;
     /**显示分区分隔线 */
-    showSectionDivideLine?: true
-
+    showSectionDivideLine?: true;
   }
   // ViewLayoutDSL layout.form
   export interface ViewLayoutDSL {
@@ -186,7 +188,7 @@ export namespace YaoForm {
   }
 
   // Column table columns
-  export interface Column extends YaoComponent.InstanceDSL {
+  export interface Column extends YaoComponent.LayoutColumnDSL {
     /**Tab标签页配置 */
     tabs?: SectionDSL[];
     // instanceDSL?: ;

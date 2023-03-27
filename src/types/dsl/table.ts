@@ -127,7 +127,12 @@ export namespace YaoTable {
     /**绑定表单 */
     form?: string;
     /**指定 Form Widget ID 关联表单, **bind.model 不为空时有效** */
-    option?: { [key: string]: any } & { form?: string, withs?: { [key: string]: YaoQueryParam.QueryWith } };
+    option?: { [key: string]: any } & {
+      /**表格绑定的表单Key */
+      form?: string;
+      /**关联表定义 */
+      withs?: { [key: string]: YaoQueryParam.QueryWith };
+    };
   };
 
   export type LayoutDSL = {
@@ -158,7 +163,7 @@ export namespace YaoTable {
   /**批量处理数据 */
   export type BatchPresetDSL = {
     /**需要显示的列 */
-    columns?: YaoComponent.InstanceDSL[];
+    columns?: YaoComponent.LayoutColumnDSL[];
     /**是否可以删除 */
     deletable?: boolean;
   };
@@ -174,14 +179,14 @@ export namespace YaoTable {
     /**自定义操作按钮(界面右上方) */
     actions?: YaoComponent.Actions;
     /**筛选条件, 在 fields.filter 中定义的筛选条件字段 */
-    columns?: YaoComponent.Instances;
+    columns?: YaoComponent.LayoutColumns;
   };
 
   export type ViewLayoutDSL = {
     /**属性配置 */
     props?: YaoComponent.PropsDSL;
     /**表格列定义 */
-    columns?: YaoComponent.Instances;
+    columns?: YaoComponent.LayoutColumns;
     /**表格行操作区定义,右边的按钮，查看，编辑，删除等 */
     operation?: OperationTableDSL;
   };

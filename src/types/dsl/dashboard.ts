@@ -129,12 +129,12 @@ export namespace YaoDashboard {
     /**筛选操作 */
     actions?: YaoComponent.Actions;
     /**字段列表配置 */
-    columns?: YaoComponent.Instances;
+    columns?: YaoComponent.LayoutColumns;
   }
 
   export interface ViewLayoutDSL {
     /**字段列表配置 */
-    columns?: YaoComponent.Instances;
+    columns?: YaoComponent.LayoutColumns;
   }
 }
 export default YaoDashboard;
