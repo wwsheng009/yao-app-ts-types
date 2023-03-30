@@ -38,7 +38,7 @@ export namespace YaoModel {
     /**版本【管理字段】 */
     version?: string;
     /**描述【管理字段】 */
-    decription?: string;
+    description?: string;
     /**备注【管理字段】 */
     comment?: string;
     /**模型名称*/

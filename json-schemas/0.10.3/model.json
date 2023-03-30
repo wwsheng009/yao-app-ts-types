@@ -207,7 +207,7 @@
           "description": "数据表定义",
           "type": "string"
         },
-        "decription": {
+        "description": {
           "description": "描述【管理字段】",
           "type": "string"
         },
