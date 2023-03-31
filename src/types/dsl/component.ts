@@ -112,7 +112,7 @@ export namespace YaoComponent {
     /**固定 */
     fixed?: boolean; // for widget table
     /**配置rows */
-    rows?: LayoutColumnDSL[];
+    // rows?: LayoutColumnDSL[];
   }
 
   // ActionsExport the export actions

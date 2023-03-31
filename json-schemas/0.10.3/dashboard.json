@@ -429,13 +429,6 @@
           "description": "字段标称名Label",
           "type": "string"
         },
-        "rows": {
-          "description": "配置rows",
-          "items": {
-            "$ref": "#/definitions/YaoComponent.LayoutColumnDSL"
-          },
-          "type": "array"
-        },
         "width": {
           "description": "宽度"
         }
@@ -688,6 +681,39 @@
       },
       "type": "object"
     },
+    "YaoDashboard.LayoutColumnDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "fixed": {
+          "description": "固定",
+          "type": "boolean"
+        },
+        "height": {
+          "description": "高度"
+        },
+        "name": {
+          "description": "字段标称名Label",
+          "type": "string"
+        },
+        "rows": {
+          "description": "配置rows",
+          "items": {
+            "$ref": "#/definitions/YaoDashboard.LayoutColumnDSL"
+          },
+          "type": "array"
+        },
+        "width": {
+          "description": "宽度"
+        }
+      },
+      "type": "object"
+    },
+    "YaoDashboard.LayoutColumns": {
+      "items": {
+        "$ref": "#/definitions/YaoDashboard.LayoutColumnDSL"
+      },
+      "type": "array"
+    },
     "YaoDashboard.LayoutDSL": {
       "additionalProperties": false,
       "properties": {
@@ -710,7 +736,7 @@
       "additionalProperties": false,
       "properties": {
         "columns": {
-          "$ref": "#/definitions/YaoComponent.LayoutColumns",
+          "$ref": "#/definitions/YaoDashboard.LayoutColumns",
           "description": "字段列表配置"
         }
       },

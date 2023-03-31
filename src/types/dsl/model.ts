@@ -2,7 +2,7 @@ import { YaoQueryParam } from "./query_param";
 
 export namespace YaoModel {
   // Relationship types
-  export type RelationEnum = "hasOne" | "hasMany" | "hasOneThrough";
+  // export type RelationEnum = "hasOne" | "hasMany" | "hasOneThrough";
 
   // {
   //   RelHasOne = "hasOne", // 1 v 1
@@ -41,8 +41,10 @@ export namespace YaoModel {
     description?: string;
     /**备注【管理字段】 */
     comment?: string;
+    /**标签 */
+    label?: string;
     /**模型名称*/
-    name?: string; // 元数据名称
+    name: string; // 元数据名称
     /** Bind a connector, MySQL, SQLite, Postgres, Clickhouse, Tidb, Oracle support. default is SQLite*/
     /**数据表定义*/
     connector?: string;
@@ -112,11 +114,11 @@ export namespace YaoModel {
   /**模型中的字段定义 */
   export interface ModelColumn {
     /**字段显示名称，用于在管理表单，开发平台等成场景下呈现*/
-    label?: string;
+    label: string;
     /**字段名称，对应数据表中字段名称*/
     name: string;
     /**字段类型*/
-    type?: ColumnFieldTypeEnum | string;
+    type: ColumnFieldTypeEnum | string;
     /**字段标题，可用于开发平台中呈现*/
     title?: string;
     /**字段介绍，可用于开发平台中呈现*/
@@ -209,7 +211,7 @@ export namespace YaoModel {
 
   // Table the model mapping table in DB
   export interface Table {
-    /**数据表名称，if not setthe default is generate from model name. eg name.space.user, table name is name_space_user*/
+    /**数据表名称，if not set the default is generate from model name. eg name.space.user, table name is name_space_user*/
     name?: string;
     /**表名前缀 */
     prefix?: string;
@@ -221,6 +223,7 @@ export namespace YaoModel {
     collation?: string;
     /** (MySQL ONLY) */
     charset?: string;
+    /**未知 */
     primaryKeys?: string[];
   }
 
@@ -228,13 +231,14 @@ export namespace YaoModel {
   export interface Relation {
     // name: string;
     /**与当前数据模型的关系类型. `hasOne` 一对一, `hasMany` 一对多。*/
-    type: string | RelationEnum;
+    type: "hasOne" | "hasMany" | "hasOneThrough";
     /** **关联数据模型** 字段的名称，用于关联映射 (关联数据模型.key = 当前数据模型.foreign)*/
-    key?: string;
+    key: string;
     /** **关联数据模型** 名称*/
-    model?: string;
+    model: string;
     /** **当前数据模型** 字段的名称，用于关联映射 (关联数据模型.key = 当前数据模型.foreign)*/
-    foreign?: string;
+    foreign: string;
+    /**连接，未知 */
     links?: Relation[];
     /** **关联数据模型** 的查询条件，可以在查询时重载。 例: `{ "select": ["id", "name"] }`*/
     query?: YaoQueryParam.QueryParam;

@@ -132,9 +132,25 @@ export namespace YaoDashboard {
     columns?: YaoComponent.LayoutColumns;
   }
 
+  // Instances the Instances
+  export type LayoutColumns = LayoutColumnDSL[];
+
+  // InstanceDSL the component instance DSL
+  export interface LayoutColumnDSL {
+    /**字段标称名Label */
+    name?: string;
+    /**宽度 */
+    width?: any;
+    /**高度 */
+    height?: any;
+    /**固定 */
+    fixed?: boolean; // for widget table
+    /**配置rows */
+    rows?: LayoutColumnDSL[];
+  }
   export interface ViewLayoutDSL {
     /**字段列表配置 */
-    columns?: YaoComponent.LayoutColumns;
+    columns?: LayoutColumns;
   }
 }
 export default YaoDashboard;

@@ -415,33 +415,6 @@
       ],
       "type": "string"
     },
-    "YaoComponent.LayoutColumnDSL": {
-      "additionalProperties": false,
-      "properties": {
-        "fixed": {
-          "description": "固定",
-          "type": "boolean"
-        },
-        "height": {
-          "description": "高度"
-        },
-        "name": {
-          "description": "字段标称名Label",
-          "type": "string"
-        },
-        "rows": {
-          "description": "配置rows",
-          "items": {
-            "$ref": "#/definitions/YaoComponent.LayoutColumnDSL"
-          },
-          "type": "array"
-        },
-        "width": {
-          "description": "宽度"
-        }
-      },
-      "type": "object"
-    },
     "YaoComponent.PropsDSL": {
       "type": "object"
     },
@@ -717,13 +690,6 @@
         "name": {
           "description": "字段标称名Label",
           "type": "string"
-        },
-        "rows": {
-          "description": "配置rows",
-          "items": {
-            "$ref": "#/definitions/YaoComponent.LayoutColumnDSL"
-          },
-          "type": "array"
         },
         "tabs": {
           "description": "Tab标签页配置",

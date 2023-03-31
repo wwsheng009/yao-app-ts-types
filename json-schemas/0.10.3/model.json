@@ -181,7 +181,9 @@
         }
       },
       "required": [
-        "name"
+        "label",
+        "name",
+        "type"
       ],
       "type": "object"
     },
@@ -217,6 +219,10 @@
             "$ref": "#/definitions/YaoModel.Index"
           },
           "type": "array"
+        },
+        "label": {
+          "description": "标签",
+          "type": "string"
         },
         "name": {
           "description": "模型名称",
@@ -254,6 +260,9 @@
           "type": "string"
         }
       },
+      "required": [
+        "name"
+      ],
       "type": "object"
     },
     "YaoModel.ModelOption": {
@@ -302,6 +311,7 @@
           "type": "string"
         },
         "links": {
+          "description": "连接，未知",
           "items": {
             "$ref": "#/definitions/YaoModel.Relation"
           },
@@ -316,29 +326,22 @@
           "description": "**关联数据模型** 的查询条件，可以在查询时重载。 例: `{ \"select\": [\"id\", \"name\"] }`"
         },
         "type": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/YaoModel.RelationEnum"
-            }
+          "description": "与当前数据模型的关系类型. `hasOne` 一对一, `hasMany` 一对多。",
+          "enum": [
+            "hasOne",
+            "hasMany",
+            "hasOneThrough"
           ],
-          "description": "与当前数据模型的关系类型. `hasOne` 一对一, `hasMany` 一对多。"
+          "type": "string"
         }
       },
       "required": [
-        "type"
+        "type",
+        "key",
+        "model",
+        "foreign"
       ],
       "type": "object"
-    },
-    "YaoModel.RelationEnum": {
-      "enum": [
-        "hasOne",
-        "hasMany",
-        "hasOneThrough"
-      ],
-      "type": "string"
     },
     "YaoModel.Table": {
       "additionalProperties": false,
@@ -360,7 +363,7 @@
           "type": "string"
         },
         "name": {
-          "description": "数据表名称，if not setthe default is generate from model name. eg name.space.user, table name is name_space_user",
+          "description": "数据表名称，if not set the default is generate from model name. eg name.space.user, table name is name_space_user",
           "type": "string"
         },
         "prefix": {
@@ -368,6 +371,7 @@
           "type": "string"
         },
         "primaryKeys": {
+          "description": "未知",
           "items": {
             "type": "string"
           },

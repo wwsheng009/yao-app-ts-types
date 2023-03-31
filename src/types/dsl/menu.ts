@@ -30,13 +30,13 @@ export namespace YaoMenu {
     status?: "enabled" | "disabled";
     /**排名 */
     rank?: number;
-    /**模型名称 */
-    model?: string;
     /**上标 */
     badge?: number;
     /**二级菜单列表*/
     children?: MenuItem[];
     /**不展示数字，只有一个小红点 */
     dot?: boolean;
+    /**额外字段 */
+    extra?: any;
   }
 }
