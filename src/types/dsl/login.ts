@@ -22,7 +22,7 @@ export namespace YaoLogin {
     /**备注【管理字段】 */
     comment?: string;
     /**唯一标识 */
-    id?: string;
+    // id?: string;
     /**登录界面名称, 支持多语言 */
     name?: string;
     /**自定义用户登录逻辑处理器，默认是yao.login.Admin */

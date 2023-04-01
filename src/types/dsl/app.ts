@@ -14,23 +14,23 @@ export namespace YaoApp {
     short?: string;
     /**应用介绍, 支持多语言。 */
     description?: string;
-    /** */
-    theme?: string;
-    /** */
+    /**默认主题*/
+    theme?: "white" | "black";
+    /**配置xgen语言 zh-cn/en-us*/
     lang?: string;
     /** */
     sid?: string;
-    /** */
+    /**logo文件地址，根目录/public */
     logo?: string;
-    /** */
+    /**网站favicon文件地址，根目录/public */
     favicon?: string;
     /**管理后台菜单读取处理器 */
     menu?: MenuDSL;
-    /**管理后台路由前缀 */
+    /**管理后台路由前缀,默认为/yao*/
     adminRoot?: string;
     /**应用可选配置项 */
     optional?: OptionalDSL;
-    /** */
+    /**xgen获取配置的处理器，默认是yao.app.Xgen*/
     setting?: string;
     /**应用首次安装后运行的处理器名称， 一般可以用来建立初始化数据；处理器第一个参数为应用配置信息。支持使用 `studio` 命名空间，调用 studio 脚本函数*/
     setup?: string;
@@ -47,9 +47,12 @@ export namespace YaoApp {
 
   export type OptionalDSL = { [key: string]: any } & {
     /**隐藏系统通知面板。 **字段名大小写敏感** */
-    hideNotification: boolean;
+    hideNotification?: boolean;
     /**隐藏导航栏下方配置菜单。 **字段名大小写敏感** */
-    hideSetting: boolean;
+    hideSetting?: boolean;
+
+    /**在xgen中缓存远程select控件选项 */
+    remoteCache?: boolean;
   };
 
   // export type CFUN = {

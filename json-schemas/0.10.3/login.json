@@ -61,10 +61,6 @@
           "description": "描述【管理字段】",
           "type": "string"
         },
-        "id": {
-          "description": "唯一标识",
-          "type": "string"
-        },
         "layout": {
           "$ref": "#/definitions/YaoLogin.LayoutDSL",
           "description": "页面布局定义。设置登录界面封面、登录后跳转路由地址等"

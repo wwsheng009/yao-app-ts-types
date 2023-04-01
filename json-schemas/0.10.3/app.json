@@ -9,7 +9,7 @@
           "type": "string"
         },
         "adminRoot": {
-          "description": "管理后台路由前缀",
+          "description": "管理后台路由前缀,默认为/yao",
           "type": "string"
         },
         "comment": {
@@ -25,12 +25,15 @@
           "type": "string"
         },
         "favicon": {
+          "description": "网站favicon文件地址，根目录/public",
           "type": "string"
         },
         "lang": {
+          "description": "配置xgen语言 zh-cn/en-us",
           "type": "string"
         },
         "logo": {
+          "description": "logo文件地址，根目录/public",
           "type": "string"
         },
         "menu": {
@@ -46,6 +49,7 @@
           "description": "应用可选配置项"
         },
         "setting": {
+          "description": "xgen获取配置的处理器，默认是yao.app.Xgen",
           "type": "string"
         },
         "setup": {
@@ -60,6 +64,11 @@
           "type": "string"
         },
         "theme": {
+          "description": "默认主题",
+          "enum": [
+            "white",
+            "black"
+          ],
           "type": "string"
         },
         "version": {
@@ -99,12 +108,12 @@
         "hideSetting": {
           "description": "隐藏导航栏下方配置菜单。 **字段名大小写敏感**",
           "type": "boolean"
+        },
+        "remoteCache": {
+          "description": "在xgen中缓存远程select控件选项",
+          "type": "boolean"
         }
       },
-      "required": [
-        "hideNotification",
-        "hideSetting"
-      ],
       "type": "object"
     }
   }
