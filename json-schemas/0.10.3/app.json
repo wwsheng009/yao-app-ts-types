@@ -66,8 +66,8 @@
         "theme": {
           "description": "默认主题",
           "enum": [
-            "white",
-            "black"
+            "light",
+            "dark"
           ],
           "type": "string"
         },

@@ -15,7 +15,7 @@ export namespace YaoApp {
     /**应用介绍, 支持多语言。 */
     description?: string;
     /**默认主题*/
-    theme?: "white" | "black";
+    theme?: "light" | "dark";
     /**配置xgen语言 zh-cn/en-us*/
     lang?: string;
     /** */
