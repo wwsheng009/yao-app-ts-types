@@ -412,6 +412,10 @@
           "description": "列主键名，不需要显式设置",
           "type": "string"
         },
+        "link": {
+          "description": "chart图表链接地址，只有图表才会使用",
+          "type": "string"
+        },
         "view": {
           "$ref": "#/definitions/YaoComponent.ViewComponentDSL",
           "description": "显示控件设置"
@@ -468,6 +472,9 @@
           "$ref": "#/definitions/YaoAction.Process"
         }
       },
+      "required": [
+        "bind"
+      ],
       "type": "object"
     },
     "YaoList.BindActionDSL": {
@@ -516,7 +523,8 @@
           "type": "string"
         },
         "action": {
-          "$ref": "#/definitions/YaoList.ActionDSL"
+          "$ref": "#/definitions/YaoList.ActionDSL",
+          "description": "处理器操作"
         },
         "comment": {
           "description": "备注【管理字段】",

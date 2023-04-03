@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+pnpm run build
+
 # convert the typescript type to json-schema files
 
 # format : sourcefile|type|targetfile

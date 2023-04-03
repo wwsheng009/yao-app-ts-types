@@ -26,7 +26,7 @@ export namespace YaoField {
     /**默认绑定API接口返回字段名称 */
     bind?: string;
     /**chart图表链接地址，只有图表才会使用*/
-    // link?: string;
+    link?: string;
     /** 显示控件设置 */
     view?: YaoComponent.ViewComponentDSL;
     /** 编辑控件设置 */

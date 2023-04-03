@@ -1,3 +1,5 @@
+import YaoChart from "./chart";
+import YaoComponent from "./component";
 import { YaoQueryParam } from "./query_param";
 
 export namespace YaoModel {
@@ -60,7 +62,37 @@ export namespace YaoModel {
     values?: any[];
     /**配置选型*/
     option?: ModelOption;
+    /**自定义扩展 */
+    custom?: { [key: string]: any };
+    /**ui设计器 */
+    xgen?: { [key: string]: Design };
     $schema?: string;
+  }
+  /**Xgen 设计器相关 */
+  export interface Design {
+    /**表单相关 */
+    form?: {
+      edit?: YaoComponent.EditComponentDSL;
+    };
+    /**表格相关 */
+    table?: {
+      /**筛选相关 */
+      filter?: { edit?: YaoComponent.EditComponentDSL };
+      /** 显示控件设置 */
+      view?: YaoComponent.ViewComponentDSL;
+      /** 编辑控件设置 */
+      edit?: YaoComponent.EditComponentDSL;
+    };
+
+    /**列表相关 */
+    list?: {
+      edit?: YaoComponent.EditComponentDSL;
+    };
+    /**图表相关 */
+    chart?: {
+      filter?: YaoComponent.EditComponentDSL;
+      view?: YaoChart.ChartComponentDSL;
+    };
   }
 
   export type ColumnFieldTypeEnum =
@@ -211,6 +243,8 @@ export namespace YaoModel {
 
   // Table the model mapping table in DB
   export interface Table {
+    /**显示标签 */
+    label?: string;
     /**数据表名称，if not set the default is generate from model name. eg name.space.user, table name is name_space_user*/
     name?: string;
     /**表名前缀 */

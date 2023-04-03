@@ -2,6 +2,370 @@
   "$ref": "#/definitions/YaoModel.ModelDSL",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
+    "YaoChart.ChartComponentDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "bind": {
+          "description": "绑定字段名称，如不指定使用默认值",
+          "type": "string"
+        },
+        "compute": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.Compute"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "数据数值计算"
+        },
+        "props": {
+          "description": "控件属性，可参考antd控件",
+          "properties": {
+            "cardStyle": {
+              "description": "显示成卡片的样式",
+              "properties": {
+                "padding": {
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            },
+            "chartHeight": {
+              "description": "图表高度",
+              "type": "number"
+            },
+            "color": {
+              "description": "颜色",
+              "type": "string"
+            },
+            "decimals": {
+              "type": "number"
+            },
+            "nameKey": {
+              "description": "绑定数据的key字段",
+              "type": "string"
+            },
+            "prefix": {
+              "description": "显示前缀",
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "unit": {
+              "description": "显示单位",
+              "type": "string"
+            },
+            "valueKey": {
+              "description": "绑定数据的value字段",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoChart.ChartComponentEnum"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "const": "public/xxx",
+              "type": "string"
+            }
+          ],
+          "description": "组件名称，可用组件参考文档 https://yaoapps.com/components"
+        }
+      },
+      "type": "object"
+    },
+    "YaoChart.ChartComponentEnum": {
+      "enum": [
+        "Bar",
+        "Funnel",
+        "Line",
+        "LineBar",
+        "Number",
+        "NumberChart",
+        "Pie",
+        "Table"
+      ],
+      "type": "string"
+    },
+    "YaoComponent.CArg": {
+      "additionalProperties": false,
+      "description": "自定义compute处理器的参数表",
+      "properties": {
+        "isExp": {
+          "description": "是否表达式，如果是表达式，会使用key对结构进行绑定引用",
+          "type": "boolean"
+        },
+        "key": {
+          "description": "在isExp=true时生效，使用key引用model结构中的字段名",
+          "type": "string"
+        },
+        "value": {
+          "description": "在isExp=false时生效，可以是任何对象。如果是字符串，可以使用::作为前缀表示进行格式化输出"
+        }
+      },
+      "required": [
+        "isExp",
+        "key",
+        "value"
+      ],
+      "type": "object"
+    },
+    "YaoComponent.Compute": {
+      "additionalProperties": false,
+      "description": "数据数值计算 参数表:   $C(row) 当前行数据,   $C(value) 当前行当前字段数值,   $C(props) 当前组件 props,   $C(type) 当前组件 type,   $C(id) 当前 Widget ID   'hello' 字符串常量   1024 整形常量   0.618 浮点型常量",
+      "properties": {
+        "args": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/YaoComponent.CArg"
+              },
+              "type": "array"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "使用表达式，引用传入数据的结构，默认参数表: [\"$C(value)\", \"$C(props)\", \"$C(type)\", \"$C(id)\"]"
+        },
+        "process": {
+          "description": "如果compute类型等于字符串，会自动的转换成处理器名，并给处理器传入4个参数，第一个参数是字段的值。",
+          "type": "string"
+        }
+      },
+      "required": [
+        "process"
+      ],
+      "type": "object"
+    },
+    "YaoComponent.EditComponentDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "bind": {
+          "description": "绑定字段名称，如不指定使用默认值",
+          "type": "string"
+        },
+        "compute": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.Compute"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "数据数值计算"
+        },
+        "props": {
+          "description": "控件属性，可参考antd控件",
+          "properties": {
+            "xProps": {
+              "additionalProperties": false,
+              "properties": {
+                "$on:change": {
+                  "additionalProperties": false,
+                  "description": "onchange 事件",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                },
+                "$remote": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                },
+                "$search": {
+                  "additionalProperties": false,
+                  "description": "控件搜索回调api",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.EditComponentEnum"
+            },
+            {
+              "const": "public/xxx",
+              "type": "string"
+            }
+          ],
+          "description": "组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件"
+        }
+      },
+      "type": "object"
+    },
+    "YaoComponent.EditComponentEnum": {
+      "enum": [
+        "Cascader",
+        "CheckboxGroup",
+        "CodeEditor",
+        "ColorPicker",
+        "DatePicker",
+        "Grant",
+        "Input",
+        "InputNumber",
+        "List",
+        "Mentions",
+        "Password",
+        "RadioGroup",
+        "RangePicker",
+        "RichText",
+        "Select",
+        "Table",
+        "TextArea",
+        "TimePicker",
+        "Tree",
+        "Upload"
+      ],
+      "type": "string"
+    },
+    "YaoComponent.ViewComponentDSL": {
+      "additionalProperties": false,
+      "properties": {
+        "bind": {
+          "description": "绑定字段名称，如不指定使用默认值",
+          "type": "string"
+        },
+        "compute": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.Compute"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "数据数值计算"
+        },
+        "props": {
+          "description": "控件属性，可参考antd控件",
+          "properties": {
+            "xProps": {
+              "additionalProperties": false,
+              "properties": {
+                "$on:change": {
+                  "additionalProperties": false,
+                  "description": "onchange 事件",
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                },
+                "$remote": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "process": {
+                      "description": "处理器",
+                      "type": "string"
+                    },
+                    "query": {
+                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "process"
+                  ],
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoComponent.ViewComponentEnum"
+            },
+            {
+              "const": "public/xxx",
+              "type": "string"
+            }
+          ],
+          "description": "组件名称，可用组件参考文档 https://yaoapps.com/components，public/开关的是远程组件"
+        }
+      },
+      "type": "object"
+    },
+    "YaoComponent.ViewComponentEnum": {
+      "enum": [
+        "A",
+        "Checkbox",
+        "Color",
+        "Image",
+        "Switch",
+        "Tag",
+        "Text",
+        "Tooltip"
+      ],
+      "type": "string"
+    },
     "YaoModel.ColumnFieldTypeEnum": {
       "enum": [
         "string",
@@ -56,6 +420,71 @@
         "number",
         "boolean"
       ]
+    },
+    "YaoModel.Design": {
+      "additionalProperties": false,
+      "description": "Xgen 设计器相关",
+      "properties": {
+        "chart": {
+          "additionalProperties": false,
+          "description": "图表相关",
+          "properties": {
+            "filter": {
+              "$ref": "#/definitions/YaoComponent.EditComponentDSL"
+            },
+            "view": {
+              "$ref": "#/definitions/YaoChart.ChartComponentDSL"
+            }
+          },
+          "type": "object"
+        },
+        "form": {
+          "additionalProperties": false,
+          "description": "表单相关",
+          "properties": {
+            "edit": {
+              "$ref": "#/definitions/YaoComponent.EditComponentDSL"
+            }
+          },
+          "type": "object"
+        },
+        "list": {
+          "additionalProperties": false,
+          "description": "列表相关",
+          "properties": {
+            "edit": {
+              "$ref": "#/definitions/YaoComponent.EditComponentDSL"
+            }
+          },
+          "type": "object"
+        },
+        "table": {
+          "additionalProperties": false,
+          "description": "表格相关",
+          "properties": {
+            "edit": {
+              "$ref": "#/definitions/YaoComponent.EditComponentDSL",
+              "description": "编辑控件设置"
+            },
+            "filter": {
+              "additionalProperties": false,
+              "description": "筛选相关",
+              "properties": {
+                "edit": {
+                  "$ref": "#/definitions/YaoComponent.EditComponentDSL"
+                }
+              },
+              "type": "object"
+            },
+            "view": {
+              "$ref": "#/definitions/YaoComponent.ViewComponentDSL",
+              "description": "显示控件设置"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
     },
     "YaoModel.Index": {
       "additionalProperties": false,
@@ -209,6 +638,10 @@
           "description": "数据表定义",
           "type": "string"
         },
+        "custom": {
+          "description": "自定义扩展",
+          "type": "object"
+        },
         "description": {
           "description": "描述【管理字段】",
           "type": "string"
@@ -258,6 +691,13 @@
         "version": {
           "description": "版本【管理字段】",
           "type": "string"
+        },
+        "xgen": {
+          "additionalProperties": {
+            "$ref": "#/definitions/YaoModel.Design"
+          },
+          "description": "ui设计器",
+          "type": "object"
         }
       },
       "required": [
@@ -360,6 +800,10 @@
         },
         "engine": {
           "description": "数据表引擎(MySQL ONLY) 许可值 `InnoDB`, `MyISAM`",
+          "type": "string"
+        },
+        "label": {
+          "description": "显示标签",
           "type": "string"
         },
         "name": {

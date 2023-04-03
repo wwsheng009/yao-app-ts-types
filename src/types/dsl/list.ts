@@ -17,6 +17,7 @@ export namespace YaoList {
     id?: string;
     // root?: string;
     name?: string;
+    /**处理器操作 */
     action: ActionDSL;
     /**布局 */
     layout: LayoutDSL;
@@ -34,7 +35,7 @@ export namespace YaoList {
 
   // ActionDSL the list action DSL
   export interface ActionDSL {
-    bind?: BindActionDSL;
+    bind: BindActionDSL;
     setting?: YaoAction.Process;
     component?: YaoAction.Process;
     upload?: YaoAction.Process;
