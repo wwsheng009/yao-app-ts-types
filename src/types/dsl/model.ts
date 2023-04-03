@@ -264,6 +264,8 @@ export namespace YaoModel {
   // Relation the new xun model relation
   export interface Relation {
     // name: string;
+    /**标题 */
+    label?: string;
     /**与当前数据模型的关系类型. `hasOne` 一对一, `hasMany` 一对多。*/
     type: "hasOne" | "hasMany" | "hasOneThrough";
     /** **关联数据模型** 字段的名称，用于关联映射 (关联数据模型.key = 当前数据模型.foreign)*/

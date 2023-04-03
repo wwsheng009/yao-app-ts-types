@@ -39,7 +39,7 @@ fi
 
 # array=(
 #     "model|YaoModel.ModelDSL|model.json"
-# )  
+# )
 for line in "${array[@]}"
 do
     words=($(echo $line | tr "|" "\n"))

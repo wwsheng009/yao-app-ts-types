@@ -750,6 +750,10 @@
           "description": "**关联数据模型** 字段的名称，用于关联映射 (关联数据模型.key = 当前数据模型.foreign)",
           "type": "string"
         },
+        "label": {
+          "description": "标题",
+          "type": "string"
+        },
         "links": {
           "description": "连接，未知",
           "items": {
