@@ -35,7 +35,7 @@ export namespace YaoList {
 
   // ActionDSL the list action DSL
   export interface ActionDSL {
-    bind: BindActionDSL;
+    bind?: BindActionDSL;
     setting?: YaoAction.Process;
     component?: YaoAction.Process;
     upload?: YaoAction.Process;

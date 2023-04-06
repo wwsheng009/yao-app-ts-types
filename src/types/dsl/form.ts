@@ -18,7 +18,7 @@ export namespace YaoForm {
     id?: string;
     // root?: string;
     /**表单名称, 支持多语言 */
-    name: string;
+    name?: string;
     /**表单数据交互。用于指定数据读取、保存等操作的处理器，设置数据 Hook，绑定模型等 */
     action?: ActionDSL;
     /**表单界面布局 */
@@ -42,7 +42,7 @@ export namespace YaoForm {
   export interface ActionDSL {
     guard?: string; // the default guard
     /**绑定 model 或 form。 根据关联 Widget ID 设定表单关联处理器和界面呈现默认值 */
-    bind: BindActionDSL;
+    bind?: BindActionDSL;
     /**关联处理器。返回表单页面配置 */
     setting?: YaoAction.Process;
     component?: YaoAction.Process;
@@ -117,7 +117,7 @@ export namespace YaoForm {
     // formMap?: { [key: string]: field.ColumnDSL };
   }
 
-  interface OpenRef {
+  export interface OpenRef {
     /**引用表单 */
     Form?: {
       /**查看或是编辑 */
@@ -137,14 +137,14 @@ export namespace YaoForm {
       id: string;
     };
   }
-  interface FloatContentItem {
+  export interface FloatContentItem {
     /**名称标识 */
     name: string;
     /**参数 */
     payload: OpenRef;
   }
 
-  interface Reference {
+  export interface Reference {
     flatContent?: {
       /**名称标识 */
       name: string;
@@ -162,7 +162,7 @@ export namespace YaoForm {
 
   export interface FormProperty {
     // extends YaoComponent.PropsDSL {
-    /**是否触发Form字段的onValueChange事件 */
+    /**页面加载时是否触发Form字段的onValueChange事件 */
     onLoadSync?: boolean;
     /**参照对象 */
     reference?: Reference;

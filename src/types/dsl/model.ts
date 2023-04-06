@@ -1,6 +1,9 @@
 import YaoChart from "./chart";
 import YaoComponent from "./component";
+import YaoForm from "./form";
+import YaoList from "./list";
 import { YaoQueryParam } from "./query_param";
+import YaoTable from "./table";
 
 export namespace YaoModel {
   // Relationship types
@@ -46,7 +49,7 @@ export namespace YaoModel {
     /**标签 */
     label?: string;
     /**模型名称*/
-    name: string; // 元数据名称
+    name?: string; // 元数据名称
     /** Bind a connector, MySQL, SQLite, Postgres, Clickhouse, Tidb, Oracle support. default is SQLite*/
     /**数据表定义*/
     connector?: string;
@@ -65,13 +68,20 @@ export namespace YaoModel {
     /**自定义扩展 */
     custom?: { [key: string]: any };
     /**ui设计器 */
-    xgen?: { [key: string]: Design };
+    xgen?: Xgen; //{ [key: string]: Design };
     $schema?: string;
+  }
+
+  export interface Xgen {
+    form?: YaoForm.FormDSL;
+    list?: YaoList.ListDSL;
+    table?: YaoTable.TableDSL;
   }
   /**Xgen 设计器相关 */
   export interface Design {
     /**表单相关 */
     form?: {
+      /**编辑控件 */
       edit?: YaoComponent.EditComponentDSL;
     };
     /**表格相关 */

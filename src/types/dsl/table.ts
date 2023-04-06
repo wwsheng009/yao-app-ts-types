@@ -17,9 +17,9 @@ export namespace YaoTable {
     /**唯一标识 */
     id?: string;
     /**表格名称, 支持多语言*/
-    name: string;
+    name?: string;
     /**表格数据交互。用于指定列表检索、保存等操作的处理器，设置数据 Hook，绑定模型等*/
-    action: ActionDSL;
+    action?: ActionDSL;
     /**表格界面布局。显示字段、筛选器、批量编辑等*/
     layout?: LayoutDSL;
     /**表格字段定义。指定表格列字段, 表格筛选器字段定义*/

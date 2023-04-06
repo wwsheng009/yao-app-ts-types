@@ -472,9 +472,6 @@
           "$ref": "#/definitions/YaoAction.Process"
         }
       },
-      "required": [
-        "bind"
-      ],
       "type": "object"
     },
     "YaoList.BindActionDSL": {
