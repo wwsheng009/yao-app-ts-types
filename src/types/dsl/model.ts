@@ -73,9 +73,9 @@ export namespace YaoModel {
   }
 
   export interface Xgen {
-    form?: YaoForm.FormDSL;
-    list?: YaoList.ListDSL;
-    table?: YaoTable.TableDSL;
+    form?: Partial<YaoForm.FormDSL>;
+    list?: Partial<YaoList.ListDSL>;
+    table?: Partial<YaoTable.TableDSL>;
   }
   /**Xgen 设计器相关 */
   export interface Design {
@@ -225,7 +225,16 @@ export namespace YaoModel {
      *mobile    | `[<string>]` 电话
      *
      */
-    method: string;
+    method:
+      | "typeof"
+      | "min"
+      | "max"
+      | "enum"
+      | "pattern"
+      | "minLength"
+      | "maxLength"
+      | "email"
+      | "mobile";
     /**校验方法参数，例如 `[20]`, `["^1[3-9]\\d{9}$"]`*/
     args?: any[];
     /**如校验不通过，返回的错误提示。支持使用 `{{<name>}}` 引用字段信息, 如`{{label}}`将被替换为字段 `label`中定义的数值; `{{input}}` 被替换为用户输入数值。*/

@@ -10,6 +10,121 @@
         {}
       ]
     },
+    "AggregationRule": {
+      "additionalProperties": false,
+      "properties": {
+        "enum": {
+          "items": {
+            "$ref": "#/definitions/StoreValue"
+          },
+          "type": "array"
+        },
+        "len": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "message": {
+          "type": "string"
+        },
+        "min": {
+          "type": "number"
+        },
+        "pattern": {
+          "format": "regex",
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "type": {
+          "$ref": "#/definitions/RuleType"
+        },
+        "validateTrigger": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger`"
+        },
+        "warningOnly": {
+          "type": "boolean"
+        },
+        "whitespace": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ArrayRule": {
+      "additionalProperties": false,
+      "properties": {
+        "defaultField": {
+          "$ref": "#/definitions/RuleObject"
+        },
+        "enum": {
+          "items": {
+            "$ref": "#/definitions/StoreValue"
+          },
+          "type": "array"
+        },
+        "len": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "message": {
+          "type": "string"
+        },
+        "min": {
+          "type": "number"
+        },
+        "pattern": {
+          "format": "regex",
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "type": {
+          "const": "array",
+          "type": "string"
+        },
+        "validateTrigger": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "description": "Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger`"
+        },
+        "warningOnly": {
+          "type": "boolean"
+        },
+        "whitespace": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
     "CommonConfig": {
       "additionalProperties": false,
       "properties": {
@@ -20,6 +135,35 @@
       },
       "type": "object"
     },
+    "RuleObject": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/AggregationRule"
+        },
+        {
+          "$ref": "#/definitions/ArrayRule"
+        }
+      ]
+    },
+    "RuleType": {
+      "enum": [
+        "string",
+        "number",
+        "boolean",
+        "method",
+        "regexp",
+        "integer",
+        "float",
+        "object",
+        "enum",
+        "date",
+        "url",
+        "hex",
+        "email"
+      ],
+      "type": "string"
+    },
+    "StoreValue": {},
     "YaoAction.Process": {
       "additionalProperties": false,
       "description": "自定义关联处理器",
@@ -558,6 +702,27 @@
         "props": {
           "description": "控件属性，可参考antd控件",
           "properties": {
+            "defaultValue": {
+              "description": "默认值"
+            },
+            "initialValues": {},
+            "itemProps": {
+              "description": "表单项目配置",
+              "properties": {
+                "rules": {
+                  "items": {
+                    "$ref": "#/definitions/RuleObject"
+                  },
+                  "type": "array"
+                },
+                "tooltip": {
+                  "description": "提示",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "value": {},
             "xProps": {
               "additionalProperties": false,
               "properties": {

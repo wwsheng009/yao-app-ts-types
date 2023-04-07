@@ -26,9 +26,9 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.14.1",
-    "typescript": "^4.9.5",
     "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.1.2"
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^4.9.5"
   },
   "dependencies": {
     "ts-json-schema-generator": "^1.2.0"

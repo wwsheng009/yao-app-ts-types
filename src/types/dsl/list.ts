@@ -16,13 +16,13 @@ export namespace YaoList {
     /**唯一标识 */
     id?: string;
     // root?: string;
-    name?: string;
+    name: string;
     /**处理器操作 */
     action: ActionDSL;
     /**布局 */
-    layout: LayoutDSL;
+    layout?: LayoutDSL;
     /**字段定义 */
-    fields: FieldsDSL;
+    fields?: FieldsDSL;
     /**配置 */
     config?: CommonConfig;
     // cprops?: field.CloudProps;

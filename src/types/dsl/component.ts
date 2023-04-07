@@ -1,3 +1,5 @@
+import { RuleObject } from "./antd/rule";
+
 export namespace YaoComponent {
   export type ViewComponentEnum =
     | "A"
@@ -92,6 +94,16 @@ export namespace YaoComponent {
           query?: { [key: string]: any };
         };
       };
+      /**表单项目配置 */
+      itemProps?: {
+        rules?: RuleObject[];
+        /**提示 */
+        tooltip?: string;
+      } & PropsDSL;
+      /**默认值 */
+      defaultValue?: any;
+      initialValues?: any;
+      value?: any;
     } & PropsDSL;
   }
 

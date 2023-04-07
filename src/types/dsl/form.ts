@@ -18,9 +18,9 @@ export namespace YaoForm {
     id?: string;
     // root?: string;
     /**表单名称, 支持多语言 */
-    name?: string;
+    name: string;
     /**表单数据交互。用于指定数据读取、保存等操作的处理器，设置数据 Hook，绑定模型等 */
-    action?: ActionDSL;
+    action: ActionDSL;
     /**表单界面布局 */
     layout?: LayoutDSL;
     /**表单字段定义。指定表单字段定义 */
