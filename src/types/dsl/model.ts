@@ -77,33 +77,6 @@ export namespace YaoModel {
     list?: Partial<YaoList.ListDSL>;
     table?: Partial<YaoTable.TableDSL>;
   }
-  /**Xgen 设计器相关 */
-  export interface Design {
-    /**表单相关 */
-    form?: {
-      /**编辑控件 */
-      edit?: YaoComponent.EditComponentDSL;
-    };
-    /**表格相关 */
-    table?: {
-      /**筛选相关 */
-      filter?: { edit?: YaoComponent.EditComponentDSL };
-      /** 显示控件设置 */
-      view?: YaoComponent.ViewComponentDSL;
-      /** 编辑控件设置 */
-      edit?: YaoComponent.EditComponentDSL;
-    };
-
-    /**列表相关 */
-    list?: {
-      edit?: YaoComponent.EditComponentDSL;
-    };
-    /**图表相关 */
-    chart?: {
-      filter?: YaoComponent.EditComponentDSL;
-      view?: YaoChart.ChartComponentDSL;
-    };
-  }
 
   export type ColumnFieldTypeEnum =
     | "string" //"字符串",

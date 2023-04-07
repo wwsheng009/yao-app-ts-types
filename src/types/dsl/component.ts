@@ -99,11 +99,9 @@ export namespace YaoComponent {
         rules?: RuleObject[];
         /**提示 */
         tooltip?: string;
+        /**默认值 */
+        initialValue?: any;
       } & PropsDSL;
-      /**默认值 */
-      defaultValue?: any;
-      initialValues?: any;
-      value?: any;
     } & PropsDSL;
   }
 
