@@ -702,14 +702,32 @@
         "props": {
           "description": "控件属性，可参考antd控件",
           "properties": {
-            "defaultValue": {
-              "description": "默认值"
+            "$on:change": {
+              "additionalProperties": false,
+              "description": "onchange 事件",
+              "properties": {
+                "process": {
+                  "description": "处理器",
+                  "type": "string"
+                },
+                "query": {
+                  "description": "请求参数绑定，可使用{{}}绑定记录结构",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "process"
+              ],
+              "type": "object"
             },
-            "initialValues": {},
             "itemProps": {
               "description": "表单项目配置",
               "properties": {
+                "initialValue": {
+                  "description": "默认值"
+                },
                 "rules": {
+                  "description": "控件规则",
                   "items": {
                     "$ref": "#/definitions/RuleObject"
                   },
@@ -722,28 +740,9 @@
               },
               "type": "object"
             },
-            "value": {},
             "xProps": {
               "additionalProperties": false,
               "properties": {
-                "$on:change": {
-                  "additionalProperties": false,
-                  "description": "onchange 事件",
-                  "properties": {
-                    "process": {
-                      "description": "处理器",
-                      "type": "string"
-                    },
-                    "query": {
-                      "description": "请求参数绑定，可使用{{}}绑定记录结构",
-                      "type": "object"
-                    }
-                  },
-                  "required": [
-                    "process"
-                  ],
-                  "type": "object"
-                },
                 "$remote": {
                   "additionalProperties": false,
                   "properties": {

@@ -51,14 +51,14 @@ export namespace YaoComponent {
           /**请求参数绑定，可使用{{}}绑定记录结构 */
           query?: { [key: string]: any };
         };
-        /**onchange 事件 */
-        "$on:change"?: {
-          /**处理器 */
-          process: string;
-          /**请求参数绑定，可使用{{}}绑定记录结构 */
-          query?: { [key: string]: any };
-        };
       };
+      // /**onchange 事件 */
+      // "$on:change"?: {
+      //   /**处理器 */
+      //   process: string;
+      //   /**请求参数绑定，可使用{{}}绑定记录结构 */
+      //   query?: { [key: string]: any };
+      // };
     };
   }
 
@@ -86,16 +86,17 @@ export namespace YaoComponent {
           /**请求参数绑定，可使用{{}}绑定记录结构 */
           query?: { [key: string]: any };
         };
-        /**onchange 事件 */
-        "$on:change"?: {
-          /**处理器 */
-          process: string;
-          /**请求参数绑定，可使用{{}}绑定记录结构 */
-          query?: { [key: string]: any };
-        };
+      };
+      /**onchange 事件 */
+      "$on:change"?: {
+        /**处理器 */
+        process: string;
+        /**请求参数绑定，可使用{{}}绑定记录结构 */
+        query?: { [key: string]: any };
       };
       /**表单项目配置 */
       itemProps?: {
+        /**控件规则 */
         rules?: RuleObject[];
         /**提示 */
         tooltip?: string;
