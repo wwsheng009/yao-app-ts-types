@@ -73,6 +73,10 @@ export namespace YaoModel {
   }
 
   export interface Xgen {
+    menu?: {
+      /**不显示在菜单上 */
+      no_display?: boolean;
+    };
     form?: Partial<YaoForm.FormDSL>;
     list?: Partial<YaoList.ListDSL>;
     table?: Partial<YaoTable.TableDSL>;

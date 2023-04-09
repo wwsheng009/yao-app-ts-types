@@ -1802,6 +1802,16 @@
           },
           "type": "object"
         },
+        "menu": {
+          "additionalProperties": false,
+          "properties": {
+            "no_display": {
+              "description": "不显示在菜单上",
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        },
         "table": {
           "additionalProperties": false,
           "properties": {

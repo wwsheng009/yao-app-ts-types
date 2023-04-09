@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "typescript types for yao application",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc && tsc-alias",
     "doc": "ts-node -r tsconfig-paths/register src/doc/index.ts",
