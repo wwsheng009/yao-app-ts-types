@@ -59,12 +59,13 @@
           "description": "请求响应 Headers",
           "type": "object"
         },
-        "redirect": {
-          "$ref": "#/definitions/YaoHttp.Redirect"
-        },
         "status": {
           "description": "请求响应状态码",
           "type": "number"
+        },
+        "stream": {
+          "description": "是否stream",
+          "type": "boolean"
         },
         "type": {
           "description": "请求响应 Content Type",
@@ -72,7 +73,8 @@
         }
       },
       "required": [
-        "status"
+        "status",
+        "stream"
       ],
       "type": "object"
     },
@@ -120,18 +122,6 @@
         "method",
         "process"
       ],
-      "type": "object"
-    },
-    "YaoHttp.Redirect": {
-      "additionalProperties": false,
-      "properties": {
-        "code": {
-          "type": "number"
-        },
-        "location": {
-          "type": "string"
-        }
-      },
       "type": "object"
     }
   }

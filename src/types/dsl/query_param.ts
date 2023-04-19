@@ -45,7 +45,7 @@ export namespace YaoQueryParam {
     /**字段名称*/
     column?: string;
     /**匹配数值*/
-    value?: string;
+    value?: any;
     /**查询方法 `where`,`orwhere`, `wherein`, `orwherein`... 默认为 `where`,
      *
      *| 查询方法 | 说明                                  |

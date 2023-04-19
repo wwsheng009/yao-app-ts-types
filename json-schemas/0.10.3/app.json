@@ -109,6 +109,19 @@
           "description": "隐藏导航栏下方配置菜单。 **字段名大小写敏感**",
           "type": "boolean"
         },
+        "neo": {
+          "additionalProperties": false,
+          "description": "neo config, for chatgpt service",
+          "properties": {
+            "api": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "api"
+          ],
+          "type": "object"
+        },
         "remoteCache": {
           "description": "在xgen中缓存远程select控件选项",
           "type": "boolean"

@@ -996,8 +996,7 @@
           "type": "string"
         },
         "value": {
-          "description": "匹配数值",
-          "type": "string"
+          "description": "匹配数值"
         },
         "wheres": {
           "description": "分组查询",

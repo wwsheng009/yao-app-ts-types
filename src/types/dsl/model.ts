@@ -2,6 +2,7 @@ import YaoChart from "./chart";
 import YaoComponent from "./component";
 import YaoForm from "./form";
 import YaoList from "./list";
+import { YaoQuery } from "./query";
 import { YaoQueryParam } from "./query_param";
 import YaoTable from "./table";
 
@@ -273,7 +274,7 @@ export namespace YaoModel {
     /**连接，未知 */
     links?: Relation[];
     /** **关联数据模型** 的查询条件，可以在查询时重载。 例: `{ "select": ["id", "name"] }`*/
-    query?: YaoQueryParam.QueryParam;
+    query?: YaoQuery.QueryDSL;
   }
 
   // Option 模型配置选项

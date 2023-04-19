@@ -53,6 +53,9 @@ export namespace YaoApp {
 
     /**在xgen中缓存远程select控件选项 */
     remoteCache?: boolean;
+
+    /** neo config, for chatgpt service */
+    neo?: { api: string };
   };
 
   // export type CFUN = {
