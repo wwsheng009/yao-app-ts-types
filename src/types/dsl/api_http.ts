@@ -67,7 +67,7 @@ export namespace YaoHttp {
     headers?: { [key: string]: string };
 
     /** 是否stream  */
-    stream: boolean;
+    stream?: boolean;
 
     // redirect?: Redirect;
   }

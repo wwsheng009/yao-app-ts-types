@@ -73,8 +73,7 @@
         }
       },
       "required": [
-        "status",
-        "stream"
+        "status"
       ],
       "type": "object"
     },
