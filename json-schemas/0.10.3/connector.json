@@ -1,33 +1,42 @@
 {
-  "$ref": "#/definitions/YaoConnector.ConnectorDSL",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoConnector.ConnectorDSL",
   "definitions": {
     "YaoConnector.ConnectorDSL": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
+        "lang": {
+          "type": "string",
+          "description": "语言"
         },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
         },
         "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
+          "type": "string",
+          "description": "描述【管理字段】"
         },
-        "label": {
-          "description": "标签显示",
-          "type": "string"
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "type": {
+          "$ref": "#/definitions/YaoConnector.ConnectorEnum",
+          "description": "连接器类型, 当前支持 `mysql`, `sqlite3`, `mongo` 和 `redis`"
         },
         "name": {
-          "description": "连接器名称",
-          "type": "string"
+          "type": "string",
+          "description": "连接器名称"
+        },
+        "label": {
+          "type": "string",
+          "description": "标签显示"
         },
         "options": {
           "anyOf": [
             {
-              "$ref": "#/definitions/YaoConnector.MySqlOption"
+              "$ref": "#/definitions/YaoConnector.XunOption"
             },
             {
               "$ref": "#/definitions/YaoConnector.RedisOption"
@@ -37,167 +46,208 @@
             },
             {
               "$ref": "#/definitions/YaoConnector.MongoDBOption"
+            },
+            {
+              "$ref": "#/definitions/YaoConnector.OpenAIOption"
             }
           ],
           "description": "连接器配置项"
         },
-        "type": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/definitions/YaoConnector.ConnectorEnum"
-            }
-          ],
-          "description": "连接器类型, 当前支持 `mysql`, `sqlite3`, `mongo` 和 `redis`"
-        },
-        "version": {
-          "description": "版本【管理字段】",
+        "$schema": {
           "type": "string"
         }
       },
       "required": [
         "type"
       ],
-      "type": "object"
+      "additionalProperties": false
     },
     "YaoConnector.ConnectorEnum": {
+      "type": "string",
       "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "type": "number"
+        "mysql",
+        "sqlite",
+        "sqlite3",
+        "postgres",
+        "redis",
+        "mongo",
+        "openai",
+        "hdb"
+      ]
     },
-    "YaoConnector.DBHost": {
-      "additionalProperties": false,
-      "description": "服务器列表",
-      "properties": {
-        "host": {
-          "description": "MySQL Host, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
-        },
-        "pass": {
-          "description": "MySQL Password, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
-        },
-        "port": {
-          "description": "MySQL Port, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
-        },
-        "primary": {
-          "description": "`true` 为主库, `false`为从库",
-          "type": "boolean"
-        },
-        "user": {
-          "description": "MySQL User name, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
-        }
-      },
-      "required": [
-        "host"
-      ],
-      "type": "object"
-    },
-    "YaoConnector.MongoDBOption": {
-      "additionalProperties": false,
+    "YaoConnector.XunOption": {
+      "type": "object",
       "properties": {
         "db": {
-          "description": "数据库名称, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
+          "type": "string",
+          "description": "数据库名称, 支持使用`$EVN.变量名` 读取环境变量"
         },
-        "hosts": {
-          "description": "服务器列表",
-          "items": {
-            "$ref": "#/definitions/YaoConnector.DBHost"
-          },
-          "type": "array"
+        "prefix": {
+          "type": "string",
+          "description": "表前缀"
         },
-        "params": {
-          "description": "连接参数",
-          "type": "object"
-        }
-      },
-      "required": [
-        "db"
-      ],
-      "type": "object"
-    },
-    "YaoConnector.MySqlOption": {
-      "additionalProperties": false,
-      "properties": {
-        "chartset": {
-          "description": "MySQL charset",
-          "type": "string"
+        "charset": {
+          "type": "string",
+          "description": "MySQL charset"
         },
         "collation": {
-          "description": "MySQL collation",
-          "type": "string"
-        },
-        "db": {
-          "description": "数据库名称, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
-        },
-        "hosts": {
-          "description": "服务器列表",
-          "items": {
-            "$ref": "#/definitions/YaoConnector.DBHost"
-          },
-          "type": "array"
+          "type": "string",
+          "description": "MySQL collation"
         },
         "parseTime": {
-          "description": "解析时间",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "解析时间"
+        },
+        "timeout": {
+          "type": "boolean",
+          "description": "连接超时"
+        },
+        "file": {
+          "type": "string",
+          "description": "sqlite3数据库文件地址, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "params": {
+          "type": "object",
+          "description": "其它参数"
+        },
+        "hosts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoConnector.XunDBHost"
+          },
+          "description": "服务器列表"
         }
       },
-      "required": [
-        "db"
-      ],
-      "type": "object"
+      "additionalProperties": false
     },
-    "YaoConnector.RedisOption": {
-      "additionalProperties": false,
+    "YaoConnector.XunDBHost": {
+      "type": "object",
       "properties": {
-        "db": {
-          "description": "Redis DB, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
-        },
         "host": {
-          "description": "Redis Host, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
-        },
-        "pass": {
-          "description": "Redis Password, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
+          "type": "string",
+          "description": "MySQL Host, 支持使用`$EVN.变量名` 读取环境变量"
         },
         "port": {
-          "description": "Redis Port, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
+          "type": "string",
+          "description": "MySQL Port, 支持使用`$EVN.变量名` 读取环境变量"
         },
         "user": {
-          "description": "Redis User name, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
+          "type": "string",
+          "description": "MySQL User name, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "pass": {
+          "type": "string",
+          "description": "MySQL Password, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "primary": {
+          "type": "boolean",
+          "description": "`true` 为主库, `false`为从库"
         }
       },
-      "type": "object"
+      "additionalProperties": false,
+      "description": "服务器列表"
+    },
+    "YaoConnector.RedisOption": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "Redis Host, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "port": {
+          "type": "string",
+          "description": "Redis Port, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "user": {
+          "type": "string",
+          "description": "Redis User name, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "pass": {
+          "type": "string",
+          "description": "Redis Password, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "db": {
+          "type": "string",
+          "description": "Redis DB, 支持使用`$EVN.变量名` 读取环境变量"
+        }
+      },
+      "additionalProperties": false
     },
     "YaoConnector.Sqlite3Option": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
         "file": {
-          "description": "数据库文件地址, 支持使用`$EVN.变量名` 读取环境变量",
-          "type": "string"
+          "type": "string",
+          "description": "数据库文件地址, 支持使用`$EVN.变量名` 读取环境变量"
         }
       },
-      "required": [
-        "file"
-      ],
-      "type": "object"
+      "additionalProperties": false
+    },
+    "YaoConnector.MongoDBOption": {
+      "type": "object",
+      "properties": {
+        "db": {
+          "type": "string",
+          "description": "数据库名称, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "timeout": {
+          "type": "boolean",
+          "description": "连接超时"
+        },
+        "hosts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoConnector.MongoHost"
+          },
+          "description": "服务器列表"
+        },
+        "params": {
+          "type": "object",
+          "description": "连接参数"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoConnector.MongoHost": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "MySQL Host, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "port": {
+          "type": "string",
+          "description": "MySQL Port, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "user": {
+          "type": "string",
+          "description": "MySQL User name, 支持使用`$EVN.变量名` 读取环境变量"
+        },
+        "pass": {
+          "type": "string",
+          "description": "MySQL Password, 支持使用`$EVN.变量名` 读取环境变量"
+        }
+      },
+      "additionalProperties": false,
+      "description": "服务器列表"
+    },
+    "YaoConnector.OpenAIOption": {
+      "type": "object",
+      "properties": {
+        "proxy": {
+          "type": "string",
+          "description": "api.openai.com对应的代理网站"
+        },
+        "model": {
+          "type": "string",
+          "description": "open ai模型"
+        },
+        "key": {
+          "type": "string",
+          "description": "openai 接口调用token key"
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

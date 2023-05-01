@@ -1,99 +1,53 @@
 {
-  "$ref": "#/definitions/YaoImport.Importer",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoImport.Importer",
   "definitions": {
-    "YaoImport.Column": {
-      "additionalProperties": false,
-      "description": "导入字段定义",
-      "properties": {
-        "field": {
-          "description": "字段名称(原始值),不需要配置",
-          "type": "string"
-        },
-        "label": {
-          "description": "字段标签",
-          "type": "string"
-        },
-        "match": {
-          "description": "匹配建议",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "name": {
-          "description": "字段名称",
-          "type": "string"
-        },
-        "nullable": {
-          "description": "是否可以为空",
-          "type": "boolean"
-        },
-        "primary": {
-          "description": "是否为主键",
-          "type": "boolean"
-        },
-        "rules": {
-          "description": "清洗规则定义",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "label",
-        "name"
-      ],
-      "type": "object"
-    },
     "YaoImport.Importer": {
-      "additionalProperties": false,
-      "description": "数据导入器",
+      "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "title": {
+          "type": "string",
+          "description": "导入名称"
+        },
+        "process": {
+          "type": "string",
+          "description": "处理器名称"
+        },
+        "output": {
+          "type": "string",
+          "description": "The process import output"
         },
         "columns": {
-          "description": "字段列表",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/YaoImport.Column"
           },
-          "type": "array"
-        },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
-        },
-        "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
+          "description": "字段列表"
         },
         "option": {
           "$ref": "#/definitions/YaoImport.Option",
           "description": "导入配置项"
         },
-        "output": {
-          "description": "The process import output",
-          "type": "string"
-        },
-        "process": {
-          "description": "处理器名称",
-          "type": "string"
-        },
         "rules": {
+          "type": "object",
           "additionalProperties": {
             "type": "string"
           },
-          "description": "许可导入规则",
-          "type": "object"
+          "description": "许可导入规则"
         },
-        "title": {
-          "description": "导入名称",
-          "type": "string"
-        },
-        "version": {
-          "description": "版本【管理字段】",
+        "$schema": {
           "type": "string"
         }
       },
@@ -101,34 +55,80 @@
         "process",
         "columns"
       ],
-      "type": "object"
-    },
-    "YaoImport.Option": {
       "additionalProperties": false,
-      "description": "导入配置项定",
+      "description": "数据导入器"
+    },
+    "YaoImport.Column": {
+      "type": "object",
       "properties": {
-        "chunkSize": {
-          "description": "每次处理记录数量",
-          "type": "number"
+        "label": {
+          "type": "string",
+          "description": "字段标签"
         },
-        "dataPreview": {
-          "description": "数据预览界面方式 auto 有异常数据时显示, always 一直显示, never 不显示",
-          "type": "string"
+        "name": {
+          "type": "string",
+          "description": "字段名称"
         },
-        "mappingPreview": {
-          "description": "显示字段映射界面方式 auto 匹配模板失败显示, always 一直显示, never 不显示",
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "字段名称(原始值),不需要配置"
         },
-        "templateLink": {
-          "description": "默认数据模板链接",
-          "type": "string"
+        "match": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "匹配建议"
         },
-        "useTemplate": {
-          "description": "使用已匹配过的模板",
-          "type": "boolean"
+        "rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "清洗规则定义"
+        },
+        "nullable": {
+          "type": "boolean",
+          "description": "是否可以为空"
+        },
+        "primary": {
+          "type": "boolean",
+          "description": "是否为主键"
         }
       },
-      "type": "object"
+      "required": [
+        "label",
+        "name"
+      ],
+      "additionalProperties": false,
+      "description": "导入字段定义"
+    },
+    "YaoImport.Option": {
+      "type": "object",
+      "properties": {
+        "useTemplate": {
+          "type": "boolean",
+          "description": "使用已匹配过的模板"
+        },
+        "templateLink": {
+          "type": "string",
+          "description": "默认数据模板链接"
+        },
+        "chunkSize": {
+          "type": "number",
+          "description": "每次处理记录数量"
+        },
+        "mappingPreview": {
+          "type": "string",
+          "description": "显示字段映射界面方式 auto 匹配模板失败显示, always 一直显示, never 不显示"
+        },
+        "dataPreview": {
+          "type": "string",
+          "description": "数据预览界面方式 auto 有异常数据时显示, always 一直显示, never 不显示"
+        }
+      },
+      "additionalProperties": false,
+      "description": "导入配置项定"
     }
   }
 }

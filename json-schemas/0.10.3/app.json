@@ -1,133 +1,134 @@
 {
-  "$ref": "#/definitions/YaoApp.AppDSL",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoApp.AppDSL",
   "definitions": {
     "YaoApp.AppDSL": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
-        },
-        "adminRoot": {
-          "description": "管理后台路由前缀,默认为/yao",
-          "type": "string"
-        },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
         },
         "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "xgen": {
+          "type": "string",
+          "description": "XGen 界面引擎版本, 推荐使用 `1.0` 版，旧版已停止维护"
+        },
+        "name": {
+          "type": "string",
+          "description": "应用名称, 支持多语言"
+        },
+        "short": {
+          "type": "string",
+          "description": "应用简称, 支持多语言。"
         },
         "description": {
-          "description": "应用介绍, 支持多语言。",
-          "type": "string"
+          "type": "string",
+          "description": "应用介绍, 支持多语言。"
         },
-        "favicon": {
-          "description": "网站favicon文件地址，根目录/public",
-          "type": "string"
+        "theme": {
+          "type": "string",
+          "enum": [
+            "light",
+            "dark"
+          ],
+          "description": "默认主题"
         },
         "lang": {
-          "description": "配置xgen语言 zh-cn/en-us",
+          "type": "string",
+          "description": "配置xgen语言 zh-cn/en-us"
+        },
+        "sid": {
           "type": "string"
         },
         "logo": {
-          "description": "logo文件地址，根目录/public",
-          "type": "string"
+          "type": "string",
+          "description": "logo文件地址，根目录/public"
+        },
+        "favicon": {
+          "type": "string",
+          "description": "网站favicon文件地址，根目录/public"
         },
         "menu": {
           "$ref": "#/definitions/YaoApp.MenuDSL",
           "description": "管理后台菜单读取处理器"
         },
-        "name": {
-          "description": "应用名称, 支持多语言",
-          "type": "string"
+        "adminRoot": {
+          "type": "string",
+          "description": "管理后台路由前缀,默认为/yao"
         },
         "optional": {
           "$ref": "#/definitions/YaoApp.OptionalDSL",
           "description": "应用可选配置项"
         },
         "setting": {
-          "description": "xgen获取配置的处理器，默认是yao.app.Xgen",
-          "type": "string"
+          "type": "string",
+          "description": "xgen获取配置的处理器，默认是yao.app.Xgen"
         },
         "setup": {
-          "description": "应用首次安装后运行的处理器名称， 一般可以用来建立初始化数据；处理器第一个参数为应用配置信息。支持使用 `studio` 命名空间，调用 studio 脚本函数",
-          "type": "string"
+          "type": "string",
+          "description": "应用首次安装后运行的处理器名称， 一般可以用来建立初始化数据；处理器第一个参数为应用配置信息。支持使用 `studio` 命名空间，调用 studio 脚本函数"
         },
-        "short": {
-          "description": "应用简称, 支持多语言。",
-          "type": "string"
-        },
-        "sid": {
-          "type": "string"
-        },
-        "theme": {
-          "description": "默认主题",
-          "enum": [
-            "light",
-            "dark"
-          ],
-          "type": "string"
-        },
-        "version": {
-          "description": "版本【管理字段】",
-          "type": "string"
-        },
-        "xgen": {
-          "description": "XGen 界面引擎版本, 推荐使用 `1.0` 版，旧版已停止维护",
+        "$schema": {
           "type": "string"
         }
       },
-      "type": "object"
+      "additionalProperties": false
     },
     "YaoApp.MenuDSL": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
+        "process": {
+          "type": "string",
+          "description": "处理器名称"
+        },
         "args": {
-          "description": "处理器参数表",
+          "type": "array",
           "items": {
             "type": "string"
           },
-          "type": "array"
-        },
-        "process": {
-          "description": "处理器名称",
-          "type": "string"
+          "description": "处理器参数表"
         }
       },
-      "type": "object"
+      "additionalProperties": false
     },
     "YaoApp.OptionalDSL": {
+      "type": "object",
       "properties": {
         "hideNotification": {
-          "description": "隐藏系统通知面板。 **字段名大小写敏感**",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "隐藏系统通知面板。 **字段名大小写敏感**"
         },
         "hideSetting": {
-          "description": "隐藏导航栏下方配置菜单。 **字段名大小写敏感**",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "隐藏导航栏下方配置菜单。 **字段名大小写敏感**"
+        },
+        "remoteCache": {
+          "type": "boolean",
+          "description": "在xgen中缓存远程select控件选项"
         },
         "neo": {
-          "additionalProperties": false,
-          "description": "neo config, for chatgpt service",
+          "type": "object",
           "properties": {
             "api": {
-              "type": "string"
+              "type": "string",
+              "description": "neo chat api"
             }
           },
           "required": [
             "api"
           ],
-          "type": "object"
-        },
-        "remoteCache": {
-          "description": "在xgen中缓存远程select控件选项",
-          "type": "boolean"
+          "additionalProperties": false,
+          "description": "neo config, for chatgpt service"
         }
-      },
-      "type": "object"
+      }
     }
   }
 }

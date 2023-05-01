@@ -1,80 +1,79 @@
 {
-  "$ref": "#/definitions/YaoTask.Task",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoTask.Task",
   "definitions": {
     "YaoTask.Task": {
-      "additionalProperties": false,
-      "description": "并发任务",
+      "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
-        },
-        "attempt_after": {
-          "description": "重试间隔",
-          "type": "number"
-        },
-        "attempts": {
-          "description": "失败重试次数",
-          "type": "number"
-        },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
         },
         "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
+          "type": "string",
+          "description": "描述【管理字段】"
         },
-        "event": {
-          "additionalProperties": false,
-          "description": "事件处理",
-          "properties": {
-            "add": {
-              "description": "添加任务时触发的处理器",
-              "type": "string"
-            },
-            "error": {
-              "description": "任务失败后触发处理器",
-              "type": "string"
-            },
-            "next": {
-              "description": "生成任务唯一id的回调处理器",
-              "type": "string"
-            },
-            "progress": {
-              "description": "任务处理中调用处理器",
-              "type": "string"
-            },
-            "success": {
-              "description": "添加任务时触发的处理器",
-              "type": "string"
-            }
-          },
-          "type": "object"
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
         },
         "name": {
-          "description": "任务名称",
-          "type": "string"
+          "type": "string",
+          "description": "任务名称"
         },
         "process": {
-          "description": "该task绑定的处理器，必须配置",
-          "type": "string"
+          "type": "string",
+          "description": "该task绑定的处理器，必须配置"
         },
         "size": {
-          "description": "作业对列大小，默认1024",
-          "type": "number"
-        },
-        "timeout": {
-          "description": "超时时间，秒钟，默认300",
-          "type": "number"
-        },
-        "version": {
-          "description": "版本【管理字段】",
-          "type": "string"
+          "type": "number",
+          "description": "作业对列大小，默认1024"
         },
         "worker_nums": {
-          "description": "指定进程数,默认是1",
-          "type": "number"
+          "type": "number",
+          "description": "指定进程数,默认是1"
+        },
+        "attempt_after": {
+          "type": "number",
+          "description": "重试间隔"
+        },
+        "attempts": {
+          "type": "number",
+          "description": "失败重试次数"
+        },
+        "timeout": {
+          "type": "number",
+          "description": "超时时间，秒钟，默认300"
+        },
+        "event": {
+          "type": "object",
+          "properties": {
+            "next": {
+              "type": "string",
+              "description": "生成任务唯一id的回调处理器"
+            },
+            "add": {
+              "type": "string",
+              "description": "添加任务时触发的处理器"
+            },
+            "success": {
+              "type": "string",
+              "description": "添加任务时触发的处理器"
+            },
+            "error": {
+              "type": "string",
+              "description": "任务失败后触发处理器"
+            },
+            "progress": {
+              "type": "string",
+              "description": "任务处理中调用处理器"
+            }
+          },
+          "additionalProperties": false,
+          "description": "事件处理"
+        },
+        "$schema": {
+          "type": "string"
         }
       },
       "required": [
@@ -82,7 +81,8 @@
         "process",
         "event"
       ],
-      "type": "object"
+      "additionalProperties": false,
+      "description": "并发任务"
     }
   }
 }

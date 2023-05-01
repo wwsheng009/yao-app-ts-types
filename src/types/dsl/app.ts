@@ -50,12 +50,13 @@ export namespace YaoApp {
     hideNotification?: boolean;
     /**隐藏导航栏下方配置菜单。 **字段名大小写敏感** */
     hideSetting?: boolean;
-
     /**在xgen中缓存远程select控件选项 */
     remoteCache?: boolean;
-
     /** neo config, for chatgpt service */
-    neo?: { api: string };
+    neo?: {
+      /** neo chat api */
+      api: string;
+    };
   };
 
   // export type CFUN = {

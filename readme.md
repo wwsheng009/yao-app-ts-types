@@ -101,7 +101,7 @@ npx ts-json-schema-generator --path 'src/types/dsl/**/*.ts' --type 'YaoForm.Form
 项目中提供了一个简单的批量生成的 bash 脚本，执行后会把所有的 ts 类型定义都转换成 json-schema 定义文件。
 
 ```sh
-export_schemas.sh
+pnpm run build-schema
 ```
 
 ## 其它

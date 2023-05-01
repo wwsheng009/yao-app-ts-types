@@ -1,50 +1,50 @@
 {
-  "$ref": "#/definitions/YaoCustomWidget.Widget",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoCustomWidget.Widget",
   "definitions": {
     "YaoCustomWidget.Widget": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
-        },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
         },
         "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
+          "type": "string",
+          "description": "描述【管理字段】"
         },
-        "description": {
-          "description": "Widget 介绍",
-          "type": "string"
-        },
-        "extension": {
-          "description": "DSL 文件扩展名",
-          "type": "string"
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
         },
         "label": {
-          "description": "Widget 名称",
-          "type": "string"
+          "type": "string",
+          "description": "Widget 名称"
+        },
+        "description": {
+          "type": "string",
+          "description": "Widget 介绍"
+        },
+        "root": {
+          "type": "string",
+          "description": "DSL 文件保存路径(相对于项目根目录)"
+        },
+        "extension": {
+          "type": "string",
+          "description": "DSL 文件扩展名"
         },
         "modules": {
-          "description": "需要导出的模块。 在 export.js 中根据 DSL 描述，转换的 YAO 内建 widgets。 如 model, table 等。这些 widgets 与保存在项目目录中的 DSL 文件等效。",
+          "type": "array",
           "items": {
             "type": "string"
           },
-          "type": "array"
+          "description": "需要导出的模块。 在 export.js 中根据 DSL 描述，转换的 YAO 内建 widgets。 如 model, table 等。这些 widgets 与保存在项目目录中的 DSL 文件等效。"
         },
-        "root": {
-          "description": "DSL 文件保存路径(相对于项目根目录)",
-          "type": "string"
-        },
-        "version": {
-          "description": "版本【管理字段】",
+        "$schema": {
           "type": "string"
         }
       },
-      "type": "object"
+      "additionalProperties": false
     }
   }
 }

@@ -1,50 +1,50 @@
 {
-  "$ref": "#/definitions/YaoStore.Store",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoStore.Store",
   "definitions": {
     "YaoStore.Store": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
-        },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
-        },
-        "connector": {
-          "description": "绑定连接器名称(连接器) Yao v0.10.2+",
-          "type": "string"
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
         },
         "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
+          "type": "string",
+          "description": "描述【管理字段】"
         },
-        "description": {
-          "description": "描述",
-          "type": "string"
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
         },
         "name": {
-          "description": "名称",
-          "type": "string"
+          "type": "string",
+          "description": "名称"
         },
-        "option": {
-          "description": "配置项 `{\"size\":10240}` type 为 `lru` 时有效， size 为 LRU 缓存大小",
-          "type": "object"
+        "description": {
+          "type": "string",
+          "description": "描述"
+        },
+        "connector": {
+          "type": "string",
+          "description": "绑定连接器名称(连接器) Yao v0.10.2+"
         },
         "type": {
-          "description": "类型 `lru` LRU 缓存 (connector 为空时有效)",
-          "type": "string"
+          "type": "string",
+          "description": "类型 `lru` LRU 缓存 (connector 为空时有效)"
         },
-        "version": {
-          "description": "版本【管理字段】",
+        "option": {
+          "type": "object",
+          "description": "配置项 `{\"size\":10240}` type 为 `lru` 时有效， size 为 LRU 缓存大小"
+        },
+        "$schema": {
           "type": "string"
         }
       },
       "required": [
         "name"
       ],
-      "type": "object"
+      "additionalProperties": false
     }
   }
 }

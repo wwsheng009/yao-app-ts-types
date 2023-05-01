@@ -1,11 +1,57 @@
 {
-  "$ref": "#/definitions/YaoSocket.Socket",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoSocket.Socket",
   "definitions": {
     "YaoSocket.Socket": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "$schema": {
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "name": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "server",
+            "client"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "port": {
+          "type": "string"
+        },
+        "event": {
+          "$ref": "#/definitions/YaoSocket.SocketEvent"
+        },
+        "timeout": {
+          "type": "number"
+        },
+        "buffer": {
+          "type": "number"
+        },
+        "keep": {
+          "type": "number"
+        },
+        "process": {
           "type": "string"
         },
         "attempt_after": {
@@ -14,78 +60,32 @@
         "attempts": {
           "type": "number"
         },
-        "buffer": {
-          "type": "number"
-        },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
-        },
-        "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "event": {
-          "$ref": "#/definitions/YaoSocket.SocketEvent"
-        },
-        "host": {
-          "type": "string"
-        },
-        "keep": {
-          "type": "number"
-        },
-        "mode": {
-          "enum": [
-            "server",
-            "client"
-          ],
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "port": {
-          "type": "string"
-        },
-        "process": {
-          "type": "string"
-        },
-        "protocol": {
-          "type": "string"
-        },
-        "timeout": {
-          "type": "number"
-        },
-        "version": {
-          "description": "版本【管理字段】",
+        "$schema": {
           "type": "string"
         }
       },
       "required": [
         "name"
       ],
-      "type": "object"
+      "additionalProperties": false
     },
     "YaoSocket.SocketEvent": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "closed": {
-          "type": "string"
-        },
-        "connected": {
-          "type": "string"
-        },
         "data": {
           "type": "string"
         },
         "error": {
           "type": "string"
+        },
+        "closed": {
+          "type": "string"
+        },
+        "connected": {
+          "type": "string"
         }
       },
-      "type": "object"
+      "additionalProperties": false
     }
   }
 }

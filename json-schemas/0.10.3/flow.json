@@ -1,154 +1,315 @@
 {
-  "$ref": "#/definitions/YaoFlow.Flow",
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoFlow.Flow",
   "definitions": {
     "YaoFlow.Flow": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "$schema": {
-          "type": "string"
-        },
-        "description": {
-          "description": "数据流介绍，用于开发平台呈现",
-          "type": "string"
-        },
-        "label": {
-          "description": "数据流呈现名称，用于开发平台呈现",
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
+        "label": {
+          "type": "string",
+          "description": "数据流呈现名称，用于开发平台呈现"
+        },
+        "version": {
+          "type": "string",
+          "description": "版本号，用于依赖关系校验和开发平台呈现"
+        },
+        "description": {
+          "type": "string",
+          "description": "数据流介绍，用于开发平台呈现"
+        },
         "nodes": {
-          "description": "查询节点",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/YaoFlow.FlowNode"
           },
-          "type": "array"
+          "description": "查询节点"
         },
         "output": {
           "description": "输出结果定义"
         },
-        "version": {
-          "description": "版本号，用于依赖关系校验和开发平台呈现",
+        "$schema": {
           "type": "string"
         }
       },
-      "type": "object"
+      "additionalProperties": false
     },
     "YaoFlow.FlowNode": {
-      "additionalProperties": false,
+      "type": "object",
       "properties": {
-        "args": {
-          "description": "处理器参数表.可以引用输入输出或上下文数据",
-          "items": {},
-          "type": "array"
-        },
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
         },
         "decription": {
-          "description": "描述【管理字段】",
-          "type": "string"
+          "type": "string",
+          "description": "描述【管理字段】"
         },
-        "engine": {
-          "description": "数据分析引擎名称,默认`xiang`",
-          "type": "string"
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
         },
         "name": {
-          "description": "查询节点名称",
-          "type": "string"
-        },
-        "outs": {
-          "description": "查询节点结果输出.使用 `{{$out}}` 引用处理器返回结果。如不设置，返回值等于处理器返回结果。",
-          "items": {},
-          "type": "array"
+          "type": "string",
+          "description": "查询节点名称"
         },
         "process": {
-          "description": "调用处理器 `process`",
-          "type": "string"
+          "type": "string",
+          "description": "调用处理器 `process`"
+        },
+        "engine": {
+          "type": "string",
+          "description": "数据分析引擎名称,默认`xiang`"
         },
         "query": {
           "$ref": "#/definitions/YaoQuery.QueryDSL",
           "description": "数据分析语言"
         },
         "script": {
-          "description": "关联的脚本名称",
-          "type": "string"
+          "type": "string",
+          "description": "关联的脚本名称"
         },
-        "version": {
-          "description": "版本【管理字段】",
-          "type": "string"
+        "args": {
+          "type": "array",
+          "items": {},
+          "description": "处理器参数表.可以引用输入输出或上下文数据"
+        },
+        "outs": {
+          "type": "array",
+          "items": {},
+          "description": "查询节点结果输出.使用 `{{$out}}` 引用处理器返回结果。如不设置，返回值等于处理器返回结果。"
         }
       },
-      "type": "object"
+      "additionalProperties": false
     },
-    "YaoQuery.Expression": {
-      "type": "string"
-    },
-    "YaoQuery.Group": {
-      "additionalProperties": false,
-      "description": "Group 聚合条件",
+    "YaoQuery.QueryDSL": {
+      "type": "object",
       "properties": {
         "comment": {
-          "description": "查询条件注释",
-          "type": "string"
+          "type": "string",
+          "description": "备注【管理字段】"
         },
+        "select": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "选择字段列表"
+        },
+        "from": {
+          "type": "string",
+          "description": "查询数据表名称或数据模型"
+        },
+        "wheres": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/YaoQuery.Where"
+              }
+            },
+            {
+              "$ref": "#/definitions/YaoQuery.Recordable"
+            }
+          ],
+          "description": "数据查询条件"
+        },
+        "orders": {
+          "$ref": "#/definitions/YaoQuery.Orders",
+          "description": "排序条件"
+        },
+        "offset": {
+          "type": "number",
+          "description": "记录开始位置"
+        },
+        "limit": {
+          "type": "number",
+          "description": "读取数据的数量"
+        },
+        "page": {
+          "type": "number",
+          "description": "分页查询当前页面页码"
+        },
+        "pagesize": {
+          "type": "number",
+          "description": "每页读取记录数量"
+        },
+        "data-only": {
+          "type": "boolean",
+          "description": "设定为 true, 查询结果为 []Record; 设定为 false, 查询结果为 Paginate, 仅在设定 `page` 或 `pagesize`时有效。"
+        },
+        "groups": {
+          "$ref": "#/definitions/YaoQuery.Groups",
+          "description": "聚合字段和统计层级设置"
+        },
+        "havings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQuery.Having"
+          },
+          "description": "聚合查询结果筛选, 仅在设定 `groups` 时有效"
+        },
+        "unions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQuery.QueryDSL"
+          },
+          "description": "联合查询。多个查询将结果合并为一张表"
+        },
+        "query": {
+          "$ref": "#/definitions/YaoQuery.QueryDSL",
+          "description": "子查询。按 QueryDSL 描述查询逻辑，生成一张二维数据表或数值。"
+        },
+        "name": {
+          "type": "string",
+          "description": "子查询别名"
+        },
+        "joins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQuery.Join"
+          },
+          "description": "表连接。连接数据量较大的数据表时 **不推荐使用**。| 否 |"
+        },
+        "sql": {
+          "$ref": "#/definitions/YaoQuery.SQL",
+          "description": "SQL 语句。**非必要，勿使用**"
+        },
+        "debug": {
+          "type": "boolean",
+          "description": "是否开启调试(开启后计入查询日志)"
+        }
+      },
+      "additionalProperties": false,
+      "description": "QueryDSL Gou Query Domain Specific Language"
+    },
+    "YaoQuery.Where": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "查询字段"
+        },
+        "value": {
+          "type": "string",
+          "description": "匹配数值"
+        },
+        "op": {
+          "type": "string",
+          "description": "匹配关系运算符"
+        },
+        "or": {
+          "type": "string",
+          "description": "true 查询条件逻辑关系为 or, 默认为 false 查询条件逻辑关系为 and"
+        },
+        "query": {
+          "type": "string",
+          "description": "子查询, 如设定 query 则忽略 value 数值。"
+        },
+        "comment": {
+          "type": "string",
+          "description": "查询条件注释"
+        },
+        "wheres": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQuery.Where"
+          },
+          "description": "分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景"
+        }
+      },
+      "description": "Where 查询条件"
+    },
+    "YaoQuery.Recordable": {
+      "type": "object"
+    },
+    "YaoQuery.Orders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/YaoQuery.Order"
+      },
+      "description": "Orders 排序条件集合"
+    },
+    "YaoQuery.Order": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "排序字段"
+        },
+        "sort": {
+          "type": "string",
+          "description": "排序方式"
+        },
+        "comment": {
+          "type": "string",
+          "description": "查询条件注释"
+        }
+      },
+      "required": [
+        "field"
+      ],
+      "additionalProperties": false,
+      "description": "Order 排序条件"
+    },
+    "YaoQuery.Groups": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQuery.Group"
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ],
+      "description": "Groups 聚合条件集合"
+    },
+    "YaoQuery.Group": {
+      "type": "object",
+      "properties": {
         "field": {
           "$ref": "#/definitions/YaoQuery.Expression",
           "description": "排序字段"
         },
         "rollup": {
-          "description": "同时返回多层级统计结果，对应聚合字段数值的名称。",
-          "type": "string"
+          "type": "string",
+          "description": "同时返回多层级统计结果，对应聚合字段数值的名称。"
+        },
+        "comment": {
+          "type": "string",
+          "description": "查询条件注释"
         }
       },
-      "type": "object"
+      "additionalProperties": false,
+      "description": "Group 聚合条件"
     },
-    "YaoQuery.Groups": {
-      "anyOf": [
-        {
-          "items": {
-            "$ref": "#/definitions/YaoQuery.Group"
-          },
-          "type": "array"
-        },
-        {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        }
-      ],
-      "description": "Groups 聚合条件集合"
+    "YaoQuery.Expression": {
+      "type": "string"
     },
     "YaoQuery.Having": {
-      "additionalProperties": false,
-      "description": "Having 聚合结果筛选条件",
+      "type": "object",
       "properties": {
         "havings": {
-          "description": "分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景",
+          "type": "array",
           "items": {
             "$ref": "#/definitions/YaoQuery.Having"
           },
-          "type": "array"
+          "description": "分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景"
         }
       },
-      "type": "object"
+      "additionalProperties": false,
+      "description": "Having 聚合结果筛选条件"
     },
     "YaoQuery.Join": {
-      "additionalProperties": false,
-      "description": "Join 数据表连接",
+      "type": "object",
       "properties": {
-        "comment": {
-          "description": "关联条件注释",
-          "type": "string"
-        },
-        "foreign": {
-          "$ref": "#/definitions/YaoQuery.Expression",
-          "description": "关联目标表字段名称(需指定表名或别名)"
-        },
         "from": {
           "$ref": "#/definitions/YaoQuery.Table",
           "description": "查询数据表名称或数据模型"
@@ -157,209 +318,48 @@
           "$ref": "#/definitions/YaoQuery.Expression",
           "description": "关联连接表字段名称"
         },
+        "foreign": {
+          "$ref": "#/definitions/YaoQuery.Expression",
+          "description": "关联目标表字段名称(需指定表名或别名)"
+        },
         "left": {
-          "description": "true 连接方式为 LEFT JOIN, 默认为 false 连接方式为 JOIN",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "true 连接方式为 LEFT JOIN, 默认为 false 连接方式为 JOIN"
         },
         "right": {
-          "description": "true 连接方式为 RIGHT JOIN, 默认为 false 连接方式为 JOIN",
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    },
-    "YaoQuery.Order": {
-      "additionalProperties": false,
-      "description": "Order 排序条件",
-      "properties": {
-        "comment": {
-          "description": "查询条件注释",
-          "type": "string"
-        },
-        "field": {
-          "description": "排序字段",
-          "type": "string"
-        },
-        "sort": {
-          "description": "排序方式",
-          "type": "string"
-        }
-      },
-      "required": [
-        "field"
-      ],
-      "type": "object"
-    },
-    "YaoQuery.Orders": {
-      "description": "Orders 排序条件集合",
-      "items": {
-        "$ref": "#/definitions/YaoQuery.Order"
-      },
-      "type": "array"
-    },
-    "YaoQuery.QueryDSL": {
-      "additionalProperties": false,
-      "description": "QueryDSL Gou Query Domain Specific Language",
-      "properties": {
-        "comment": {
-          "description": "备注【管理字段】",
-          "type": "string"
-        },
-        "data-only": {
-          "description": "设定为 true, 查询结果为 []Record; 设定为 false, 查询结果为 Paginate, 仅在设定 `page` 或 `pagesize`时有效。",
-          "type": "boolean"
-        },
-        "debug": {
-          "description": "是否开启调试(开启后计入查询日志)",
-          "type": "boolean"
-        },
-        "from": {
-          "description": "查询数据表名称或数据模型",
-          "type": "string"
-        },
-        "groups": {
-          "$ref": "#/definitions/YaoQuery.Groups",
-          "description": "聚合字段和统计层级设置"
-        },
-        "havings": {
-          "description": "聚合查询结果筛选, 仅在设定 `groups` 时有效",
-          "items": {
-            "$ref": "#/definitions/YaoQuery.Having"
-          },
-          "type": "array"
-        },
-        "joins": {
-          "description": "表连接。连接数据量较大的数据表时 **不推荐使用**。| 否 |",
-          "items": {
-            "$ref": "#/definitions/YaoQuery.Join"
-          },
-          "type": "array"
-        },
-        "limit": {
-          "description": "读取数据的数量",
-          "type": "number"
-        },
-        "name": {
-          "description": "子查询别名",
-          "type": "string"
-        },
-        "offset": {
-          "description": "记录开始位置",
-          "type": "number"
-        },
-        "orders": {
-          "$ref": "#/definitions/YaoQuery.Orders",
-          "description": "排序条件"
-        },
-        "page": {
-          "description": "分页查询当前页面页码",
-          "type": "number"
-        },
-        "pagesize": {
-          "description": "每页读取记录数量",
-          "type": "number"
-        },
-        "query": {
-          "$ref": "#/definitions/YaoQuery.QueryDSL",
-          "description": "子查询。按 QueryDSL 描述查询逻辑，生成一张二维数据表或数值。"
-        },
-        "select": {
-          "description": "选择字段列表",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "sql": {
-          "$ref": "#/definitions/YaoQuery.SQL",
-          "description": "SQL 语句。**非必要，勿使用**"
-        },
-        "unions": {
-          "description": "联合查询。多个查询将结果合并为一张表",
-          "items": {
-            "$ref": "#/definitions/YaoQuery.QueryDSL"
-          },
-          "type": "array"
-        },
-        "wheres": {
-          "anyOf": [
-            {
-              "items": {
-                "$ref": "#/definitions/YaoQuery.Where"
-              },
-              "type": "array"
-            },
-            {
-              "$ref": "#/definitions/YaoQuery.Recordable"
-            }
-          ],
-          "description": "数据查询条件"
-        }
-      },
-      "type": "object"
-    },
-    "YaoQuery.Recordable": {
-      "type": "object"
-    },
-    "YaoQuery.SQL": {
-      "additionalProperties": false,
-      "description": "SQL 语句",
-      "properties": {
-        "args": {
-          "description": "绑定参数表",
-          "items": {},
-          "type": "array"
+          "type": "boolean",
+          "description": "true 连接方式为 RIGHT JOIN, 默认为 false 连接方式为 JOIN"
         },
         "comment": {
-          "description": "SQL语句注释",
-          "type": "string"
-        },
-        "stmt": {
-          "description": "SQL 语句,不可跟其它sql查询条件一起混用",
-          "type": "string"
+          "type": "string",
+          "description": "关联条件注释"
         }
       },
-      "type": "object"
+      "additionalProperties": false,
+      "description": "Join 数据表连接"
     },
     "YaoQuery.Table": {
       "type": "string"
     },
-    "YaoQuery.Where": {
-      "description": "Where 查询条件",
+    "YaoQuery.SQL": {
+      "type": "object",
       "properties": {
+        "stmt": {
+          "type": "string",
+          "description": "SQL 语句,不可跟其它sql查询条件一起混用"
+        },
+        "args": {
+          "type": "array",
+          "items": {},
+          "description": "绑定参数表"
+        },
         "comment": {
-          "description": "查询条件注释",
-          "type": "string"
-        },
-        "field": {
-          "description": "查询字段",
-          "type": "string"
-        },
-        "op": {
-          "description": "匹配关系运算符",
-          "type": "string"
-        },
-        "or": {
-          "description": "true 查询条件逻辑关系为 or, 默认为 false 查询条件逻辑关系为 and",
-          "type": "string"
-        },
-        "query": {
-          "description": "子查询, 如设定 query 则忽略 value 数值。",
-          "type": "string"
-        },
-        "value": {
-          "description": "匹配数值",
-          "type": "string"
-        },
-        "wheres": {
-          "description": "分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景",
-          "items": {
-            "$ref": "#/definitions/YaoQuery.Where"
-          },
-          "type": "array"
+          "type": "string",
+          "description": "SQL语句注释"
         }
       },
-      "type": "object"
+      "additionalProperties": false,
+      "description": "SQL 语句"
     }
   }
 }
