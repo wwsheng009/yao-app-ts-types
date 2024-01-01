@@ -1,10 +1,4 @@
-import YaoChart from "./chart";
-import YaoComponent from "./component";
-import YaoForm from "./form";
-import YaoList from "./list";
 import { YaoQuery } from "./query";
-import { YaoQueryParam } from "./query_param";
-import YaoTable from "./table";
 
 export namespace YaoModel {
   // Relationship types
@@ -68,19 +62,7 @@ export namespace YaoModel {
     option?: ModelOption;
     /**自定义扩展 */
     custom?: { [key: string]: any };
-    /**ui设计器 */
-    xgen?: Xgen; //{ [key: string]: Design };
     $schema?: string;
-  }
-
-  export interface Xgen {
-    menu?: {
-      /**不显示在菜单上 */
-      no_display?: boolean;
-    };
-    form?: Partial<YaoForm.FormDSL>;
-    list?: Partial<YaoList.ListDSL>;
-    table?: Partial<YaoTable.TableDSL>;
   }
 
   export type ColumnFieldTypeEnum =
@@ -109,8 +91,8 @@ export namespace YaoModel {
     | "bigInteger" //"长整型",
     | "bigIncrements" //"无符号长整型+自增",
     | "unsignedBigInteger" //"无符号长整型",
-    | "id" //"长整型+自增",
-    | "ID" //"长整型+自增(同id)",
+    | "id" //"长整型+自增",非自增长的字段不要使用
+    | "ID" //"长整型+自增(同id)",非自增长的字段不要使用
     | "decimal" //"小数(一般用于存储货币)",
     | "unsignedDecimal" //"无符号小数(一般用于存储货币)",
     | "float" //"浮点数",
@@ -126,7 +108,8 @@ export namespace YaoModel {
     | "uuid" //"UUID格式字符串",
     | "ipAddress" //"IP地址",
     | "macAddress" //"MAC地址",
-    | "year"; //"年份"
+    | "year" //"年份"
+    | "vector"; // pgvector的向量类型vector,只有在pg数据库中有效
   // Column the field description struct
 
   export type ColumnOption = string | number | boolean;
@@ -159,7 +142,7 @@ export namespace YaoModel {
     default?: any;
     /**字段默认值，支持数据库函数，如 `NOW()` default 和 default_raw 同时存在 default_raw 优先级高*/
     default_raw?: string;
-
+    /**示例，未使用 */
     example?: any;
     /** Increment, UUID,...*/
     generate?: string; //
