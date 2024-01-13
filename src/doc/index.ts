@@ -24,7 +24,7 @@ function ConvertDoc() {
       .slice(2)
       .join("|");
     const commentLine = `/**${nline}*/`;
-    const newLine = `${method.trim()} = "${fname.trim()}",`;
+    const newLine = `${method?.trim()} = "${fname.trim()}",`;
     new_lines.push(commentLine);
     new_lines.push(newLine);
   });

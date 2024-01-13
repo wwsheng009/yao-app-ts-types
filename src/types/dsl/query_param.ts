@@ -34,7 +34,7 @@ export namespace YaoQueryParam {
     /**字段名称*/
     column: string;
     /**排序方式， `desc`, `asc`, 默认为 `asc`*/
-    option?: string;
+    option?: "desc" | "asc";
   }
   /**
    *  QueryWhere Where 查询条件
@@ -70,7 +70,18 @@ export namespace YaoQueryParam {
      *| in       | 列表包含 WHERE 字段 IN (数值...) |
      *| ne       | 不等于匹配值                     |
      */
-    op?: string;
+    op?:
+      | "eq"
+      | "like"
+      | "match"
+      | "gt"
+      | "ge"
+      | "lt"
+      | "le"
+      | "null"
+      | "notnull"
+      | "in"
+      | "ne";
     /**分组查询 */
     wheres?: QueryWhere[];
   }

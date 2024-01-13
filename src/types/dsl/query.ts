@@ -61,6 +61,7 @@ export namespace YaoQuery {
   export interface Where extends Condition {
     /**分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景*/
     wheres?: Where[];
+    /**可以使用类似简化的操作，比如：{ ":score": "分数", "in": [10, 20] }*/
     [key: string]: any;
   }
   /**Order 排序条件*/

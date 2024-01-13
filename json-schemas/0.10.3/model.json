@@ -527,6 +527,9 @@
           "description": "分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景"
         }
       },
+      "additionalProperties": {
+        "description": "可以使用类似简化的操作，比如：{ \":score\": \"分数\", \"in\": [10, 20] }"
+      },
       "description": "Where 查询条件"
     },
     "YaoQuery.Recordable": {

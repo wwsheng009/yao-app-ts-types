@@ -207,6 +207,19 @@
         },
         "op": {
           "type": "string",
+          "enum": [
+            "eq",
+            "like",
+            "match",
+            "gt",
+            "ge",
+            "lt",
+            "le",
+            "null",
+            "notnull",
+            "in",
+            "ne"
+          ],
           "description": "匹配关系 `eq`,`like`,`in`,`gt` 等默认为 `eq`\n\n| 匹配关系 | 说明                             | | -------- | -------------------------------- | | eq       | 默认值 等于 WHERE 字段 = 数值    | | like     | 匹配 WHERE 字段 like 数值        | | match    | 匹配 WHERE 字段 全文检索 数值    | | gt       | 大于 WHERE 字段 > 数值           | | ge       | 大于等于 WHERE 字段 >= 数值      | | lt       | 小于 WHERE 字段 < 数值           | | le       | 小于等于 WHERE 字段 <= 数值      | | null     | 为空 WHERE 字段 IS NULL          | | notnull  | 不为空 WHERE 字段 IS NOT NULL    | | in       | 列表包含 WHERE 字段 IN (数值...) | | ne       | 不等于匹配值                     |"
         },
         "wheres": {
@@ -233,6 +246,10 @@
         },
         "option": {
           "type": "string",
+          "enum": [
+            "desc",
+            "asc"
+          ],
           "description": "排序方式， `desc`, `asc`, 默认为 `asc`"
         }
       },
