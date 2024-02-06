@@ -5,6 +5,11 @@ import type {
 } from "@/types/xgen";
 
 export declare namespace XgenForm {
+  interface Frame {
+    url: string;
+    params?: Record<string, string>;
+  }
+
   interface Section {
     title?: string;
     desc?: string;
@@ -77,12 +82,16 @@ export declare namespace XgenForm {
         showSectionDivideLine?: boolean;
       };
       sections: Array<Section>;
+      frame?: Frame;
     };
     fields: {
       form: Common.EditFields;
     };
     config?: Common.Config & {
       showAnchor?: boolean;
+      showBreadcrumb?: boolean;
+      viewTitle?: string;
+      editTitle?: string;
     };
   }
 }

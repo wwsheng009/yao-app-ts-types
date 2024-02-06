@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoTask.Task",
+  "definitions": {
+    "YaoTask.Task": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "name": {
+          "type": "string",
+          "description": "任务名称"
+        },
+        "process": {
+          "type": "string",
+          "description": "该task绑定的处理器，必须配置"
+        },
+        "size": {
+          "type": "number",
+          "description": "作业对列大小，默认1024"
+        },
+        "worker_nums": {
+          "type": "number",
+          "description": "指定进程数,默认是1"
+        },
+        "attempt_after": {
+          "type": "number",
+          "description": "重试间隔"
+        },
+        "attempts": {
+          "type": "number",
+          "description": "失败重试次数"
+        },
+        "timeout": {
+          "type": "number",
+          "description": "超时时间，秒钟，默认300"
+        },
+        "event": {
+          "type": "object",
+          "properties": {
+            "next": {
+              "type": "string",
+              "description": "生成任务唯一id的回调处理器"
+            },
+            "add": {
+              "type": "string",
+              "description": "添加任务时触发的处理器"
+            },
+            "success": {
+              "type": "string",
+              "description": "添加任务时触发的处理器"
+            },
+            "error": {
+              "type": "string",
+              "description": "任务失败后触发处理器"
+            },
+            "progress": {
+              "type": "string",
+              "description": "任务处理中调用处理器"
+            }
+          },
+          "additionalProperties": false,
+          "description": "事件处理"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "process",
+        "event"
+      ],
+      "additionalProperties": false,
+      "description": "并发任务"
+    }
+  }
+}

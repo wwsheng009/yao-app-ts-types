@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoSchedule.Schedule",
+  "definitions": {
+    "YaoSchedule.Schedule": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "process": {
+          "type": "string",
+          "description": "处理器，处理器与task二选一"
+        },
+        "schedule": {
+          "type": "string",
+          "description": "计划定时执行的时间，写法和 Linux 的 crontab 是一样的"
+        },
+        "task": {
+          "type": "string",
+          "description": "任务名称，使用task.json定义的任务"
+        },
+        "args": {
+          "type": "array",
+          "items": {},
+          "description": "处理器参数"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "schedule"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoWebSocket.Client",
+  "definitions": {
+    "YaoWebSocket.Client": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "description": {
+          "type": "string",
+          "description": "描述"
+        },
+        "url": {
+          "type": "string",
+          "description": "地址"
+        },
+        "protocols": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "协议"
+        },
+        "guard": {
+          "type": "string"
+        },
+        "buffer": {
+          "$ref": "#/definitions/YaoWebSocket.BufferSize",
+          "description": "缓存设置"
+        },
+        "timeout": {
+          "type": "number",
+          "description": "超时设置（秒），默认5"
+        },
+        "ping": {
+          "type": "number",
+          "description": "ping超时（秒），默认2592000"
+        },
+        "keep": {
+          "type": "number",
+          "description": "-1 not keep alive, 0 keep alive always, keep alive n seconds."
+        },
+        "attempt_after": {
+          "type": "number",
+          "description": "多久时间后多试连接（秒），默认50"
+        },
+        "attempts": {
+          "type": "number",
+          "description": "max times try to reconnect server when connection break (client mode only)"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "时间戳"
+        },
+        "ip": {
+          "type": "string",
+          "description": "ip地址"
+        },
+        "port": {
+          "type": "number",
+          "description": "端口号"
+        },
+        "event": {
+          "$ref": "#/definitions/YaoWebSocket.WebSocketEvent",
+          "description": "ws事件处理"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoWebSocket.BufferSize": {
+      "type": "object",
+      "properties": {
+        "read": {
+          "type": "number",
+          "description": "读取缓存区大小（大小），默认1024"
+        },
+        "write": {
+          "type": "number",
+          "description": "写入缓存区大小（字节），默认1024"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoWebSocket.WebSocketEvent": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "description": "ws数据连接回调处理器"
+        },
+        "error": {
+          "type": "string",
+          "description": "ws连接错误时回调处理器"
+        },
+        "closed": {
+          "type": "string",
+          "description": "ws连接关闭时回调处理器"
+        },
+        "connected": {
+          "type": "string",
+          "description": "ws连接后回调处理器"
+        }
+      },
+      "additionalProperties": false,
+      "description": "客户端事件处理"
+    }
+  }
+}

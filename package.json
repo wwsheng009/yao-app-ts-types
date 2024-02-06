@@ -1,6 +1,6 @@
 {
   "name": "yao-app-ts-types",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "typescript types for yao application",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

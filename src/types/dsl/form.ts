@@ -107,8 +107,20 @@ export namespace YaoForm {
     /**表单布局配置 */
     form?: ViewLayoutDSL;
     /**全局配置 */
-    config?: CommonConfig;
+    config?: FormConfig;
   }
+
+  /**表单布局配置项 */
+  type FormConfig = {
+    /**是否隐藏面包屑导航 */
+    hideBreadcrumb?: boolean;
+    /**是否显示字段锚点 */
+    showAnchor?: boolean;
+    /**自定义查看模式标题 */
+    viewTitle?: string;
+    /**自定义编辑模式标题 */
+    editTitle?: string;
+  } & CommonConfig;
 
   // FieldsDSL the form fields DSL
   export interface FieldsDSL {
@@ -174,6 +186,13 @@ export namespace YaoForm {
     props?: FormProperty;
     /**节点配置 */
     sections?: SectionDSL[];
+    /** 自定义页面 */
+    frame?: Frame;
+  }
+
+  export interface Frame {
+    url: string;
+    params?: Record<string, string>;
   }
 
   // SectionDSL layout.form.sections[*]
