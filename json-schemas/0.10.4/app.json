@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoApp.AppDSL",
+  "definitions": {
+    "YaoApp.AppDSL": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "xgen": {
+          "type": "string",
+          "description": "XGen 界面引擎版本, 推荐使用 `1.0` 版，旧版已停止维护"
+        },
+        "name": {
+          "type": "string",
+          "description": "应用名称, 支持多语言"
+        },
+        "short": {
+          "type": "string",
+          "description": "应用简称, 支持多语言。"
+        },
+        "description": {
+          "type": "string",
+          "description": "应用介绍, 支持多语言。"
+        },
+        "theme": {
+          "type": "string",
+          "enum": [
+            "light",
+            "dark"
+          ],
+          "description": "默认主题"
+        },
+        "lang": {
+          "type": "string",
+          "description": "配置xgen语言 zh-cn/en-us"
+        },
+        "sid": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string",
+          "description": "logo文件地址，根目录/public"
+        },
+        "favicon": {
+          "type": "string",
+          "description": "网站favicon文件地址，根目录/public"
+        },
+        "menu": {
+          "$ref": "#/definitions/YaoApp.MenuDSL",
+          "description": "管理后台菜单读取处理器"
+        },
+        "adminRoot": {
+          "type": "string",
+          "description": "管理后台路由前缀,默认为/yao"
+        },
+        "optional": {
+          "$ref": "#/definitions/YaoApp.OptionalDSL",
+          "description": "应用可选配置项"
+        },
+        "setting": {
+          "type": "string",
+          "description": "xgen获取配置的处理器，默认是yao.app.Xgen"
+        },
+        "setup": {
+          "type": "string",
+          "description": "应用首次安装后运行的处理器名称， 一般可以用来建立初始化数据；处理器第一个参数为应用配置信息。支持使用 `studio` 命名空间，调用 studio 脚本函数"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoApp.MenuDSL": {
+      "type": "object",
+      "properties": {
+        "process": {
+          "type": "string",
+          "description": "处理器名称"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "处理器参数表"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoApp.OptionalDSL": {
+      "type": "object",
+      "properties": {
+        "hideNotification": {
+          "type": "boolean",
+          "description": "隐藏系统通知面板。 **字段名大小写敏感**"
+        },
+        "hideSetting": {
+          "type": "boolean",
+          "description": "隐藏导航栏下方配置菜单。 **字段名大小写敏感**"
+        },
+        "remoteCache": {
+          "type": "boolean",
+          "description": "在xgen中缓存远程select控件选项"
+        },
+        "neo": {
+          "type": "object",
+          "properties": {
+            "api": {
+              "type": "string",
+              "description": "neo chat api"
+            }
+          },
+          "required": [
+            "api"
+          ],
+          "additionalProperties": false,
+          "description": "neo config, for chatgpt service"
+        }
+      }
+    }
+  }
+}

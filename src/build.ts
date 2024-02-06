@@ -34,7 +34,7 @@ function main() {
       type: `${words[1]}`, // Or <type-name> if you want to generate schema for that one type only
     };
 
-    const output_path = `./json-schemas/0.10.3/${words[2]}`;
+    const output_path = `./json-schemas/0.10.4/${words[2]}`;
 
     const schema = tsj.createGenerator(config).createSchema(config.type);
     const schemaString = JSON.stringify(schema, null, 2);

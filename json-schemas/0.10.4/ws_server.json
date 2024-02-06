@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoWebSocket.Server",
+  "definitions": {
+    "YaoWebSocket.Server": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "description": {
+          "type": "string",
+          "description": "描述"
+        },
+        "version": {
+          "type": "string",
+          "description": "版本"
+        },
+        "protocols": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "ws协议"
+        },
+        "guard": {
+          "type": "string"
+        },
+        "buffer": {
+          "$ref": "#/definitions/YaoWebSocket.BufferSize",
+          "description": "接收的缓存区大小，按字节算"
+        },
+        "limit": {
+          "$ref": "#/definitions/YaoWebSocket.Limit",
+          "description": "限制"
+        },
+        "timeout": {
+          "type": "number",
+          "description": "ws连接超时时间（秒），默认5秒"
+        },
+        "process": {
+          "type": "string",
+          "description": "ws消息处理器"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoWebSocket.BufferSize": {
+      "type": "object",
+      "properties": {
+        "read": {
+          "type": "number",
+          "description": "读取缓存区大小（大小），默认1024"
+        },
+        "write": {
+          "type": "number",
+          "description": "写入缓存区大小（字节），默认1024"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoWebSocket.Limit": {
+      "type": "object",
+      "properties": {
+        "write-wait": {
+          "type": "number",
+          "description": "写等待（秒），默认10"
+        },
+        "pong-wait": {
+          "type": "number",
+          "description": "回应等待（秒），默认60"
+        },
+        "max-message": {
+          "type": "number",
+          "description": "最大消息大小限制，单位字节，默认1024"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

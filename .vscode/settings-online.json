@@ -2,15 +2,15 @@
   "json.schemas": [
     {
       "fileMatch": ["/**/*.mod.json", "/**/*.mod.jsonc", "/**/*.mod.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/model.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/model.json"
     },
     {
       "fileMatch": ["/**/*.app.json", "/**/*.app.jsonc", "/**/*.app.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/app.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/app.json"
     },
     {
       "fileMatch": ["/**/*.login.json", "/**/*.login.jsonc", "/**/*.login.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/login.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/login.json"
     },
     {
       "fileMatch": [
@@ -18,7 +18,7 @@
         "/**/*.schedule.jsonc",
         "/**/*.schedule.yao"
       ],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/schedule.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/schedule.json"
     },
     {
       "fileMatch": [
@@ -26,7 +26,7 @@
         "/**/*.service.jsonc",
         "/**/*.service.yao"
       ],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/service.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/service.json"
     },
     {
       "fileMatch": [
@@ -34,15 +34,15 @@
         "/**/*.socket.jsonc",
         "/**/*.socket.yao"
       ],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/socket.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/socket.json"
     },
     {
       "fileMatch": ["/**/*.stor.json", "/**/*.stor.jsonc", "/**/*.stor.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/store.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/store.json"
     },
     {
       "fileMatch": ["/**/*.task.json", "/**/*.task.jsonc", "/**/*.task.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/task.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/task.json"
     },
     {
       "fileMatch": [
@@ -50,7 +50,7 @@
         "/**/*.widget.jsonc",
         "/**/*.widget.yao"
       ],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/widget.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/widget.json"
     },
     {
       "fileMatch": [
@@ -58,7 +58,7 @@
         "/**/apis/**/*.ws.jsonc",
         "/**/apis/**/*.ws.yao"
       ],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/ws_server.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/ws_server.json"
     },
     {
       "fileMatch": [
@@ -66,39 +66,39 @@
         "/**/websockets/**/*.ws.jsonc",
         "/**/websockets/**/*.ws.yao"
       ],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/ws_client.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/ws_client.json"
     },
     {
       "fileMatch": ["/**/*.imp.json", "/**/*.imp.jsonc", "/**/*.imp.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/importer.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/importer.json"
     },
     {
       "fileMatch": ["/**/*.http.json", "/**/*.http.jsonc", "/**/*.http.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/api_http.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/api_http.json"
     },
     {
       "fileMatch": ["/**/*.rest.json", "/**/*.rest.jsonc", "/**/*.rest.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/api_rest.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/api_rest.json"
     },
     {
       "fileMatch": ["/**/*.chart.json", "/**/*.chart.jsonc", "/**/*.chart.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/chart.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/chart.json"
     },
     {
       "fileMatch": ["/**/*.tab.json", "/**/*.tab.jsonc", "/**/*.tab.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/table.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/table.json"
     },
     {
       "fileMatch": ["/**/*.list.json", "/**/*.list.jsonc", "/**/*.list.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/list.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/list.json"
     },
     {
       "fileMatch": ["/**/*.conn.json", "/**/*.conn.jsonc", "/**/*.conn.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/connector.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/connector.json"
     },
     {
       "fileMatch": ["/**/*.model.json", "/**/*.model.jsonc", "/**/*.model.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/model.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/model.json"
     },
     {
       "fileMatch": [
@@ -109,15 +109,15 @@
         "!/**/dyforms/**/*.form.jsonc",
         "!/**/dyforms/**/*.form.yao"
       ],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/form.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/form.json"
     },
     {
       "fileMatch": ["/**/*.flow.json", "/**/*.flow.jsonc", "/**/*.flow.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/flow.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/flow.json"
     },
     {
       "fileMatch": ["/**/*.dash.json", "/**/*.dash.jsonc", "/**/*.dash.yao"],
-      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.3/dashboard.json"
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/dashboard.json"
     }
   ]
 }

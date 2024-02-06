@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoQueryParam.QueryParam",
+  "definitions": {
+    "YaoQueryParam.QueryParam": {
+      "type": "object",
+      "properties": {
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "model": {
+          "type": "string",
+          "description": "模型名称"
+        },
+        "table": {
+          "type": "string",
+          "description": "表格名称"
+        },
+        "alias": {
+          "type": "string",
+          "description": "别名"
+        },
+        "export": {
+          "type": "string",
+          "description": "导出数据时的前缀"
+        },
+        "select": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "选择字段清单"
+        },
+        "wheres": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWhere"
+          },
+          "description": "查询条件"
+        },
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryOrder"
+          },
+          "description": "排序条件"
+        },
+        "limit": {
+          "type": "number",
+          "description": "限制返回记录条目"
+        },
+        "page": {
+          "type": "number",
+          "description": "当前页码"
+        },
+        "pagesize": {
+          "type": "number",
+          "description": "每页显示记录数量"
+        },
+        "withs": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWith"
+          },
+          "description": "读取关联模型"
+        }
+      },
+      "additionalProperties": false,
+      "description": "QueryParam 数据查询器参数"
+    },
+    "YaoQueryParam.QueryWhere": {
+      "type": "object",
+      "properties": {
+        "rel": {
+          "type": "string",
+          "description": "如按关联模型的字段查询，则填写关联模型名称"
+        },
+        "column": {
+          "type": "string",
+          "description": "字段名称"
+        },
+        "value": {
+          "description": "匹配数值"
+        },
+        "method": {
+          "type": "string",
+          "description": "查询方法 `where`,`orwhere`, `wherein`, `orwherein`... 默认为 `where`,\n\n| 查询方法 | 说明                                  | | -------- | ------------------------------------- | | where    | WHERE 字段 = 数值, WHERE 字段 >= 数值 | | orwhere  | ... OR WHERE 字段 = 数值              |"
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            "eq",
+            "like",
+            "match",
+            "gt",
+            "ge",
+            "lt",
+            "le",
+            "null",
+            "notnull",
+            "in",
+            "ne"
+          ],
+          "description": "匹配关系 `eq`,`like`,`in`,`gt` 等默认为 `eq`\n\n| 匹配关系 | 说明                             | | -------- | -------------------------------- | | eq       | 默认值 等于 WHERE 字段 = 数值    | | like     | 匹配 WHERE 字段 like 数值        | | match    | 匹配 WHERE 字段 全文检索 数值    | | gt       | 大于 WHERE 字段 > 数值           | | ge       | 大于等于 WHERE 字段 >= 数值      | | lt       | 小于 WHERE 字段 < 数值           | | le       | 小于等于 WHERE 字段 <= 数值      | | null     | 为空 WHERE 字段 IS NULL          | | notnull  | 不为空 WHERE 字段 IS NOT NULL    | | in       | 列表包含 WHERE 字段 IN (数值...) | | ne       | 不等于匹配值                     |"
+        },
+        "wheres": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQueryParam.QueryWhere"
+          },
+          "description": "分组查询"
+        }
+      },
+      "additionalProperties": false,
+      "description": "QueryWhere Where 查询条件"
+    },
+    "YaoQueryParam.QueryOrder": {
+      "type": "object",
+      "properties": {
+        "rel": {
+          "type": "string",
+          "description": "如按关联模型的字段排序，则填写关联模型名称"
+        },
+        "column": {
+          "type": "string",
+          "description": "字段名称"
+        },
+        "option": {
+          "type": "string",
+          "enum": [
+            "desc",
+            "asc"
+          ],
+          "description": "排序方式， `desc`, `asc`, 默认为 `asc`"
+        }
+      },
+      "required": [
+        "column"
+      ],
+      "additionalProperties": false,
+      "description": "QueryOrder Order 查询排序"
+    },
+    "YaoQueryParam.QueryWith": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "query": {
+          "$ref": "#/definitions/YaoQueryParam.QueryParam"
+        }
+      },
+      "additionalProperties": false,
+      "description": "With relations 关联查询"
+    }
+  }
+}

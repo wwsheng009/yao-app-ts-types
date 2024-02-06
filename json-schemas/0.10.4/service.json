@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoService.Service",
+  "definitions": {
+    "YaoService.Service": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "process": {
+          "type": "string",
+          "description": "处理器，运行目录是环境变量YAO_ROOT，或是使用当前目录"
+        },
+        "command": {
+          "type": "string",
+          "description": "作业运行命令，默认是`yao run `,使用yao执行脚本等，可替换成其它的系统命令"
+        },
+        "requires": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "前置作业"
+        },
+        "after": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "前置作业"
+        },
+        "restart": {
+          "type": "string",
+          "description": "重启条件，默认on-failure"
+        },
+        "workdir": {
+          "type": "string",
+          "description": "工作目录"
+        },
+        "args": {
+          "type": "array",
+          "items": {},
+          "description": "处理器运行的参数"
+        },
+        "error": {
+          "type": "string",
+          "description": "错误日志文件路径，默认/var/log/yao-{{.Name}}-error.log"
+        },
+        "output": {
+          "type": "string",
+          "description": "结果输出文件路径，默认/var/log/yao-{{.Name}}.log"
+        },
+        "user": {
+          "type": "string",
+          "description": "运行用户，默认User=root"
+        },
+        "group": {
+          "type": "string",
+          "description": "运行用户组，Group=root"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "description": "后台服务定义，不支持windows操作系统"
+    }
+  }
+}

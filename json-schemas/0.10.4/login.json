@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoLogin.LoginDSL",
+  "definitions": {
+    "YaoLogin.LoginDSL": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "版本【管理字段】"
+        },
+        "decription": {
+          "type": "string",
+          "description": "描述【管理字段】"
+        },
+        "comment": {
+          "type": "string",
+          "description": "备注【管理字段】"
+        },
+        "name": {
+          "type": "string",
+          "description": "登录界面名称, 支持多语言"
+        },
+        "action": {
+          "$ref": "#/definitions/YaoLogin.ActionDSL",
+          "description": "自定义用户登录逻辑处理器，默认是yao.login.Admin"
+        },
+        "layout": {
+          "$ref": "#/definitions/YaoLogin.LayoutDSL",
+          "description": "页面布局定义。设置登录界面封面、登录后跳转路由地址等"
+        },
+        "thirdPartyLogin": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoLogin.ThirdPartyLoginDSL"
+          },
+          "description": "第三方登录"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoLogin.ActionDSL": {
+      "type": "object",
+      "properties": {
+        "process": {
+          "type": "string",
+          "description": "用户登录处理逻辑"
+        },
+        "args": {
+          "type": "array",
+          "items": {},
+          "description": "登录处理器参数，参考http 接口的传参数，可使用:payload引用传入参数"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoLogin.LayoutDSL": {
+      "type": "object",
+      "properties": {
+        "entry": {
+          "type": "string",
+          "description": "成功登录后，转向此地址。**注意: 不含管理后台路由前缀**"
+        },
+        "captcha": {
+          "type": "string",
+          "description": "自定义动态认证码生成处理器，默认是yao.utils.Captcha"
+        },
+        "cover": {
+          "type": "string",
+          "description": "登录界面封面图片, 图片相对地址。可将图片放到应用公开目录 `public` ，例如: `/data/app/public/images/cover.png`, 填写的地址为 `/images/cover.png`"
+        },
+        "slogan": {
+          "type": "string",
+          "description": "登录界面广告语，支持多语言"
+        },
+        "site": {
+          "type": "string",
+          "description": "登录界面封面图片下方链接地址"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoLogin.ThirdPartyLoginDSL": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "按钮标题"
+        },
+        "href": {
+          "type": "string",
+          "description": "第三方登录跳转地址"
+        },
+        "icon": {
+          "type": "string",
+          "description": "按钮前缀图标"
+        },
+        "blank": {
+          "type": "boolean",
+          "description": "是否在浏览器打开新标签"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
