@@ -426,7 +426,6 @@
             },
             "editTitle": {
               "type": "string",
-              "const": "报名设置",
               "description": "自定义编辑模式标题"
             }
           },

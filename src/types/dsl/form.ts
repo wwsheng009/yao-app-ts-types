@@ -119,7 +119,7 @@ export namespace YaoForm {
     /**自定义查看模式标题 */
     viewTitle?: string;
     /**自定义编辑模式标题 */
-    editTitle?: "报名设置";
+    editTitle?: string;
   } & CommonConfig;
 
   // FieldsDSL the form fields DSL
