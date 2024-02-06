@@ -414,11 +414,11 @@
             },
             "hideBreadcrumb": {
               "type": "boolean",
-              "description": "是否显示面包屑导航"
+              "description": "是否隐藏面包屑导航"
             },
             "showAnchor": {
               "type": "boolean",
-              "description": "是否字段锚点"
+              "description": "是否显示字段锚点"
             },
             "viewTitle": {
               "type": "string",

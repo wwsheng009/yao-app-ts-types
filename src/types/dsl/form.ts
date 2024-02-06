@@ -112,9 +112,9 @@ export namespace YaoForm {
 
   /**表单布局配置项 */
   type FormConfig = {
-    /**是否显示面包屑导航 */
+    /**是否隐藏面包屑导航 */
     hideBreadcrumb?: boolean;
-    /**是否字段锚点 */
+    /**是否显示字段锚点 */
     showAnchor?: boolean;
     /**自定义查看模式标题 */
     viewTitle?: string;
