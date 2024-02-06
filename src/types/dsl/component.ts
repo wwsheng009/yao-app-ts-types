@@ -1,6 +1,8 @@
 import { RuleObject } from "./antd/rule";
 
 export namespace YaoComponent {
+  export type CustomComponent = `public/${string}`;
+
   export type ViewComponentEnum =
     | "A"
     | "Checkbox"
@@ -9,7 +11,8 @@ export namespace YaoComponent {
     | "Switch"
     | "Tag"
     | "Text"
-    | "Tooltip";
+    | "Tooltip"
+    | CustomComponent;
 
   export type EditComponentEnum =
     | "Cascader"
@@ -31,7 +34,8 @@ export namespace YaoComponent {
     | "TextArea"
     | "TimePicker"
     | "Tree"
-    | "Upload";
+    | "Upload"
+    | CustomComponent;
 
   // DSL the component DSL
   export interface ViewComponentDSL {

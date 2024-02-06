@@ -1006,17 +1006,46 @@
       "additionalProperties": false
     },
     "YaoComponent.ViewComponentEnum": {
-      "type": "string",
-      "enum": [
-        "A",
-        "Checkbox",
-        "Color",
-        "Image",
-        "Switch",
-        "Tag",
-        "Text",
-        "Tooltip"
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "A"
+        },
+        {
+          "type": "string",
+          "const": "Checkbox"
+        },
+        {
+          "type": "string",
+          "const": "Color"
+        },
+        {
+          "type": "string",
+          "const": "Image"
+        },
+        {
+          "type": "string",
+          "const": "Switch"
+        },
+        {
+          "type": "string",
+          "const": "Tag"
+        },
+        {
+          "type": "string",
+          "const": "Text"
+        },
+        {
+          "type": "string",
+          "const": "Tooltip"
+        },
+        {
+          "$ref": "#/definitions/YaoComponent.CustomComponent"
+        }
       ]
+    },
+    "YaoComponent.CustomComponent": {
+      "type": "string"
     },
     "YaoComponent.Compute": {
       "type": "object",
@@ -1191,28 +1220,90 @@
       "additionalProperties": false
     },
     "YaoComponent.EditComponentEnum": {
-      "type": "string",
-      "enum": [
-        "Cascader",
-        "CheckboxGroup",
-        "CodeEditor",
-        "ColorPicker",
-        "DatePicker",
-        "Grant",
-        "Input",
-        "InputNumber",
-        "List",
-        "Mentions",
-        "Password",
-        "RadioGroup",
-        "RangePicker",
-        "RichText",
-        "Select",
-        "Table",
-        "TextArea",
-        "TimePicker",
-        "Tree",
-        "Upload"
+      "anyOf": [
+        {
+          "type": "string",
+          "const": "Cascader"
+        },
+        {
+          "type": "string",
+          "const": "CheckboxGroup"
+        },
+        {
+          "type": "string",
+          "const": "CodeEditor"
+        },
+        {
+          "type": "string",
+          "const": "ColorPicker"
+        },
+        {
+          "type": "string",
+          "const": "DatePicker"
+        },
+        {
+          "type": "string",
+          "const": "Grant"
+        },
+        {
+          "type": "string",
+          "const": "Input"
+        },
+        {
+          "type": "string",
+          "const": "InputNumber"
+        },
+        {
+          "type": "string",
+          "const": "List"
+        },
+        {
+          "type": "string",
+          "const": "Mentions"
+        },
+        {
+          "type": "string",
+          "const": "Password"
+        },
+        {
+          "type": "string",
+          "const": "RadioGroup"
+        },
+        {
+          "type": "string",
+          "const": "RangePicker"
+        },
+        {
+          "type": "string",
+          "const": "RichText"
+        },
+        {
+          "type": "string",
+          "const": "Select"
+        },
+        {
+          "type": "string",
+          "const": "Table"
+        },
+        {
+          "type": "string",
+          "const": "TextArea"
+        },
+        {
+          "type": "string",
+          "const": "TimePicker"
+        },
+        {
+          "type": "string",
+          "const": "Tree"
+        },
+        {
+          "type": "string",
+          "const": "Upload"
+        },
+        {
+          "$ref": "#/definitions/YaoComponent.CustomComponent"
+        }
       ]
     },
     "RuleObject": {
