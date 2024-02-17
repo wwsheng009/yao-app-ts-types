@@ -11,7 +11,7 @@
     "schema:api_http": "ts-json-schema-generator --path src/types/dsl/api_http.ts --type YaoHttp.HttpDSL > ./json-schemas/api_http.json",
     "schema:form": "ts-json-schema-generator --path src/types/dsl/form.ts --type YaoForm.FormDSL > ./json-schemas/form.json",
     "schema:table": "ts-json-schema-generator --path src/types/dsl/table.ts --type YaoTable.TableDSL > ./json-schemas/table.json",
-    "publish": "npm run build && npm pack && npm publish",
+    "npm-publish": "npm run build && npm pack && npm publish",
     "build-schema": "ts-node src/build.ts"
   },
   "files": [
