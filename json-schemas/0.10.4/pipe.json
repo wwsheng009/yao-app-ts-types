@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/YaoPipe.Pipe",
+  "definitions": {
+    "YaoPipe.Pipe": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoPipe.Node"
+          },
+          "description": "节点配置"
+        },
+        "label": {
+          "type": "string",
+          "description": "标签说明"
+        },
+        "hooks": {
+          "$ref": "#/definitions/YaoPipe.Hooks",
+          "description": "钩子设置"
+        },
+        "output": {
+          "description": "输出"
+        },
+        "input": {
+          "$ref": "#/definitions/YaoPipe.Input",
+          "description": "输入"
+        },
+        "whitelist": {
+          "$ref": "#/definitions/YaoPipe.Whitelist",
+          "description": "处理器白名单，只有在白名单中的处理器才会被调用"
+        },
+        "goto": {
+          "type": "string",
+          "description": "节点跳转"
+        }
+      },
+      "required": [
+        "name",
+        "nodes"
+      ],
+      "additionalProperties": false
+    },
+    "YaoPipe.Node": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "节点名称，同时作为节点引用的依据"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "user-input",
+            "ai",
+            "process",
+            "switch",
+            "request"
+          ],
+          "description": "内部节点类型，不需要直接设置,优先级：process > request > ai > user-input > switch"
+        },
+        "label": {
+          "type": "string",
+          "description": "标签说明"
+        },
+        "process": {
+          "$ref": "#/definitions/YaoPipe.YaoProcess",
+          "description": "处理器，设置处理器后，节点类型自动设置成process"
+        },
+        "prompts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoPipe.Prompt"
+          },
+          "description": "ai提示词，设置后节点类型自动设置成ai"
+        },
+        "model": {
+          "type": "string",
+          "description": "ai模型，默认是 gpt-3.5-turbo"
+        },
+        "options": {
+          "type": "object",
+          "description": "ai请求时的payload选项"
+        },
+        "request": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "请求"
+        },
+        "ui": {
+          "type": "string",
+          "description": "接受用户输入时的客户端cli | web | app | wxapp"
+        },
+        "autofill": {
+          "$ref": "#/definitions/YaoPipe.AutoFill",
+          "description": "自动填写"
+        },
+        "case": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/YaoPipe.Pipe"
+          },
+          "description": "当是switch节点时，进行条件判断，只有一个条件生效"
+        },
+        "input": {
+          "$ref": "#/definitions/YaoPipe.Input",
+          "description": "节点输入参数"
+        },
+        "output": {
+          "description": "节点输出参数"
+        },
+        "goto": {
+          "type": "string",
+          "description": "跳转表达式，满足一定条件后跳转到指定的节点"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "description": "Pipe节点配置"
+    },
+    "YaoPipe.YaoProcess": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "args": {
+          "$ref": "#/definitions/YaoPipe.Args"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "YaoPipe.Args": {
+      "type": "array",
+      "items": {}
+    },
+    "YaoPipe.Prompt": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "YaoPipe.AutoFill": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "description": "可以是表达式，解析后的值作为客户端命令的输入参数"
+        },
+        "action": {
+          "type": "string",
+          "description": "自动处理，如果是exit,会自动的退出处理"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "YaoPipe.Input": {
+      "type": "array",
+      "items": {}
+    },
+    "YaoPipe.Hooks": {
+      "type": "object",
+      "properties": {
+        "progress": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "YaoPipe.Whitelist": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "boolean"
+      }
+    }
+  }
+}

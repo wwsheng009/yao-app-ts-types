@@ -118,6 +118,10 @@
     {
       "fileMatch": ["/**/*.dash.json", "/**/*.dash.jsonc", "/**/*.dash.yao"],
       "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/dashboard.json"
+    },
+    {
+      "fileMatch": ["/**/*.pip.json", "/**/*.pip.jsonc", "/**/*.pip.yao"],
+      "url": "https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/json-schemas/0.10.4/pipe.json"
     }
   ]
 }

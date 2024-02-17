@@ -24,6 +24,7 @@ let array: string[] = [
   "web_socket|YaoWebSocket.Server|ws_server.json",
   "web_socket|YaoWebSocket.Client|ws_client.json",
   "widget|YaoCustomWidget.Widget|widget.json",
+  "pipe|YaoPipe.Pipe|pipe.json",
 ];
 function main() {
   array.forEach((line) => {
@@ -41,6 +42,7 @@ function main() {
     fs.writeFile(output_path, schemaString, (err) => {
       if (err) throw err;
     });
+    console.log(`processing file:${output_path}`)
   });
 }
 

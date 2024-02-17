@@ -46,6 +46,7 @@ yao version
 mkdir .vscode
 wget https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/.vscode/settings-online.json -O .vscode/settings.json
 ```
+yao 应用引擎目前有多个发行版本，vscode默认使用最新版本。
 
 ### 本地 json-schema 文件
 
@@ -54,7 +55,7 @@ wget https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/.vscode/
 - 如果只是效验单个文件，也可以在需要编辑的 json 文件中加入字段 "$schema"引用对应的 json-schema 文件
   ```json
   {
-    "$schema": "../../../json-schemas/0.10.3/flow.json"
+    "$schema": "../../../json-schemas/0.10.4/flow.json"
   }
   ```
 
@@ -77,6 +78,7 @@ wget https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/.vscode/
 - Socket _官方还没支持_
 - Task: 并发任务
 - Widget: 自定义 widget
+- Pipe: 管道
 
 ## 如何增加自定义的类型或是进行扩展
 
@@ -93,7 +95,7 @@ wget https://raw.githubusercontent.com/wwsheng009/yao-app-ts-types/main/.vscode/
 利用工具 ts-json-schema-generator 生成 json-schema。
 
 ```sh
-npx ts-json-schema-generator --path 'src/types/dsl/**/*.ts' --type 'YaoForm.FormDSL' >./json-schemas/yao-form1.json
+npx ts-json-schema-generator --path 'src/types/dsl/**/*.ts' --type 'YaoPipe.Pipe' >./json-schemas/0.10.4/pipe.json
 ```
 
 ### 批量生成
