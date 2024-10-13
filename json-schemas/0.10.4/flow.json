@@ -124,6 +124,10 @@
           "type": "number",
           "description": "记录开始位置"
         },
+        "first": {
+          "type": "boolean",
+          "description": "只读取第一条"
+        },
         "limit": {
           "type": "number",
           "description": "读取数据的数量"

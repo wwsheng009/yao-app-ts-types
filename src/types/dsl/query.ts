@@ -16,6 +16,8 @@ export namespace YaoQuery {
     orders?: Orders;
     /**记录开始位置*/
     offset?: number;
+    /**只读取第一条 */
+    first?: boolean;
     /**读取数据的数量*/
     limit?: number;
     /**分页查询当前页面页码*/

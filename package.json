@@ -1,6 +1,6 @@
 {
   "name": "yao-app-ts-types",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "typescript types for yao application",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,18 +28,19 @@
   "author": "vincentwwsheng@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "@types/antd": "^1.0.0",
-    "@types/axios": "^0.14.0",
-    "@types/node": "^18.14.1",
-    "@types/react": "^18.0.33",
     "antd": "^5.4.0",
     "axios": "^1.3.5",
+    "ts-json-schema-generator": "^1.2.0",
+    "@types/node": "^18.14.1",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.5",
     "tsconfig-paths": "^4.1.2",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "@types/antd": "^1.0.0",
+    "@types/axios": "^0.14.0",
+    "@types/react": "^18.0.33"
   },
   "dependencies": {
-    "ts-json-schema-generator": "^1.2.0"
+
   }
 }
