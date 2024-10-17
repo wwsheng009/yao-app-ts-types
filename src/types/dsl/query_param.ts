@@ -19,6 +19,8 @@ export namespace YaoQueryParam {
     orders?: QueryOrder[];
     /**限制返回记录条目*/
     limit?: number;
+    /**偏移量*/
+    offset?: number;
     /**当前页码*/
     page?: number;
     /**每页显示记录数量*/

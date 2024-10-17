@@ -168,6 +168,10 @@
           "type": "number",
           "description": "限制返回记录条目"
         },
+        "offset": {
+          "type": "number",
+          "description": "偏移量"
+        },
         "page": {
           "type": "number",
           "description": "当前页码"
