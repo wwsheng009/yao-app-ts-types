@@ -48,6 +48,7 @@ export namespace YaoQueryParam {
     column?: string;
     /**匹配数值*/
     value?: any;
+
     /**查询方法 `where`,`orwhere`, `wherein`, `orwherein`... 默认为 `where`,
      *
      *| 查询方法 | 说明                                  |
@@ -56,13 +57,15 @@ export namespace YaoQueryParam {
      *| orwhere  | ... OR WHERE 字段 = 数值              |
      */
     method?: string;
-    /**匹配关系 `eq`,`like`,`in`,`gt` 等默认为 `eq`
+    
+    /**
+     * 匹配关系 `eq`,`like`,`in`,`gt` 等,默认为 `eq`
      *
      *| 匹配关系 | 说明                             |
      *| -------- | -------------------------------- |
      *| eq       | 默认值 等于 WHERE 字段 = 数值    |
      *| like     | 匹配 WHERE 字段 like 数值        |
-     *| match    | 匹配 WHERE 字段 全文检索 数值    |
+     *| match    | 匹配 WHERE 字段 全文检索         |
      *| gt       | 大于 WHERE 字段 > 数值           |
      *| ge       | 大于等于 WHERE 字段 >= 数值      |
      *| lt       | 小于 WHERE 字段 < 数值           |

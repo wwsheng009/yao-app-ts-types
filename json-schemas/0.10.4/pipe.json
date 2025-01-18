@@ -88,8 +88,7 @@
           "description": "ai请求时的payload选项"
         },
         "request": {
-          "type": "object",
-          "additionalProperties": false,
+          "$ref": "#/definitions/YaoPipe.Request",
           "description": "请求"
         },
         "ui": {
@@ -157,6 +156,10 @@
       "required": [
         "content"
       ],
+      "additionalProperties": false
+    },
+    "YaoPipe.Request": {
+      "type": "object",
       "additionalProperties": false
     },
     "YaoPipe.AutoFill": {

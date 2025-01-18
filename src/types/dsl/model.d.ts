@@ -1,36 +1,11 @@
 import { YaoQuery } from "./query";
 
+/**
+ * 模型定义
+ * 
+ * yao model dsl grammar
+ */
 export namespace YaoModel {
-  // Relationship types
-  // export type RelationEnum = "hasOne" | "hasMany" | "hasOneThrough";
-
-  // {
-  //   RelHasOne = "hasOne", // 1 v 1
-  //   RelHasMany = "hasMany", // 1 v n
-  //   // RelBelongsTo = "belongsTo", // inverse  1 v 1 / 1 v n / n v n
-  //   RelHasOneThrough = "hasOneThrough", // 1 v 1 ( t1 <-> t2 <-> t3)
-  //   // RelHasManyThrough = "hasManyThrough", // 1 v n ( t1 <-> t2 <-> t3)
-  //   // RelBelongsToMany = "belongsToMany", // 1 v1 / 1 v n / n v n
-  //   // RelMorphOne = "morphOne",
-  //   // RelMorphMany = "morphMany",
-  //   // RelMorphToMany = "morphToMany",
-  //   // RelMorphByMany = "morphByMany",
-  //   // RelMorphMap = "morphMap",
-  // }
-
-  // Model 数据模型
-  //   export interface Model {
-  //     ID?:  string;
-  //     Name?:  string;
-  //     Source?:  string;
-  //     Driver?:  string; // Driver
-  //     MetaData?:  MetaData;
-  //     Columns?:  { [key?:  string]?:  Column | undefined }; // 字段映射表
-  //     ColumnNames?:  any[]; // 字段名称清单
-  //     PrimaryKey?:  string; // 主键(单一主键)
-  //     PrimaryKeys?:  string[]; // 主键(联合主键)
-  //     UniqueColumns?:  Column[]; // 唯一字段清单
-  //   }
 
   // MetaData 元数据
   /**模型元数据 */
@@ -187,28 +162,20 @@ export namespace YaoModel {
      *
      */
     method:
-      | "typeof"
-      | "min"
-      | "max"
-      | "enum"
-      | "pattern"
-      | "minLength"
-      | "maxLength"
-      | "email"
-      | "mobile";
+    | "typeof"
+    | "min"
+    | "max"
+    | "enum"
+    | "pattern"
+    | "minLength"
+    | "maxLength"
+    | "email"
+    | "mobile";
     /**校验方法参数，例如 `[20]`, `["^1[3-9]\\d{9}$"]`*/
     args?: any[];
     /**如校验不通过，返回的错误提示。支持使用 `{{<name>}}` 引用字段信息, 如`{{label}}`将被替换为字段 `label`中定义的数值; `{{input}}` 被替换为用户输入数值。*/
     message?: string;
   }
-
-  // ValidateResponse 数据校验返回结果
-  //   export interface ValidateResponse {
-  //     line?: number;
-  //     column?: string;
-  //     messages?: string[];
-  //   }
-
   // Index the search index struct
   export interface Index {
     /**备注 */
@@ -276,25 +243,5 @@ export namespace YaoModel {
     logging?: boolean;
     /**Ignore the migrate operation */
     read_only?: boolean;
-  }
-
-  // ColumnMap ColumnMap 字段映射
-  //   export interface ColumnMap {
-  //     column?: Column;
-  //     model?: ModelDSL;
-  //     export?: string; // 取值时的变量名
-  //   }
-
-  // ExportData the export data struct
-  /**
-   * 导出/导入数据的模型，结构，数据值
-   */
-  export interface ExportData {
-    /**模型名称 */
-    model?: string;
-    /**模型的列名 */
-    columns?: string[];
-    /**模型的值 */
-    values?: any[][];
   }
 }

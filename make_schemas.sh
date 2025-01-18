@@ -44,7 +44,7 @@ for line in "${array[@]}"
 do
     words=($(echo $line | tr "|" "\n"))
     echo "begin convert schema ${words[1]}"
-    npx ts-json-schema-generator --path "src/types/dsl/${words[0]}.ts" --type "${words[1]}" > "./json-schemas/0.10.3/${words[2]}"
+    npx ts-json-schema-generator --path "src/types/dsl/${words[0]}.d.ts" --type "${words[1]}" > "./json-schemas/0.10.4/${words[2]}"
     echo "schema ${words[1]} converted"
 done
 

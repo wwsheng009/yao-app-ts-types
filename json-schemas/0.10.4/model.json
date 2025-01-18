@@ -396,12 +396,12 @@
       "properties": {
         "comment": {
           "type": "string",
-          "description": "备注【管理字段】"
+          "description": "备注"
         },
         "select": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/YaoQuery.Expression"
           },
           "description": "选择字段列表"
         },
@@ -410,17 +410,10 @@
           "description": "查询数据表名称或数据模型"
         },
         "wheres": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/YaoQuery.Where"
-              }
-            },
-            {
-              "$ref": "#/definitions/YaoQuery.Recordable"
-            }
-          ],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/YaoQuery.Where"
+          },
           "description": "数据查询条件"
         },
         "orders": {
@@ -432,7 +425,12 @@
           "description": "记录开始位置"
         },
         "first": {
-          "type": "boolean",
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {}
+          ],
           "description": "只读取第一条"
         },
         "limit": {
@@ -452,7 +450,17 @@
           "description": "设定为 true, 查询结果为 []Record; 设定为 false, 查询结果为 Paginate, 仅在设定 `page` 或 `pagesize`时有效。"
         },
         "groups": {
-          "$ref": "#/definitions/YaoQuery.Groups",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/YaoQuery.Group"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
           "description": "聚合字段和统计层级设置"
         },
         "havings": {
@@ -496,6 +504,9 @@
       "additionalProperties": false,
       "description": "QueryDSL Gou Query Domain Specific Language"
     },
+    "YaoQuery.Expression": {
+      "type": "string"
+    },
     "YaoQuery.Where": {
       "type": "object",
       "properties": {
@@ -509,19 +520,34 @@
         },
         "op": {
           "type": "string",
-          "description": "匹配关系运算符"
+          "description": "匹配关系运算符 `=`,`like`,`in`,`>=` 等,默认为 `=`\n\n| 匹配关系 | 说明                             | | -------- | -------------------------------- | | =       | 默认值 等于 WHERE 字段 = 数值    | | like     | 匹配 WHERE 字段 like 数值        | | match    | 匹配 WHERE 字段 全文检索         | | >       | 大于 WHERE 字段 > 数值           | | >=       | 大于等于 WHERE 字段 >= 数值      | | <       | 小于 WHERE 字段 < 数值           | | <=       | 小于等于 WHERE 字段 <= 数值      | | is       | 为空 WHERE 字段 null / not null  | | in       | 列表包含 WHERE 字段 IN (数值...) | | <>       | 不等于匹配值                     |"
         },
         "or": {
-          "type": "string",
+          "type": "boolean",
           "description": "true 查询条件逻辑关系为 or, 默认为 false 查询条件逻辑关系为 and"
         },
         "query": {
-          "type": "string",
+          "$ref": "#/definitions/YaoQuery.QueryDSL",
           "description": "子查询, 如设定 query 则忽略 value 数值。"
         },
         "comment": {
           "type": "string",
           "description": "查询条件注释"
+        },
+        "=": {
+          "description": "Supported operators with their respective value types"
+        },
+        ">": {},
+        ">=": {},
+        "<": {},
+        "<=": {},
+        "<>": {},
+        "like": {},
+        "match": {},
+        "in": {},
+        "is": {
+          "type": "null",
+          "description": "check is field is null or not\n\nexample:\n\n{ \"field\": \"name\", \"is\": \"null\" },\n\n{ \"field\": \"name\", \"is\": \"not null\" },"
         },
         "wheres": {
           "type": "array",
@@ -535,9 +561,6 @@
         "description": "可以使用类似简化的操作，比如：{ \":score\": \"分数\", \"in\": [10, 20] }"
       },
       "description": "Where 查询条件"
-    },
-    "YaoQuery.Recordable": {
-      "type": "object"
     },
     "YaoQuery.Orders": {
       "type": "array",
@@ -568,23 +591,6 @@
       "additionalProperties": false,
       "description": "Order 排序条件"
     },
-    "YaoQuery.Groups": {
-      "anyOf": [
-        {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/YaoQuery.Group"
-          }
-        },
-        {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      ],
-      "description": "Groups 聚合条件集合"
-    },
     "YaoQuery.Group": {
       "type": "object",
       "properties": {
@@ -604,9 +610,6 @@
       "additionalProperties": false,
       "description": "Group 聚合条件"
     },
-    "YaoQuery.Expression": {
-      "type": "string"
-    },
     "YaoQuery.Having": {
       "type": "object",
       "properties": {
@@ -625,15 +628,29 @@
       "type": "object",
       "properties": {
         "from": {
-          "$ref": "#/definitions/YaoQuery.Table",
+          "type": "string",
           "description": "查询数据表名称或数据模型"
         },
         "key": {
-          "$ref": "#/definitions/YaoQuery.Expression",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoQuery.Expression"
+            },
+            {
+              "type": "string"
+            }
+          ],
           "description": "关联连接表字段名称"
         },
         "foreign": {
-          "$ref": "#/definitions/YaoQuery.Expression",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YaoQuery.Expression"
+            },
+            {
+              "type": "string"
+            }
+          ],
           "description": "关联目标表字段名称(需指定表名或别名)"
         },
         "left": {
@@ -651,9 +668,6 @@
       },
       "additionalProperties": false,
       "description": "Join 数据表连接"
-    },
-    "YaoQuery.Table": {
-      "type": "string"
     },
     "YaoQuery.SQL": {
       "type": "object",

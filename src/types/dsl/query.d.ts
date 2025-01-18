@@ -4,20 +4,20 @@ export namespace YaoQuery {
   /**QueryDSL Gou Query Domain Specific Language*/
 
   export interface QueryDSL {
-    /**备注【管理字段】 */
+    /**备注 */
     comment?: string;
     /**选择字段列表*/
-    select?: Array<string>;
+    select?: Expression[];
     /**查询数据表名称或数据模型*/
     from?: string;
     /**数据查询条件*/
-    wheres?: Array<Where> | Recordable;
+    wheres?: Array<Where>;
     /**排序条件*/
     orders?: Orders;
     /**记录开始位置*/
     offset?: number;
     /**只读取第一条 */
-    first?: boolean;
+    first?: boolean | any;
     /**读取数据的数量*/
     limit?: number;
     /**分页查询当前页面页码*/
@@ -27,7 +27,7 @@ export namespace YaoQuery {
     /**设定为 true, 查询结果为 []Record; 设定为 false, 查询结果为 Paginate, 仅在设定 `page` 或 `pagesize`时有效。*/
     "data-only"?: boolean;
     /**聚合字段和统计层级设置*/
-    groups?: Groups;
+    groups?: (Group | string)[];
     /**聚合查询结果筛选, 仅在设定 `groups` 时有效*/
     havings?: Array<Having>;
     /**联合查询。多个查询将结果合并为一张表*/
@@ -43,21 +43,59 @@ export namespace YaoQuery {
     /**是否开启调试(开启后计入查询日志)*/
     debug?: boolean;
   }
-  export type Recordable<T = any> = Record<string, T>;
+  
+  export type Expression = string;
+
   /**QueryCondition 查询条件*/
   export interface Condition {
     /**查询字段*/
     field?: string;
     /**匹配数值*/
     value?: string;
-    /**匹配关系运算符*/
+    /**
+     * 匹配关系运算符 `=`,`like`,`in`,`>=` 等,默认为 `=`
+     *
+     *| 匹配关系 | 说明                             |
+     *| -------- | -------------------------------- |
+     *| =       | 默认值 等于 WHERE 字段 = 数值    |
+     *| like     | 匹配 WHERE 字段 like 数值        |
+     *| match    | 匹配 WHERE 字段 全文检索         |
+     *| >       | 大于 WHERE 字段 > 数值           |
+     *| >=       | 大于等于 WHERE 字段 >= 数值      |
+     *| <       | 小于 WHERE 字段 < 数值           |
+     *| <=       | 小于等于 WHERE 字段 <= 数值      |
+     *| is       | 为空 WHERE 字段 null / not null  |
+     *| in       | 列表包含 WHERE 字段 IN (数值...) |
+     *| <>       | 不等于匹配值                     |
+     */
     op?: string;
     /**true 查询条件逻辑关系为 or, 默认为 false 查询条件逻辑关系为 and*/
-    or?: string;
+    or?: boolean;
     /**子查询, 如设定 query 则忽略 value 数值。*/
-    query?: string;
+    query?: QueryDSL;
     /**查询条件注释*/
     comment?: string;
+
+    /** Supported operators with their respective value types */
+    "="?: any;
+    ">"?: any;
+    ">="?: any;
+    "<"?: any;
+    "<="?: any;
+    "<>"?: any;
+    like?: any;
+    match?: any;
+    in?: any;
+    /**
+     * check is field is null or not
+     * 
+     * example:
+     * 
+     * { "field": "name", "is": "null" },
+     * 
+     * { "field": "name", "is": "not null" },
+     */
+    is?: null;
   }
   /**Where 查询条件*/
   export interface Where extends Condition {
@@ -96,16 +134,15 @@ export namespace YaoQuery {
     /**分组查询。用于 condition 1 and ( condition 2 OR condition 3) 的场景*/
     havings?: Having[];
   }
-  export type Table = string;
-  export type Expression = string;
+
   /**Join 数据表连接*/
   export interface Join {
     /**查询数据表名称或数据模型*/
-    from?: Table;
+    from?: string;
     /**关联连接表字段名称*/
-    key?: Expression;
+    key?: Expression | string;
     /**关联目标表字段名称(需指定表名或别名)*/
-    foreign?: Expression;
+    foreign?: Expression | string;
     /**true 连接方式为 LEFT JOIN, 默认为 false 连接方式为 JOIN*/
     left?: boolean;
     /**true 连接方式为 RIGHT JOIN, 默认为 false 连接方式为 JOIN*/

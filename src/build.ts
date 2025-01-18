@@ -30,7 +30,7 @@ function main() {
   array.forEach((line) => {
     const words = line.split("|");
     const config = {
-      path: `src/types/dsl/${words[0]}.ts`,
+      path: `src/types/dsl/${words[0]}.d.ts`,
       tsconfig: "tsconfig.json",
       type: `${words[1]}`, // Or <type-name> if you want to generate schema for that one type only
     };
